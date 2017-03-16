@@ -6,27 +6,37 @@ date: "16 de marzo de 2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
+### UAZ Students
 
-###Alumnos UAZ
-
-######Este dataset contiene datos relevantes de los alumnos en nivel licenciatura de distintos programas de la Universidad Aut??noma de Zacatecas.
+###### This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.
+###### The data were obtained through surveys that were made to the student population, later we selected those that could help us in our investigation.
+###### The data set file's name is datasetUAZ.csv, in the next block we read the dataset to continue working with it.
 
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
-wbcd <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
+dsuaz <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
 ```
 
 
+#### The Survey
+###### The survey consisted of 23 questions, which became our attributes in the dataset, The survey was carried out digitally, we created the survey with the tool of Google, and through social networks we distributed it among the students.
+###### After completing the survey we obtained 254 responses in total, however after analyzing the data we realized that only 142 records were useful, since we grouped the data according to the degree to which they belonged we observed that the numbers of students of The same degree that answered our survey was very different, so to have more balanced data regarding the number of students who answered the survey we decided to eliminate those answers that were below average.
+###### Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:
 ```{r strwbcd}
-str(wbcd)
+str(dsuaz)
 ```
 
-### Parte 2- KNN- Formulas para Normalizar
-```{r}
+##### Head & Tail
+###### Con las funciones head y tail podemos obtener una peque??a muestra de los datos 
+```{r, headtrain}
+head(dsuaz)
+tail(dsuaz)
+```
+
+### Parte 2- KNN- F?rmulas para Normalizar
+```{r set}
+
 # Funcion para Normalizar por min-max
 minmax <- function(x) (
   return (( x - min(x)) / (max(x) - min(x)))
@@ -38,27 +48,27 @@ zscore <- function(x) (
   return (x - mean(x) / (sd(x)))
   )
 ```
-,levels=c("6 - 10 mil","10 - 15 mil","15 - 20 mil", "mas de 20 mil"), labels=c(1,2,3,4)
-### Parte 2- KNN- Normalizacion
+
+### Parte 2- KNN- Normalizaci?n
 ```{r}
-wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. <- as.factor(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.)
+dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
 
-wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. <- as.numeric(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.);
+dsuaz$Ssalario_estimado <- as.numeric(dsuaz$Ssalario_estimado);
 
 # 1- Laborar 2- Posgrada
-wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. <- factor(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.)
+dsuaz$planes_egreso <- factor(dsuaz$planes_egreso)
 
-wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. <- as.numeric(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.)
+dsuaz$planes_egreso <- as.numeric(dsuaz$planes_egreso)
 
 # 1- Hombre 2- Mujer
-wbcd$Genero <- factor(wbcd$Genero)
+dsuaz$genero <- factor(dsuaz$genero)
 
-wbcd$Genero <- as.numeric(wbcd$Genero)
+dsuaz$genero <- as.numeric(dsuaz$genero)
 
-wbcd$Carrera <- factor(wbcd$Carrera)
+dsuaz$licenciatura <- factor(dsuaz$licenciatura)
 
-frame_normalizado <- as.data.frame(sapply(wbcd[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
+frame_normalizado <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
 ```
 
 
@@ -66,3 +76,5 @@ frame_normalizado <- as.data.frame(sapply(wbcd[,c(1,2,4,5,8,14,15,16,17,19,23)],
 ```{r}
 frame_normalizado
 ```
+
+### Compute Distances

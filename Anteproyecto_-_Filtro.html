@@ -123,41 +123,151 @@ $(document).ready(function () {
 </div>
 
 
-<div id="alumnos-uaz" class="section level3">
-<h3>Alumnos UAZ</h3>
-<div id="este-dataset-contiene-datos-relevantes-de-los-alumnos-en-nivel-licenciatura-de-distintos-programas-de-la-universidad-autnoma-de-zacatecas." class="section level6">
-<h6>Este dataset contiene datos relevantes de los alumnos en nivel licenciatura de distintos programas de la Universidad Aut??noma de Zacatecas.</h6>
+<div id="uaz-students" class="section level3">
+<h3>UAZ Students</h3>
+<div id="this-dataset-contains-relevant-data-of-the-students-who-are-studying-the-undergraduate-level-of-different-programs-at-the-autonomous-university-of-zacatecas." class="section level6">
+<h6>This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.</h6>
+</div>
+<div id="the-data-were-obtained-through-surveys-that-were-made-to-the-student-population-later-we-selected-those-that-could-help-us-in-our-investigation." class="section level6">
+<h6>The data were obtained through surveys that were made to the student population, later we selected those that could help us in our investigation.</h6>
+</div>
+<div id="the-data-set-files-name-is-datasetuaz.csv-in-the-next-block-we-read-the-dataset-to-continue-working-with-it." class="section level6">
+<h6>The data set file’s name is datasetUAZ.csv, in the next block we read the dataset to continue working with it.</h6>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
-wbcd &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code></pre>
-<pre class="r"><code>str(wbcd)</code></pre>
+dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code></pre>
+</div>
+<div id="the-survey" class="section level4">
+<h4>The Survey</h4>
+<div id="the-survey-consisted-of-23-questions-which-became-our-attributes-in-the-dataset-the-survey-was-carried-out-digitally-we-created-the-survey-with-the-tool-of-google-and-through-social-networks-we-distributed-it-among-the-students." class="section level6">
+<h6>The survey consisted of 23 questions, which became our attributes in the dataset, The survey was carried out digitally, we created the survey with the tool of Google, and through social networks we distributed it among the students.</h6>
+</div>
+<div id="after-completing-the-survey-we-obtained-254-responses-in-total-however-after-analyzing-the-data-we-realized-that-only-142-records-were-useful-since-we-grouped-the-data-according-to-the-degree-to-which-they-belonged-we-observed-that-the-numbers-of-students-of-the-same-degree-that-answered-our-survey-was-very-different-so-to-have-more-balanced-data-regarding-the-number-of-students-who-answered-the-survey-we-decided-to-eliminate-those-answers-that-were-below-average." class="section level6">
+<h6>After completing the survey we obtained 254 responses in total, however after analyzing the data we realized that only 142 records were useful, since we grouped the data according to the degree to which they belonged we observed that the numbers of students of The same degree that answered our survey was very different, so to have more balanced data regarding the number of students who answered the survey we decided to eliminate those answers that were below average.</h6>
+</div>
+<div id="then-we-can-observe-each-one-of-the-questions-we-made-and-some-examples-of-the-types-of-answers-that-we-obtained" class="section level6">
+<h6>Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:</h6>
+<pre class="r"><code>str(dsuaz)</code></pre>
 <pre><code>## 'data.frame':    141 obs. of  23 variables:
-##  $ Horas.de.estudio.por.dia..sin.contar.las.horas.de.clase.               : int  6 6 4 4 8 4 4 8 4 4 ...
-##  $ Horas.de.television.por.dia                                            : int  0 0 0 0 4 4 4 0 0 4 ...
-##  $ Horas.de.videojuegos.por.dia                                           : int  0 0 0 6 0 0 0 0 4 0 ...
-##  $ Horas.de.actividades.sociales.por.dia                                  : int  4 4 2 4 2 2 3 2 2 0 ...
-##  $ Horas.al.dia.en.la.universidad.aprox.                                  : int  7 7 7 6 6 6 7 7 7 7 ...
-##  $ Promedio.academico.aprox.                                              : chr  &quot;9&quot; &quot;9&quot; &quot;7&quot; &quot;8&quot; ...
-##  $ Horas.de.ejercicio.por.dia                                             : int  4 4 4 0 0 0 0 0 4 0 ...
-##  $ Horas.de.sueÃ.o.por.dia                                                : int  8 8 6 6 6 6 8 6 8 6 ...
-##  $ Utilizacion.de.transporte.publico                                      : int  1 1 1 1 1 1 1 1 1 1 ...
-##  $ Utilizas.el.comedor.estudiantil                                        : int  0 0 1 0 0 0 0 0 1 1 ...
-##  $ Tienes.alguna.beca                                                     : int  1 1 0 0 0 0 0 0 1 0 ...
-##  $ Materias.repetidas                                                     : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ Dificultad.percibida.de.la.carrera                                     : chr  &quot;Regular&quot; &quot;Regular&quot; &quot;Regular&quot; &quot;Regular&quot; ...
-##  $ Pasion.por.la.carrera                                                  : int  10 10 9 6 10 8 8 10 9 10 ...
-##  $ Facilidad.percibida.para.ofertas.laborales.terminando.estudios         : int  5 5 8 8 8 5 5 0 10 9 ...
-##  $ Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.: chr  &quot;15 - 20 mil&quot; &quot;15 - 20 mil&quot; &quot;6 - 10 mil&quot; &quot;6 - 10 mil&quot; ...
-##  $ Horas.estimadas.una.vez.posicionada.en.un.trabajo.fijo                 : int  10 10 8 10 10 8 8 12 8 8 ...
-##  $ Municipio.de.origen                                                    : chr  &quot;Zacatecas&quot; &quot;Zacatecas&quot; &quot;Tacoaleche &quot; &quot;Rio Grande&quot; ...
-##  $ Genero                                                                 : chr  &quot;Mujer&quot; &quot;Mujer&quot; &quot;Mujer&quot; &quot;Hombre&quot; ...
-##  $ Edad                                                                   : int  21 21 19 19 21 22 22 19 22 18 ...
-##  $ Carrera                                                                : chr  &quot;Enfermeria &quot; &quot;Enfermeria &quot; &quot;Enfermeria &quot; &quot;Enfermeria &quot; ...
-##  $ Semestre.en.el.que.estas.estudiando                                    : chr  &quot;Semestre 6&quot; &quot;Semestre 6&quot; &quot;Semestre 4&quot; &quot;Semestre 2&quot; ...
-##  $ Que.piensas.hacer.despues.de.salir.de.la.carrera.                      : chr  &quot;Laborar&quot; &quot;Laborar&quot; &quot;Laborar&quot; &quot;Laborar&quot; ...</code></pre>
+##  $ hrs_estudio_dia        : int  6 4 4 0 4 4 4 4 4 4 ...
+##  $ hrs_tv_dia             : int  0 0 0 0 0 0 4 0 0 4 ...
+##  $ hrs_vjuegos_dia        : int  0 4 4 0 0 0 4 0 4 0 ...
+##  $ hrs_actsocial_dia      : int  4 2 2 2 1 6 0 3 1 2 ...
+##  $ hrs_universidad_dia    : int  7 7 7 4 7 7 7 6 7 6 ...
+##  $ promedio               : num  9 8.7 8 9.6 8.2 8.7 8.5 9.3 8.1 8.2 ...
+##  $ hrs_ejercicio_dia      : int  4 4 0 4 0 4 4 0 4 0 ...
+##  $ hrs_dormir_dia         : int  8 8 8 8 6 6 8 8 8 6 ...
+##  $ transporte_publico     : int  1 1 1 0 1 0 1 1 1 1 ...
+##  $ comedor                : int  0 1 1 0 1 0 0 1 1 0 ...
+##  $ becario                : int  1 1 1 1 1 0 0 1 0 0 ...
+##  $ materias_repetidas     : int  0 0 0 0 0 0 1 0 0 0 ...
+##  $ dificultad_licenciatura: chr  &quot;Regular&quot; &quot;Regular&quot; &quot;Dificil&quot; &quot;Regular&quot; ...
+##  $ pasion_licenciatura    : int  10 9 8 8 9 10 9 10 9 8 ...
+##  $ oferta_laboral         : int  5 10 5 9 10 5 9 4 8 5 ...
+##  $ Ssalario_estimado      : chr  &quot;15 - 20 mil&quot; &quot;10 - 15 mil&quot; &quot;10 - 15 mil&quot; &quot;mas de 20 mil&quot; ...
+##  $ hrs_trabajo            : int  10 8 10 10 12 8 8 8 10 8 ...
+##  $ municipio              : chr  &quot;Zacatecas&quot; &quot;Jerez&quot; &quot;Morelos&quot; &quot;Orizaba&quot; ...
+##  $ genero                 : chr  &quot;Mujer&quot; &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; ...
+##  $ edad                   : int  21 22 18 21 19 22 20 22 19 22 ...
+##  $ licenciatura           : chr  &quot;Enfermeria &quot; &quot;Enfermeria &quot; &quot;Ingenieria de Software &quot; &quot;Ingenieria de Software &quot; ...
+##  $ semestre               : chr  &quot;Semestre 6&quot; &quot;Semestre 7&quot; &quot;Semestre 2&quot; &quot;Semestre 8&quot; ...
+##  $ planes_egreso          : chr  &quot;Laborar&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; ...</code></pre>
+</div>
+<div id="head-tail" class="section level5">
+<h5>Head &amp; Tail</h5>
+<div id="con-las-funciones-head-y-tail-podemos-obtener-una-pequea-muestra-de-los-datos" class="section level6">
+<h6>Con las funciones head y tail podemos obtener una peque??a muestra de los datos</h6>
+<pre class="r"><code>head(dsuaz)</code></pre>
+<pre><code>##   hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
+## 1               6          0               0                 4
+## 2               4          0               4                 2
+## 3               4          0               4                 2
+## 4               0          0               0                 2
+## 5               4          0               0                 1
+## 6               4          0               0                 6
+##   hrs_universidad_dia promedio hrs_ejercicio_dia hrs_dormir_dia
+## 1                   7      9.0                 4              8
+## 2                   7      8.7                 4              8
+## 3                   7      8.0                 0              8
+## 4                   4      9.6                 4              8
+## 5                   7      8.2                 0              6
+## 6                   7      8.7                 4              6
+##   transporte_publico comedor becario materias_repetidas
+## 1                  1       0       1                  0
+## 2                  1       1       1                  0
+## 3                  1       1       1                  0
+## 4                  0       0       1                  0
+## 5                  1       1       1                  0
+## 6                  0       0       0                  0
+##   dificultad_licenciatura pasion_licenciatura oferta_laboral
+## 1                 Regular                  10              5
+## 2                 Regular                   9             10
+## 3                 Dificil                   8              5
+## 4                 Regular                   8              9
+## 5             Muy dificil                   9             10
+## 6                 Regular                  10              5
+##   Ssalario_estimado hrs_trabajo municipio genero edad
+## 1       15 - 20 mil          10 Zacatecas  Mujer   21
+## 2       10 - 15 mil           8     Jerez Hombre   22
+## 3       10 - 15 mil          10   Morelos Hombre   18
+## 4     mas de 20 mil          10   Orizaba Hombre   21
+## 5        6 - 10 mil          12 Naucalpan  Mujer   19
+## 6     mas de 20 mil           8     Jerez  Mujer   22
+##              licenciatura   semestre planes_egreso
+## 1             Enfermeria  Semestre 6       Laborar
+## 2             Enfermeria  Semestre 7      Posgrado
+## 3 Ingenieria de Software  Semestre 2      Posgrado
+## 4 Ingenieria de Software  Semestre 8      Posgrado
+## 5         Medicina Humana Semestre 2      Posgrado
+## 6             Odontologia Semestre 8      Posgrado</code></pre>
+<pre class="r"><code>tail(dsuaz)</code></pre>
+<pre><code>##     hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
+## 136               4          4               0                 1
+## 137               4          4               4                 3
+## 138               4          4               0                 2
+## 139               4          4               0                 0
+## 140               4          0               0                 3
+## 141               4          4               0                 2
+##     hrs_universidad_dia promedio hrs_ejercicio_dia hrs_dormir_dia
+## 136                   7     9.30                 0              8
+## 137                   4     8.30                 0              8
+## 138                   6     8.00                 4              8
+## 139                   7     8.80                 0              6
+## 140                   6     8.57                 4              8
+## 141                   6     9.50                 0              8
+##     transporte_publico comedor becario materias_repetidas
+## 136                  1       1       0                  0
+## 137                  1       1       0                  0
+## 138                  1       0       0                  0
+## 139                  1       1       0                  0
+## 140                  1       1       1                  0
+## 141                  1       1       0                  0
+##     dificultad_licenciatura pasion_licenciatura oferta_laboral
+## 136                 Dificil                  10              5
+## 137                 Dificil                   9             10
+## 138                 Regular                   9              0
+## 139                 Regular                  10              9
+## 140                 Regular                   8             10
+## 141                 Regular                   5              5
+##     Ssalario_estimado hrs_trabajo municipio genero edad
+## 136        6 - 10 mil           8 Zacatecas  Mujer   22
+## 137       10 - 15 mil           8     Jerez Hombre   22
+## 138        6 - 10 mil           8 Zacatecas  Mujer   19
+## 139       10 - 15 mil           8 Zacatecas  Mujer   18
+## 140       15 - 20 mil          10   Panuco  Hombre   22
+## 141       10 - 15 mil          10 Guadalupe  Mujer   22
+##                licenciatura    semestre planes_egreso
+## 136              Psicologia Semestre 10       Laborar
+## 137 Ingenieria de Software   Semestre 8      Posgrado
+## 138              Psicologia  Semestre 2      Posgrado
+## 139             Enfermeria   Semestre 2       Laborar
+## 140 Ingenieria de Software   Semestre 8      Posgrado
+## 141              Psicologia Semestre 10      Posgrado</code></pre>
 </div>
 </div>
-<div id="parte-2--knn--formulas-para-normalizar" class="section level3">
-<h3>Parte 2- KNN- Formulas para Normalizar</h3>
+</div>
+</div>
+<div id="parte-2--knn--frmulas-para-normalizar" class="section level3">
+<h3>Parte 2- KNN- F?rmulas para Normalizar</h3>
 <pre class="r"><code># Funcion para Normalizar por min-max
 minmax &lt;- function(x) (
   return (( x - min(x)) / (max(x) - min(x)))
@@ -168,1163 +278,457 @@ minmax &lt;- function(x) (
 zscore &lt;- function(x) (
   return (x - mean(x) / (sd(x)))
   )</code></pre>
-<p>,levels=c(“6 - 10 mil”,“10 - 15 mil”,“15 - 20 mil”, “mas de 20 mil”), labels=c(1,2,3,4) ### Parte 2- KNN- Normalizacion</p>
-<pre class="r"><code>wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. &lt;- as.factor(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.)
+</div>
+<div id="parte-2--knn--normalizacin" class="section level3">
+<h3>Parte 2- KNN- Normalizaci?n</h3>
+<pre class="r"><code>dsuaz$Ssalario_estimado &lt;- factor(dsuaz$Ssalario_estimado)
 
 
-wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. &lt;- as.numeric(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.);
+dsuaz$Ssalario_estimado &lt;- as.numeric(dsuaz$Ssalario_estimado);
 
 # 1- Laborar 2- Posgrada
-wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. &lt;- factor(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.)
+dsuaz$planes_egreso &lt;- factor(dsuaz$planes_egreso)
 
-wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. &lt;- as.numeric(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.)
+dsuaz$planes_egreso &lt;- as.numeric(dsuaz$planes_egreso)
 
 # 1- Hombre 2- Mujer
-wbcd$Genero &lt;- factor(wbcd$Genero)
+dsuaz$genero &lt;- factor(dsuaz$genero)
 
-wbcd$Genero &lt;- as.numeric(wbcd$Genero)
+dsuaz$genero &lt;- as.numeric(dsuaz$genero)
 
-frame_normalizado &lt;- as.data.frame(sapply(wbcd[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))</code></pre>
+dsuaz$licenciatura &lt;- factor(dsuaz$licenciatura)
+
+frame_normalizado &lt;- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))</code></pre>
 </div>
 <div id="compute-distances" class="section level3">
 <h3>Compute Distances</h3>
 <pre class="r"><code>frame_normalizado</code></pre>
-<pre><code>##     Horas.de.estudio.por.dia..sin.contar.las.horas.de.clase.
-## 1                                                       0.75
-## 2                                                       0.75
-## 3                                                       0.50
-## 4                                                       0.50
-## 5                                                       1.00
-## 6                                                       0.50
-## 7                                                       0.50
-## 8                                                       1.00
-## 9                                                       0.50
-## 10                                                      0.50
-## 11                                                      0.50
-## 12                                                      0.50
-## 13                                                      0.50
-## 14                                                      0.50
-## 15                                                      0.50
-## 16                                                      0.00
-## 17                                                      0.75
-## 18                                                      0.50
-## 19                                                      0.50
-## 20                                                      0.50
-## 21                                                      0.50
-## 22                                                      0.50
-## 23                                                      0.75
-## 24                                                      0.50
-## 25                                                      0.50
-## 26                                                      0.50
-## 27                                                      0.50
-## 28                                                      0.00
-## 29                                                      0.50
-## 30                                                      0.50
-## 31                                                      0.50
-## 32                                                      0.50
-## 33                                                      0.50
-## 34                                                      0.50
-## 35                                                      0.50
-## 36                                                      0.75
-## 37                                                      0.50
-## 38                                                      0.50
-## 39                                                      0.50
-## 40                                                      0.50
-## 41                                                      0.50
-## 42                                                      0.50
-## 43                                                      0.00
-## 44                                                      0.50
-## 45                                                      0.50
-## 46                                                      0.75
-## 47                                                      0.75
-## 48                                                      0.50
-## 49                                                      0.50
-## 50                                                      0.75
-## 51                                                      0.00
-## 52                                                      0.50
-## 53                                                      0.50
-## 54                                                      0.50
-## 55                                                      0.50
-## 56                                                      0.75
-## 57                                                      0.50
-## 58                                                      0.50
-## 59                                                      0.50
-## 60                                                      0.50
-## 61                                                      0.50
-## 62                                                      0.75
-## 63                                                      1.00
-## 64                                                      0.50
-## 65                                                      0.75
-## 66                                                      0.50
-## 67                                                      0.50
-## 68                                                      0.75
-## 69                                                      0.50
-## 70                                                      0.75
-## 71                                                      1.00
-## 72                                                      0.50
-## 73                                                      0.50
-## 74                                                      0.75
-## 75                                                      0.50
-## 76                                                      0.50
-## 77                                                      0.50
-## 78                                                      0.00
-## 79                                                      0.50
-## 80                                                      0.50
-## 81                                                      0.50
-## 82                                                      0.50
-## 83                                                      0.50
-## 84                                                      0.50
-## 85                                                      0.50
-## 86                                                      1.00
-## 87                                                      1.00
-## 88                                                      1.00
-## 89                                                      0.50
-## 90                                                      0.00
-## 91                                                      0.75
-## 92                                                      0.50
-## 93                                                      1.00
-## 94                                                      1.00
-## 95                                                      0.75
-## 96                                                      0.50
-## 97                                                      0.50
-## 98                                                      0.50
-## 99                                                      0.50
-## 100                                                     0.50
-## 101                                                     0.50
-## 102                                                     0.50
-## 103                                                     0.75
-## 104                                                     0.50
-## 105                                                     0.75
-## 106                                                     0.50
-## 107                                                     0.50
-## 108                                                     0.50
-## 109                                                     0.50
-## 110                                                     0.50
-## 111                                                     0.50
-## 112                                                     0.75
-## 113                                                     0.50
-## 114                                                     0.50
-## 115                                                     0.50
-## 116                                                     0.50
-## 117                                                     0.50
-## 118                                                     0.50
-## 119                                                     0.50
-## 120                                                     0.50
-## 121                                                     0.50
-## 122                                                     0.50
-## 123                                                     0.50
-## 124                                                     0.50
-## 125                                                     0.50
-## 126                                                     0.50
-## 127                                                     0.50
-## 128                                                     0.50
-## 129                                                     0.50
-## 130                                                     0.50
-## 131                                                     0.50
-## 132                                                     0.50
-## 133                                                     0.50
-## 134                                                     0.75
-## 135                                                     0.50
-## 136                                                     0.50
-## 137                                                     0.50
-## 138                                                     0.50
-## 139                                                     0.50
-## 140                                                     0.50
-## 141                                                     0.75
-##     Horas.de.television.por.dia Horas.de.actividades.sociales.por.dia
-## 1                     0.0000000                                   0.4
-## 2                     0.0000000                                   0.4
-## 3                     0.0000000                                   0.2
-## 4                     0.0000000                                   0.4
-## 5                     0.6666667                                   0.2
-## 6                     0.6666667                                   0.2
-## 7                     0.6666667                                   0.3
-## 8                     0.0000000                                   0.2
-## 9                     0.0000000                                   0.2
-## 10                    0.6666667                                   0.0
-## 11                    0.6666667                                   0.2
-## 12                    0.0000000                                   0.3
-## 13                    0.0000000                                   0.0
-## 14                    0.0000000                                   0.2
-## 15                    0.0000000                                   0.3
-## 16                    0.0000000                                   0.3
-## 17                    0.0000000                                   0.3
-## 18                    0.0000000                                   0.3
-## 19                    0.0000000                                   0.1
-## 20                    0.6666667                                   0.0
-## 21                    0.6666667                                   0.0
-## 22                    0.0000000                                   0.4
-## 23                    0.0000000                                   0.8
-## 24                    0.0000000                                   0.2
-## 25                    0.0000000                                   0.2
-## 26                    0.0000000                                   0.3
-## 27                    0.0000000                                   0.3
-## 28                    0.6666667                                   0.5
-## 29                    0.0000000                                   0.3
-## 30                    0.6666667                                   0.2
-## 31                    0.6666667                                   0.2
-## 32                    0.6666667                                   0.1
-## 33                    0.0000000                                   0.1
-## 34                    0.6666667                                   1.0
-## 35                    0.6666667                                   0.1
-## 36                    0.6666667                                   0.1
-## 37                    0.0000000                                   0.0
-## 38                    0.6666667                                   0.3
-## 39                    0.0000000                                   0.1
-## 40                    1.0000000                                   0.0
-## 41                    0.6666667                                   0.2
-## 42                    0.0000000                                   0.2
-## 43                    0.0000000                                   0.1
-## 44                    0.6666667                                   0.0
-## 45                    0.0000000                                   0.3
-## 46                    0.0000000                                   0.2
-## 47                    0.0000000                                   0.1
-## 48                    0.6666667                                   0.2
-## 49                    0.0000000                                   0.3
-## 50                    0.0000000                                   0.3
-## 51                    0.0000000                                   0.2
-## 52                    0.0000000                                   0.2
-## 53                    0.0000000                                   0.3
-## 54                    0.0000000                                   0.3
-## 55                    0.6666667                                   0.0
-## 56                    0.0000000                                   0.6
-## 57                    0.0000000                                   0.1
-## 58                    0.0000000                                   0.1
-## 59                    0.6666667                                   0.4
-## 60                    0.0000000                                   0.2
-## 61                    0.0000000                                   0.2
-## 62                    0.6666667                                   0.2
-## 63                    0.0000000                                   0.0
-## 64                    0.6666667                                   1.0
-## 65                    0.0000000                                   0.1
-## 66                    0.0000000                                   0.2
-## 67                    0.0000000                                   0.0
-## 68                    0.0000000                                   0.1
-## 69                    0.0000000                                   0.2
-## 70                    0.0000000                                   0.9
-## 71                    0.0000000                                   0.2
-## 72                    0.6666667                                   0.4
-## 73                    0.0000000                                   0.4
-## 74                    0.0000000                                   0.0
-## 75                    0.6666667                                   0.4
-## 76                    0.0000000                                   0.1
-## 77                    0.0000000                                   0.3
-## 78                    0.0000000                                   0.0
-## 79                    0.0000000                                   0.3
-## 80                    0.6666667                                   0.4
-## 81                    0.0000000                                   0.3
-## 82                    0.6666667                                   0.3
-## 83                    0.0000000                                   0.0
-## 84                    0.0000000                                   0.1
-## 85                    0.0000000                                   0.1
-## 86                    0.0000000                                   0.3
-## 87                    0.0000000                                   0.0
-## 88                    0.0000000                                   0.0
-## 89                    0.0000000                                   0.2
-## 90                    0.0000000                                   0.6
-## 91                    0.6666667                                   0.0
-## 92                    0.6666667                                   0.4
-## 93                    0.0000000                                   0.3
-## 94                    0.0000000                                   0.3
-## 95                    0.6666667                                   0.3
-## 96                    0.6666667                                   0.1
-## 97                    0.0000000                                   0.2
-## 98                    0.6666667                                   0.2
-## 99                    0.6666667                                   0.4
-## 100                   0.0000000                                   0.2
-## 101                   0.0000000                                   0.1
-## 102                   0.0000000                                   0.6
-## 103                   0.0000000                                   0.1
-## 104                   0.0000000                                   0.2
-## 105                   0.0000000                                   0.1
-## 106                   0.6666667                                   0.2
-## 107                   0.0000000                                   0.1
-## 108                   0.6666667                                   0.3
-## 109                   0.0000000                                   0.0
-## 110                   0.0000000                                   0.4
-## 111                   0.6666667                                   0.3
-## 112                   0.6666667                                   0.1
-## 113                   0.6666667                                   0.1
-## 114                   0.0000000                                   0.3
-## 115                   0.6666667                                   0.6
-## 116                   0.0000000                                   0.4
-## 117                   0.6666667                                   0.6
-## 118                   0.0000000                                   0.3
-## 119                   0.0000000                                   0.2
-## 120                   0.0000000                                   0.2
-## 121                   0.6666667                                   0.2
-## 122                   0.6666667                                   0.6
-## 123                   0.6666667                                   0.4
-## 124                   0.6666667                                   0.5
-## 125                   0.0000000                                   0.2
-## 126                   0.6666667                                   0.1
-## 127                   0.0000000                                   0.3
-## 128                   0.6666667                                   0.2
-## 129                   0.6666667                                   0.2
-## 130                   0.6666667                                   0.2
-## 131                   0.0000000                                   0.3
-## 132                   0.6666667                                   0.1
-## 133                   0.0000000                                   0.3
-## 134                   0.6666667                                   0.2
-## 135                   0.0000000                                   0.2
-## 136                   0.6666667                                   0.3
-## 137                   0.0000000                                   0.2
-## 138                   0.0000000                                   0.0
-## 139                   0.6666667                                   0.1
-## 140                   0.6666667                                   0.0
-## 141                   0.6666667                                   0.0
-##     Horas.al.dia.en.la.universidad.aprox. Horas.de.sueÃ.o.por.dia
-## 1                               1.0000000               0.7142857
-## 2                               1.0000000               0.7142857
-## 3                               1.0000000               0.4285714
-## 4                               0.8571429               0.4285714
-## 5                               0.8571429               0.4285714
-## 6                               0.8571429               0.4285714
-## 7                               1.0000000               0.7142857
-## 8                               1.0000000               0.4285714
-## 9                               1.0000000               0.7142857
-## 10                              1.0000000               0.4285714
-## 11                              0.5714286               0.7142857
-## 12                              0.8571429               0.4285714
-## 13                              1.0000000               0.4285714
-## 14                              1.0000000               0.7142857
-## 15                              1.0000000               0.4285714
-## 16                              1.0000000               0.4285714
-## 17                              1.0000000               0.7142857
-## 18                              1.0000000               0.4285714
-## 19                              1.0000000               0.7142857
-## 20                              1.0000000               0.7142857
-## 21                              1.0000000               0.4285714
-## 22                              1.0000000               0.7142857
-## 23                              0.8571429               0.7142857
-## 24                              1.0000000               0.7142857
-## 25                              1.0000000               0.7142857
-## 26                              1.0000000               0.7142857
-## 27                              0.5714286               0.7142857
-## 28                              0.5714286               0.7142857
-## 29                              1.0000000               0.7142857
-## 30                              1.0000000               0.7142857
-## 31                              0.5714286               0.7142857
-## 32                              0.8571429               0.7142857
-## 33                              0.8571429               0.7142857
-## 34                              0.8571429               0.7142857
-## 35                              0.8571429               1.0000000
-## 36                              0.8571429               0.4285714
-## 37                              0.5714286               0.7142857
-## 38                              0.5714286               0.7142857
-## 39                              0.8571429               0.7142857
-## 40                              1.0000000               0.0000000
-## 41                              1.0000000               0.4285714
-## 42                              0.5714286               0.7142857
-## 43                              1.0000000               0.7142857
-## 44                              1.0000000               0.7142857
-## 45                              0.8571429               0.7142857
-## 46                              0.5714286               0.4285714
-## 47                              0.5714286               0.4285714
-## 48                              0.5714286               1.0000000
-## 49                              1.0000000               0.4285714
-## 50                              0.0000000               0.7142857
-## 51                              0.5714286               0.7142857
-## 52                              0.5714286               0.7142857
-## 53                              0.5714286               0.7142857
-## 54                              0.8571429               0.7142857
-## 55                              0.8571429               0.7142857
-## 56                              0.5714286               0.0000000
-## 57                              1.0000000               0.7142857
-## 58                              0.8571429               0.7142857
-## 59                              0.5714286               0.7142857
-## 60                              0.5714286               0.4285714
-## 61                              1.0000000               0.4285714
-## 62                              1.0000000               0.7142857
-## 63                              1.0000000               0.0000000
-## 64                              1.0000000               0.7142857
-## 65                              1.0000000               0.4285714
-## 66                              1.0000000               0.4285714
-## 67                              1.0000000               0.7142857
-## 68                              1.0000000               0.7142857
-## 69                              1.0000000               0.7142857
-## 70                              1.0000000               0.7142857
-## 71                              1.0000000               0.7142857
-## 72                              1.0000000               0.4285714
-## 73                              1.0000000               0.7142857
-## 74                              1.0000000               0.4285714
-## 75                              1.0000000               0.4285714
-## 76                              1.0000000               0.4285714
-## 77                              1.0000000               0.7142857
-## 78                              1.0000000               0.4285714
-## 79                              1.0000000               0.4285714
-## 80                              1.0000000               0.4285714
-## 81                              1.0000000               0.4285714
-## 82                              1.0000000               0.0000000
-## 83                              1.0000000               0.4285714
-## 84                              1.0000000               0.4285714
-## 85                              1.0000000               0.4285714
-## 86                              1.0000000               0.0000000
-## 87                              1.0000000               0.0000000
-## 88                              1.0000000               0.0000000
-## 89                              0.8571429               0.4285714
-## 90                              0.8571429               0.7142857
-## 91                              1.0000000               0.4285714
-## 92                              1.0000000               0.4285714
-## 93                              0.8571429               0.4285714
-## 94                              0.8571429               0.4285714
-## 95                              1.0000000               0.7142857
-## 96                              1.0000000               0.4285714
-## 97                              1.0000000               0.7142857
-## 98                              1.0000000               0.7142857
-## 99                              1.0000000               0.7142857
-## 100                             1.0000000               0.7142857
-## 101                             1.0000000               0.4285714
-## 102                             1.0000000               0.4285714
-## 103                             1.0000000               0.4285714
-## 104                             1.0000000               0.4285714
-## 105                             0.8571429               0.7142857
-## 106                             0.8571429               0.7142857
-## 107                             0.8571429               1.0000000
-## 108                             0.8571429               0.7142857
-## 109                             0.8571429               0.7142857
-## 110                             0.8571429               0.0000000
-## 111                             0.8571429               0.7142857
-## 112                             0.8571429               0.4285714
-## 113                             0.8571429               0.7142857
-## 114                             0.8571429               0.7142857
-## 115                             0.8571429               0.4285714
-## 116                             0.8571429               0.7142857
-## 117                             1.0000000               0.7142857
-## 118                             1.0000000               0.4285714
-## 119                             0.8571429               1.0000000
-## 120                             0.8571429               0.7142857
-## 121                             0.8571429               0.0000000
-## 122                             1.0000000               0.7142857
-## 123                             0.8571429               0.7142857
-## 124                             0.8571429               0.7142857
-## 125                             0.8571429               0.4285714
-## 126                             1.0000000               0.7142857
-## 127                             0.8571429               0.7142857
-## 128                             0.8571429               0.7142857
-## 129                             1.0000000               0.7142857
-## 130                             1.0000000               0.7142857
-## 131                             1.0000000               0.4285714
-## 132                             0.8571429               0.0000000
-## 133                             1.0000000               0.4285714
-## 134                             1.0000000               0.4285714
-## 135                             1.0000000               0.4285714
-## 136                             0.5714286               0.7142857
-## 137                             0.8571429               0.4285714
-## 138                             1.0000000               0.7142857
-## 139                             1.0000000               0.4285714
-## 140                             0.8571429               0.4285714
-## 141                             1.0000000               0.7142857
-##     Pasion.por.la.carrera
-## 1               1.0000000
-## 2               1.0000000
-## 3               0.8333333
-## 4               0.3333333
-## 5               1.0000000
-## 6               0.6666667
-## 7               0.6666667
-## 8               1.0000000
-## 9               0.8333333
-## 10              1.0000000
-## 11              0.6666667
-## 12              1.0000000
-## 13              0.6666667
-## 14              0.8333333
-## 15              0.6666667
-## 16              0.6666667
-## 17              1.0000000
-## 18              0.3333333
-## 19              0.6666667
-## 20              0.5000000
-## 21              1.0000000
-## 22              0.6666667
-## 23              0.8333333
-## 24              0.6666667
-## 25              0.8333333
-## 26              0.6666667
-## 27              0.5000000
-## 28              0.6666667
-## 29              0.8333333
-## 30              0.8333333
-## 31              0.8333333
-## 32              0.5000000
-## 33              0.5000000
-## 34              0.6666667
-## 35              0.6666667
-## 36              1.0000000
-## 37              0.6666667
-## 38              0.8333333
-## 39              0.8333333
-## 40              0.6666667
-## 41              1.0000000
-## 42              0.6666667
-## 43              0.5000000
-## 44              0.8333333
-## 45              0.6666667
-## 46              1.0000000
-## 47              0.8333333
-## 48              0.5000000
-## 49              1.0000000
-## 50              1.0000000
-## 51              0.6666667
-## 52              0.6666667
-## 53              0.8333333
-## 54              1.0000000
-## 55              0.8333333
-## 56              0.6666667
-## 57              0.8333333
-## 58              1.0000000
-## 59              1.0000000
-## 60              0.8333333
-## 61              0.8333333
-## 62              0.8333333
-## 63              0.6666667
-## 64              0.6666667
-## 65              0.8333333
-## 66              1.0000000
-## 67              1.0000000
-## 68              0.6666667
-## 69              0.6666667
-## 70              0.6666667
-## 71              1.0000000
-## 72              0.8333333
-## 73              1.0000000
-## 74              1.0000000
-## 75              0.8333333
-## 76              1.0000000
-## 77              1.0000000
-## 78              0.6666667
-## 79              0.8333333
-## 80              0.8333333
-## 81              0.1666667
-## 82              0.0000000
-## 83              0.8333333
-## 84              0.8333333
-## 85              0.8333333
-## 86              1.0000000
-## 87              1.0000000
-## 88              1.0000000
-## 89              0.5000000
-## 90              0.8333333
-## 91              0.5000000
-## 92              0.8333333
-## 93              1.0000000
-## 94              1.0000000
-## 95              1.0000000
-## 96              0.1666667
-## 97              0.6666667
-## 98              1.0000000
-## 99              1.0000000
-## 100             1.0000000
-## 101             1.0000000
-## 102             1.0000000
-## 103             1.0000000
-## 104             0.8333333
-## 105             1.0000000
-## 106             0.8333333
-## 107             1.0000000
-## 108             1.0000000
-## 109             0.8333333
-## 110             0.8333333
-## 111             0.8333333
-## 112             1.0000000
-## 113             0.8333333
-## 114             0.1666667
-## 115             1.0000000
-## 116             0.3333333
-## 117             0.8333333
-## 118             0.6666667
-## 119             1.0000000
-## 120             1.0000000
-## 121             0.8333333
-## 122             1.0000000
-## 123             1.0000000
-## 124             1.0000000
-## 125             0.8333333
-## 126             1.0000000
-## 127             1.0000000
-## 128             0.1666667
-## 129             0.8333333
-## 130             0.8333333
-## 131             1.0000000
-## 132             0.0000000
-## 133             0.6666667
-## 134             0.8333333
-## 135             0.8333333
-## 136             1.0000000
-## 137             0.6666667
-## 138             1.0000000
-## 139             0.5000000
-## 140             0.8333333
-## 141             1.0000000
-##     Facilidad.percibida.para.ofertas.laborales.terminando.estudios
-## 1                                                              0.5
-## 2                                                              0.5
-## 3                                                              0.8
-## 4                                                              0.8
-## 5                                                              0.8
-## 6                                                              0.5
-## 7                                                              0.5
-## 8                                                              0.0
-## 9                                                              1.0
-## 10                                                             0.9
-## 11                                                             1.0
-## 12                                                             0.7
-## 13                                                             0.6
-## 14                                                             0.7
-## 15                                                             0.9
-## 16                                                             0.9
-## 17                                                             0.7
-## 18                                                             0.6
-## 19                                                             1.0
-## 20                                                             1.0
-## 21                                                             1.0
-## 22                                                             0.9
-## 23                                                             0.8
-## 24                                                             0.5
-## 25                                                             1.0
-## 26                                                             0.8
-## 27                                                             0.7
-## 28                                                             0.9
-## 29                                                             0.8
-## 30                                                             0.7
-## 31                                                             1.0
-## 32                                                             0.9
-## 33                                                             0.9
-## 34                                                             1.0
-## 35                                                             0.7
-## 36                                                             0.5
-## 37                                                             0.8
-## 38                                                             1.0
-## 39                                                             0.8
-## 40                                                             0.9
-## 41                                                             0.9
-## 42                                                             0.9
-## 43                                                             1.0
-## 44                                                             0.9
-## 45                                                             1.0
-## 46                                                             1.0
-## 47                                                             1.0
-## 48                                                             0.7
-## 49                                                             1.0
-## 50                                                             0.7
-## 51                                                             0.9
-## 52                                                             0.7
-## 53                                                             0.9
-## 54                                                             1.0
-## 55                                                             0.5
-## 56                                                             0.7
-## 57                                                             0.8
-## 58                                                             0.6
-## 59                                                             0.6
-## 60                                                             1.0
-## 61                                                             0.6
-## 62                                                             0.9
-## 63                                                             0.8
-## 64                                                             0.4
-## 65                                                             0.4
-## 66                                                             0.5
-## 67                                                             1.0
-## 68                                                             0.5
-## 69                                                             0.5
-## 70                                                             0.0
-## 71                                                             0.7
-## 72                                                             0.7
-## 73                                                             1.0
-## 74                                                             0.8
-## 75                                                             0.7
-## 76                                                             0.4
-## 77                                                             0.8
-## 78                                                             0.8
-## 79                                                             0.6
-## 80                                                             0.4
-## 81                                                             0.1
-## 82                                                             0.9
-## 83                                                             0.9
-## 84                                                             1.0
-## 85                                                             1.0
-## 86                                                             0.4
-## 87                                                             1.0
-## 88                                                             0.7
-## 89                                                             0.9
-## 90                                                             0.3
-## 91                                                             0.5
-## 92                                                             0.8
-## 93                                                             0.5
-## 94                                                             0.5
-## 95                                                             0.6
-## 96                                                             0.9
-## 97                                                             0.4
-## 98                                                             0.7
-## 99                                                             0.5
-## 100                                                            0.4
-## 101                                                            0.5
-## 102                                                            0.5
-## 103                                                            0.5
-## 104                                                            0.7
-## 105                                                            0.5
-## 106                                                            0.0
-## 107                                                            1.0
-## 108                                                            0.5
-## 109                                                            0.4
-## 110                                                            0.6
-## 111                                                            0.5
-## 112                                                            0.4
-## 113                                                            0.1
-## 114                                                            0.5
-## 115                                                            0.6
-## 116                                                            0.3
-## 117                                                            0.6
-## 118                                                            0.8
-## 119                                                            0.5
-## 120                                                            0.7
-## 121                                                            0.8
-## 122                                                            0.8
-## 123                                                            0.5
-## 124                                                            0.5
-## 125                                                            0.7
-## 126                                                            0.5
-## 127                                                            0.4
-## 128                                                            0.5
-## 129                                                            0.9
-## 130                                                            0.9
-## 131                                                            0.8
-## 132                                                            0.7
-## 133                                                            0.8
-## 134                                                            0.7
-## 135                                                            0.8
-## 136                                                            0.2
-## 137                                                            0.4
-## 138                                                            0.5
-## 139                                                            0.5
-## 140                                                            0.5
-## 141                                                            0.7
-##     Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.
-## 1                                                                 0.3333333
-## 2                                                                 0.3333333
-## 3                                                                 0.6666667
-## 4                                                                 0.6666667
-## 5                                                                 0.6666667
-## 6                                                                 0.0000000
-## 7                                                                 0.0000000
-## 8                                                                 0.6666667
-## 9                                                                 0.0000000
-## 10                                                                0.0000000
-## 11                                                                0.3333333
-## 12                                                                0.6666667
-## 13                                                                0.0000000
-## 14                                                                0.6666667
-## 15                                                                0.6666667
-## 16                                                                0.0000000
-## 17                                                                0.0000000
-## 18                                                                0.6666667
-## 19                                                                0.3333333
-## 20                                                                0.6666667
-## 21                                                                1.0000000
-## 22                                                                0.3333333
-## 23                                                                0.0000000
-## 24                                                                0.0000000
-## 25                                                                1.0000000
-## 26                                                                1.0000000
-## 27                                                                0.0000000
-## 28                                                                0.0000000
-## 29                                                                1.0000000
-## 30                                                                0.3333333
-## 31                                                                0.0000000
-## 32                                                                0.0000000
-## 33                                                                1.0000000
-## 34                                                                0.3333333
-## 35                                                                0.0000000
-## 36                                                                0.0000000
-## 37                                                                0.6666667
-## 38                                                                0.0000000
-## 39                                                                0.6666667
-## 40                                                                0.3333333
-## 41                                                                0.0000000
-## 42                                                                0.3333333
-## 43                                                                0.3333333
-## 44                                                                0.3333333
-## 45                                                                0.3333333
-## 46                                                                1.0000000
-## 47                                                                1.0000000
-## 48                                                                0.0000000
-## 49                                                                0.0000000
-## 50                                                                0.6666667
-## 51                                                                1.0000000
-## 52                                                                0.0000000
-## 53                                                                0.0000000
-## 54                                                                1.0000000
-## 55                                                                0.6666667
-## 56                                                                0.3333333
-## 57                                                                0.0000000
-## 58                                                                0.3333333
-## 59                                                                0.0000000
-## 60                                                                1.0000000
-## 61                                                                0.0000000
-## 62                                                                0.3333333
-## 63                                                                0.3333333
-## 64                                                                1.0000000
-## 65                                                                0.0000000
-## 66                                                                1.0000000
-## 67                                                                1.0000000
-## 68                                                                0.0000000
-## 69                                                                1.0000000
-## 70                                                                1.0000000
-## 71                                                                0.0000000
-## 72                                                                0.3333333
-## 73                                                                1.0000000
-## 74                                                                1.0000000
-## 75                                                                0.3333333
-## 76                                                                0.6666667
-## 77                                                                0.6666667
-## 78                                                                0.3333333
-## 79                                                                0.0000000
-## 80                                                                0.6666667
-## 81                                                                0.3333333
-## 82                                                                0.3333333
-## 83                                                                0.6666667
-## 84                                                                0.6666667
-## 85                                                                0.6666667
-## 86                                                                0.3333333
-## 87                                                                1.0000000
-## 88                                                                1.0000000
-## 89                                                                0.3333333
-## 90                                                                0.6666667
-## 91                                                                0.0000000
-## 92                                                                0.3333333
-## 93                                                                0.0000000
-## 94                                                                0.0000000
-## 95                                                                0.6666667
-## 96                                                                1.0000000
-## 97                                                                0.6666667
-## 98                                                                0.3333333
-## 99                                                                0.6666667
-## 100                                                               1.0000000
-## 101                                                               0.3333333
-## 102                                                               1.0000000
-## 103                                                               0.3333333
-## 104                                                               0.0000000
-## 105                                                               0.6666667
-## 106                                                               0.6666667
-## 107                                                               0.3333333
-## 108                                                               0.6666667
-## 109                                                               0.6666667
-## 110                                                               0.0000000
-## 111                                                               0.0000000
-## 112                                                               0.3333333
-## 113                                                               0.6666667
-## 114                                                               0.3333333
-## 115                                                               0.0000000
-## 116                                                               0.6666667
-## 117                                                               0.6666667
-## 118                                                               0.0000000
-## 119                                                               0.6666667
-## 120                                                               0.6666667
-## 121                                                               0.0000000
-## 122                                                               1.0000000
-## 123                                                               0.6666667
-## 124                                                               0.0000000
-## 125                                                               0.6666667
-## 126                                                               0.6666667
-## 127                                                               0.6666667
-## 128                                                               0.0000000
-## 129                                                               0.6666667
-## 130                                                               0.6666667
-## 131                                                               0.0000000
-## 132                                                               0.3333333
-## 133                                                               0.3333333
-## 134                                                               0.3333333
-## 135                                                               0.6666667
-## 136                                                               0.6666667
-## 137                                                               0.0000000
-## 138                                                               0.3333333
-## 139                                                               0.6666667
-## 140                                                               0.3333333
-## 141                                                               0.0000000
-##     Horas.estimadas.una.vez.posicionada.en.un.trabajo.fijo Genero
-## 1                                                      0.4      1
-## 2                                                      0.4      1
-## 3                                                      0.0      1
-## 4                                                      0.4      0
-## 5                                                      0.4      1
-## 6                                                      0.0      1
-## 7                                                      0.0      1
-## 8                                                      0.8      1
-## 9                                                      0.0      0
-## 10                                                     0.0      1
-## 11                                                     0.0      0
-## 12                                                     0.4      1
-## 13                                                     0.4      1
-## 14                                                     0.4      1
-## 15                                                     0.4      1
-## 16                                                     0.8      1
-## 17                                                     0.0      0
-## 18                                                     0.4      1
-## 19                                                     0.4      0
-## 20                                                     0.4      1
-## 21                                                     0.0      0
-## 22                                                     0.4      0
-## 23                                                     0.0      0
-## 24                                                     0.4      0
-## 25                                                     0.0      0
-## 26                                                     0.4      0
-## 27                                                     0.0      0
-## 28                                                     0.0      0
-## 29                                                     0.0      0
-## 30                                                     0.8      0
-## 31                                                     0.4      0
-## 32                                                     0.4      0
-## 33                                                     0.0      0
-## 34                                                     0.0      0
-## 35                                                     0.0      1
-## 36                                                     0.4      0
-## 37                                                     0.0      0
-## 38                                                     0.0      0
-## 39                                                     0.4      0
-## 40                                                     0.4      0
-## 41                                                     0.4      0
-## 42                                                     0.4      0
-## 43                                                     0.4      0
-## 44                                                     0.0      1
-## 45                                                     0.4      0
-## 46                                                     0.0      0
-## 47                                                     0.4      0
-## 48                                                     0.8      1
-## 49                                                     0.4      0
-## 50                                                     0.0      0
-## 51                                                     0.4      0
-## 52                                                     0.0      0
-## 53                                                     0.4      0
-## 54                                                     0.0      0
-## 55                                                     0.4      0
-## 56                                                     0.0      1
-## 57                                                     0.4      0
-## 58                                                     0.0      0
-## 59                                                     0.0      0
-## 60                                                     0.0      0
-## 61                                                     0.4      0
-## 62                                                     0.4      1
-## 63                                                     1.0      1
-## 64                                                     1.0      0
-## 65                                                     0.4      1
-## 66                                                     0.8      1
-## 67                                                     0.8      1
-## 68                                                     0.8      0
-## 69                                                     1.0      0
-## 70                                                     1.0      1
-## 71                                                     0.4      0
-## 72                                                     0.8      0
-## 73                                                     0.4      1
-## 74                                                     0.8      1
-## 75                                                     0.8      0
-## 76                                                     0.4      1
-## 77                                                     0.0      1
-## 78                                                     1.0      0
-## 79                                                     1.0      0
-## 80                                                     0.4      1
-## 81                                                     0.4      1
-## 82                                                     0.4      1
-## 83                                                     0.4      1
-## 84                                                     0.8      1
-## 85                                                     0.8      1
-## 86                                                     1.0      1
-## 87                                                     1.0      1
-## 88                                                     1.0      0
-## 89                                                     0.0      1
-## 90                                                     0.8      1
-## 91                                                     0.4      1
-## 92                                                     0.4      0
-## 93                                                     0.4      1
-## 94                                                     0.4      1
-## 95                                                     0.8      1
-## 96                                                     0.4      0
-## 97                                                     0.8      0
-## 98                                                     0.4      1
-## 99                                                     0.0      1
-## 100                                                    0.4      0
-## 101                                                    0.0      1
-## 102                                                    0.0      1
-## 103                                                    0.0      1
-## 104                                                    0.0      0
-## 105                                                    0.4      1
-## 106                                                    0.0      1
-## 107                                                    0.0      1
-## 108                                                    0.0      1
-## 109                                                    0.4      1
-## 110                                                    0.0      1
-## 111                                                    0.0      1
-## 112                                                    0.8      0
-## 113                                                    0.0      1
-## 114                                                    0.0      1
-## 115                                                    0.4      0
-## 116                                                    0.4      1
-## 117                                                    0.0      1
-## 118                                                    0.0      1
-## 119                                                    0.0      1
-## 120                                                    0.4      1
-## 121                                                    0.0      1
-## 122                                                    0.0      1
-## 123                                                    0.4      1
-## 124                                                    0.0      1
-## 125                                                    0.4      1
-## 126                                                    0.0      1
-## 127                                                    0.0      1
-## 128                                                    0.4      1
-## 129                                                    0.0      0
-## 130                                                    0.0      0
-## 131                                                    0.0      1
-## 132                                                    0.4      0
-## 133                                                    0.8      1
-## 134                                                    0.0      1
-## 135                                                    0.0      1
-## 136                                                    0.4      1
-## 137                                                    0.0      1
-## 138                                                    0.4      1
-## 139                                                    0.0      1
-## 140                                                    0.4      1
-## 141                                                    0.0      1
-##     Que.piensas.hacer.despues.de.salir.de.la.carrera.
-## 1                                                   0
-## 2                                                   0
-## 3                                                   0
-## 4                                                   0
-## 5                                                   0
-## 6                                                   0
-## 7                                                   0
-## 8                                                   1
-## 9                                                   1
-## 10                                                  0
-## 11                                                  1
-## 12                                                  1
-## 13                                                  0
-## 14                                                  1
-## 15                                                  0
-## 16                                                  1
-## 17                                                  1
-## 18                                                  1
-## 19                                                  1
-## 20                                                  1
-## 21                                                  1
-## 22                                                  0
-## 23                                                  0
-## 24                                                  1
-## 25                                                  1
-## 26                                                  1
-## 27                                                  0
-## 28                                                  1
-## 29                                                  0
-## 30                                                  0
-## 31                                                  0
-## 32                                                  0
-## 33                                                  0
-## 34                                                  0
-## 35                                                  1
-## 36                                                  0
-## 37                                                  1
-## 38                                                  1
-## 39                                                  0
-## 40                                                  1
-## 41                                                  1
-## 42                                                  0
-## 43                                                  1
-## 44                                                  0
-## 45                                                  1
-## 46                                                  0
-## 47                                                  1
-## 48                                                  1
-## 49                                                  1
-## 50                                                  1
-## 51                                                  1
-## 52                                                  1
-## 53                                                  0
-## 54                                                  0
-## 55                                                  0
-## 56                                                  1
-## 57                                                  0
-## 58                                                  0
-## 59                                                  0
-## 60                                                  1
-## 61                                                  0
-## 62                                                  1
-## 63                                                  0
-## 64                                                  0
-## 65                                                  0
-## 66                                                  1
-## 67                                                  0
-## 68                                                  1
-## 69                                                  1
-## 70                                                  1
-## 71                                                  1
-## 72                                                  1
-## 73                                                  0
-## 74                                                  0
-## 75                                                  1
-## 76                                                  0
-## 77                                                  0
-## 78                                                  0
-## 79                                                  1
-## 80                                                  1
-## 81                                                  1
-## 82                                                  1
-## 83                                                  1
-## 84                                                  1
-## 85                                                  1
-## 86                                                  0
-## 87                                                  1
-## 88                                                  1
-## 89                                                  0
-## 90                                                  1
-## 91                                                  1
-## 92                                                  1
-## 93                                                  0
-## 94                                                  0
-## 95                                                  1
-## 96                                                  1
-## 97                                                  0
-## 98                                                  1
-## 99                                                  1
-## 100                                                 1
-## 101                                                 1
-## 102                                                 1
-## 103                                                 1
-## 104                                                 1
-## 105                                                 1
-## 106                                                 1
-## 107                                                 0
-## 108                                                 0
-## 109                                                 1
-## 110                                                 0
-## 111                                                 1
-## 112                                                 1
-## 113                                                 0
-## 114                                                 1
-## 115                                                 1
-## 116                                                 1
-## 117                                                 1
-## 118                                                 1
-## 119                                                 0
-## 120                                                 0
-## 121                                                 0
-## 122                                                 0
-## 123                                                 1
-## 124                                                 1
-## 125                                                 1
-## 126                                                 0
-## 127                                                 1
-## 128                                                 1
-## 129                                                 0
-## 130                                                 0
-## 131                                                 0
-## 132                                                 0
-## 133                                                 1
-## 134                                                 1
-## 135                                                 1
-## 136                                                 0
-## 137                                                 0
-## 138                                                 1
-## 139                                                 0
-## 140                                                 1
-## 141                                                 1</code></pre>
+<pre><code>##     hrs_estudio_dia hrs_tv_dia hrs_actsocial_dia hrs_universidad_dia
+## 1              0.75  0.0000000               0.4               0.875
+## 2              0.50  0.0000000               0.2               0.875
+## 3              0.50  0.0000000               0.2               0.875
+## 4              0.00  0.0000000               0.2               0.500
+## 5              0.50  0.0000000               0.1               0.875
+## 6              0.50  0.0000000               0.6               0.875
+## 7              0.50  0.6666667               0.0               0.875
+## 8              0.50  0.0000000               0.3               0.750
+## 9              0.50  0.0000000               0.1               0.875
+## 10             0.50  0.6666667               0.2               0.750
+## 11             0.00  0.0000000               0.3               0.875
+## 12             0.50  0.0000000               0.0               0.875
+## 13             0.50  0.0000000               0.1               0.750
+## 14             0.75  0.6666667               0.2               0.875
+## 15             0.75  0.6666667               0.0               0.875
+## 16             0.50  0.0000000               0.3               0.750
+## 17             0.50  0.0000000               0.1               0.875
+## 18             0.00  0.6666667               0.5               0.500
+## 19             0.75  0.0000000               0.6               0.500
+## 20             0.50  0.6666667               1.0               0.875
+## 21             0.50  0.0000000               0.1               0.875
+## 22             0.50  0.0000000               0.0               0.500
+## 23             0.50  0.6666667               0.4               0.875
+## 24             0.75  0.0000000               0.4               0.875
+## 25             0.75  0.6666667               0.1               0.750
+## 26             0.75  0.0000000               0.8               0.750
+## 27             0.50  0.6666667               0.6               0.875
+## 28             1.00  0.0000000               0.0               0.875
+## 29             0.75  0.0000000               0.1               0.875
+## 30             0.50  0.0000000               0.1               0.750
+## 31             0.50  0.0000000               0.3               0.875
+## 32             0.50  0.6666667               0.4               0.875
+## 33             0.50  0.0000000               0.2               0.750
+## 34             0.50  0.0000000               0.3               0.750
+## 35             0.50  0.3333333               0.2               1.000
+## 36             0.50  0.0000000               0.4               0.750
+## 37             0.00  0.0000000               0.1               0.875
+## 38             0.50  0.6666667               0.2               0.750
+## 39             0.50  0.0000000               0.3               0.875
+## 40             0.50  0.6666667               0.0               0.750
+## 41             0.75  0.6666667               0.0               0.875
+## 42             0.50  0.0000000               0.3               0.875
+## 43             0.75  0.0000000               0.3               0.000
+## 44             0.50  0.6666667               0.3               0.875
+## 45             0.50  0.6666667               0.1               0.875
+## 46             0.50  0.6666667               0.3               0.750
+## 47             0.75  0.6666667               0.1               0.750
+## 48             0.50  0.6666667               0.0               0.750
+## 49             0.50  0.0000000               0.2               0.875
+## 50             0.50  0.0000000               0.3               0.875
+## 51             0.50  0.6666667               0.4               0.875
+## 52             1.00  0.0000000               0.3               0.875
+## 53             0.50  0.0000000               0.4               0.750
+## 54             0.50  0.0000000               0.4               0.875
+## 55             0.50  0.0000000               0.3               0.750
+## 56             0.50  0.0000000               0.3               0.875
+## 57             0.50  0.0000000               0.2               0.500
+## 58             0.50  0.6666667               0.1               0.875
+## 59             0.50  0.0000000               0.3               0.875
+## 60             1.00  0.0000000               0.0               0.875
+## 61             1.00  0.0000000               0.3               0.750
+## 62             0.50  0.0000000               0.0               0.875
+## 63             0.50  0.6666667               0.2               0.875
+## 64             0.50  0.6666667               0.5               0.750
+## 65             0.75  0.0000000               0.1               0.875
+## 66             0.75  0.6666667               0.3               0.875
+## 67             0.50  0.0000000               0.2               0.750
+## 68             0.50  0.0000000               0.2               0.875
+## 69             0.50  0.6666667               0.1               0.750
+## 70             0.50  0.6666667               0.3               0.500
+## 71             0.50  0.6666667               0.1               0.750
+## 72             0.75  0.0000000               0.0               0.875
+## 73             1.00  0.0000000               0.0               0.875
+## 74             0.50  0.0000000               0.2               0.875
+## 75             1.00  0.0000000               0.2               0.875
+## 76             0.75  0.0000000               0.1               0.875
+## 77             0.50  0.6666667               0.4               0.750
+## 78             0.50  0.0000000               0.1               0.750
+## 79             0.75  0.0000000               0.9               0.875
+## 80             0.50  0.0000000               0.0               0.750
+## 81             0.50  0.6666667               0.0               0.875
+## 82             0.50  0.6666667               0.2               0.875
+## 83             0.75  0.6666667               0.2               0.875
+## 84             0.50  0.6666667               0.2               0.875
+## 85             0.50  0.0000000               0.4               0.750
+## 86             0.50  0.6666667               0.2               0.500
+## 87             0.50  0.0000000               0.3               0.500
+## 88             0.00  0.0000000               0.0               0.875
+## 89             0.50  0.0000000               0.0               0.875
+## 90             0.50  0.0000000               0.3               0.875
+## 91             0.50  0.6666667               0.2               0.500
+## 92             0.50  0.6666667               0.1               0.750
+## 93             0.50  0.6666667               0.4               0.500
+## 94             0.50  0.0000000               0.2               0.750
+## 95             0.50  0.0000000               0.3               0.875
+## 96             0.50  0.6666667               0.6               0.750
+## 97             0.50  0.6666667               0.3               0.875
+## 98             0.75  0.0000000               0.1               0.500
+## 99             0.50  0.0000000               0.2               0.875
+## 100            0.50  0.0000000               0.3               0.875
+## 101            0.50  0.0000000               0.2               0.875
+## 102            0.50  0.0000000               0.2               0.875
+## 103            0.50  0.6666667               0.4               0.875
+## 104            0.50  0.6666667               0.2               0.500
+## 105            0.50  0.0000000               0.2               0.750
+## 106            0.50  0.0000000               0.2               0.750
+## 107            0.50  0.0000000               0.1               0.875
+## 108            0.50  1.0000000               0.0               0.875
+## 109            0.50  0.0000000               0.4               0.875
+## 110            0.50  0.0000000               0.3               0.875
+## 111            0.50  0.0000000               0.2               0.500
+## 112            1.00  0.0000000               0.2               0.875
+## 113            1.00  0.0000000               0.3               0.750
+## 114            0.50  0.6666667               0.2               0.875
+## 115            0.50  0.6666667               1.0               0.750
+## 116            0.50  0.0000000               0.2               0.875
+## 117            0.50  0.0000000               0.1               0.875
+## 118            0.00  0.0000000               0.6               0.750
+## 119            0.50  0.6666667               0.6               0.875
+## 120            0.50  0.0000000               0.0               0.875
+## 121            0.50  0.0000000               0.2               0.875
+## 122            0.50  0.6666667               0.3               0.750
+## 123            0.50  0.0000000               0.1               0.750
+## 124            0.75  0.0000000               0.2               0.500
+## 125            0.50  0.6666667               0.4               0.875
+## 126            0.50  0.0000000               0.2               0.875
+## 127            0.50  0.6666667               0.1               0.750
+## 128            0.75  0.0000000               0.3               0.875
+## 129            0.50  0.0000000               0.2               0.875
+## 130            0.50  0.6666667               0.2               0.875
+## 131            0.50  0.0000000               0.3               0.875
+## 132            1.00  0.6666667               0.2               0.750
+## 133            0.50  0.0000000               0.2               0.500
+## 134            0.75  0.0000000               0.1               0.750
+## 135            0.50  0.0000000               0.3               0.500
+## 136            0.50  0.6666667               0.1               0.875
+## 137            0.50  0.6666667               0.3               0.500
+## 138            0.50  0.6666667               0.2               0.750
+## 139            0.50  0.6666667               0.0               0.875
+## 140            0.50  0.0000000               0.3               0.750
+## 141            0.50  0.6666667               0.2               0.750
+##     hrs_dormir_dia pasion_licenciatura oferta_laboral Ssalario_estimado
+## 1        0.7142857           1.0000000            0.5         0.3333333
+## 2        0.7142857           0.8333333            1.0         0.0000000
+## 3        0.7142857           0.6666667            0.5         0.0000000
+## 4        0.7142857           0.6666667            0.9         1.0000000
+## 5        0.4285714           0.8333333            1.0         0.6666667
+## 6        0.4285714           1.0000000            0.5         1.0000000
+## 7        0.7142857           0.8333333            0.9         0.3333333
+## 8        0.7142857           1.0000000            0.4         0.6666667
+## 9        0.7142857           0.8333333            0.8         0.0000000
+## 10       0.4285714           0.6666667            0.5         0.0000000
+## 11       0.4285714           0.6666667            0.9         0.0000000
+## 12       0.7142857           1.0000000            1.0         1.0000000
+## 13       0.7142857           0.5000000            0.9         1.0000000
+## 14       0.7142857           0.8333333            0.9         0.3333333
+## 15       0.4285714           0.5000000            0.5         0.0000000
+## 16       0.4285714           1.0000000            0.7         0.6666667
+## 17       0.4285714           0.8333333            1.0         0.6666667
+## 18       0.7142857           0.6666667            0.9         0.0000000
+## 19       0.0000000           0.6666667            0.7         0.3333333
+## 20       0.7142857           0.6666667            0.4         1.0000000
+## 21       0.4285714           1.0000000            0.5         0.3333333
+## 22       0.7142857           0.6666667            0.8         0.6666667
+## 23       0.4285714           0.8333333            0.4         0.6666667
+## 24       0.7142857           1.0000000            0.5         0.3333333
+## 25       0.4285714           1.0000000            0.4         0.3333333
+## 26       0.7142857           0.8333333            0.8         0.0000000
+## 27       0.7142857           1.0000000            0.8         1.0000000
+## 28       0.0000000           0.6666667            0.8         0.3333333
+## 29       0.7142857           0.6666667            0.5         0.0000000
+## 30       1.0000000           1.0000000            1.0         0.3333333
+## 31       0.4285714           0.3333333            0.6         0.6666667
+## 32       0.4285714           0.8333333            0.8         0.3333333
+## 33       1.0000000           1.0000000            0.5         0.6666667
+## 34       0.7142857           1.0000000            1.0         1.0000000
+## 35       0.4285714           1.0000000            1.0         1.0000000
+## 36       0.4285714           0.3333333            0.8         0.6666667
+## 37       0.7142857           0.5000000            1.0         0.3333333
+## 38       0.0000000           0.8333333            0.8         0.0000000
+## 39       0.4285714           0.6666667            0.8         0.0000000
+## 40       0.7142857           0.8333333            0.5         0.6666667
+## 41       0.7142857           1.0000000            0.7         0.0000000
+## 42       0.7142857           0.8333333            0.8         1.0000000
+## 43       0.7142857           1.0000000            0.7         0.6666667
+## 44       0.0000000           0.0000000            0.9         0.3333333
+## 45       0.4285714           0.1666667            0.9         1.0000000
+## 46       0.7142857           1.0000000            0.5         0.6666667
+## 47       0.4285714           1.0000000            0.5         0.0000000
+## 48       0.4285714           0.8333333            0.5         0.3333333
+## 49       0.7142857           0.6666667            0.4         0.6666667
+## 50       0.4285714           0.6666667            0.9         0.6666667
+## 51       0.4285714           0.8333333            0.7         0.3333333
+## 52       0.0000000           1.0000000            0.4         0.3333333
+## 53       0.0000000           0.8333333            0.6         0.0000000
+## 54       0.7142857           0.6666667            0.9         0.3333333
+## 55       0.7142857           0.1666667            0.5         0.3333333
+## 56       0.4285714           0.1666667            0.1         0.3333333
+## 57       0.7142857           0.6666667            0.9         0.3333333
+## 58       0.4285714           0.5000000            0.5         0.6666667
+## 59       0.4285714           1.0000000            1.0         0.0000000
+## 60       0.0000000           1.0000000            1.0         1.0000000
+## 61       0.4285714           1.0000000            0.5         0.0000000
+## 62       0.7142857           1.0000000            0.5         0.3333333
+## 63       0.7142857           0.8333333            0.7         0.3333333
+## 64       0.7142857           1.0000000            0.5         0.0000000
+## 65       0.4285714           0.8333333            0.4         0.0000000
+## 66       0.7142857           1.0000000            0.6         0.6666667
+## 67       0.4285714           0.6666667            0.4         0.0000000
+## 68       0.4285714           0.8333333            0.8         0.6666667
+## 69       0.7142857           0.8333333            0.1         0.6666667
+## 70       0.7142857           1.0000000            0.2         0.6666667
+## 71       0.7142857           0.5000000            0.9         0.0000000
+## 72       0.4285714           1.0000000            0.8         1.0000000
+## 73       0.0000000           1.0000000            0.7         1.0000000
+## 74       0.4285714           0.8333333            0.8         0.6666667
+## 75       0.4285714           1.0000000            0.0         0.6666667
+## 76       0.4285714           1.0000000            0.5         0.3333333
+## 77       0.7142857           1.0000000            0.5         0.6666667
+## 78       0.7142857           1.0000000            0.6         0.3333333
+## 79       0.7142857           0.6666667            0.0         1.0000000
+## 80       0.7142857           0.8333333            0.4         0.6666667
+## 81       0.4285714           1.0000000            1.0         1.0000000
+## 82       0.7142857           1.0000000            0.7         0.3333333
+## 83       0.4285714           0.8333333            0.7         0.3333333
+## 84       0.4285714           1.0000000            0.9         0.0000000
+## 85       0.7142857           0.3333333            0.3         0.6666667
+## 86       1.0000000           0.5000000            0.7         0.0000000
+## 87       0.7142857           0.8333333            0.9         0.0000000
+## 88       0.4285714           0.6666667            0.8         0.3333333
+## 89       0.4285714           0.8333333            0.9         0.6666667
+## 90       0.4285714           0.6666667            0.8         0.3333333
+## 91       0.7142857           0.6666667            1.0         0.3333333
+## 92       0.0000000           0.0000000            0.7         0.3333333
+## 93       0.7142857           1.0000000            0.6         0.0000000
+## 94       0.7142857           1.0000000            0.7         0.6666667
+## 95       0.7142857           0.6666667            0.8         1.0000000
+## 96       0.4285714           1.0000000            0.6         0.0000000
+## 97       0.7142857           0.6666667            0.5         0.0000000
+## 98       0.4285714           0.8333333            1.0         1.0000000
+## 99       0.7142857           0.6666667            0.5         1.0000000
+## 100      0.7142857           1.0000000            0.8         0.6666667
+## 101      0.4285714           0.8333333            0.7         0.0000000
+## 102      0.7142857           0.8333333            0.7         0.6666667
+## 103      0.7142857           1.0000000            0.5         0.6666667
+## 104      0.7142857           0.8333333            1.0         0.0000000
+## 105      0.4285714           0.5000000            0.9         0.3333333
+## 106      0.4285714           0.8333333            0.7         0.6666667
+## 107      0.7142857           0.6666667            1.0         0.3333333
+## 108      0.0000000           0.6666667            0.9         0.3333333
+## 109      0.7142857           1.0000000            1.0         1.0000000
+## 110      0.4285714           1.0000000            0.8         0.0000000
+## 111      0.4285714           0.8333333            1.0         1.0000000
+## 112      0.7142857           1.0000000            0.7         0.0000000
+## 113      0.4285714           1.0000000            0.5         0.0000000
+## 114      0.7142857           0.8333333            0.9         0.6666667
+## 115      0.7142857           0.6666667            1.0         0.3333333
+## 116      0.7142857           0.8333333            1.0         1.0000000
+## 117      0.4285714           1.0000000            0.4         0.6666667
+## 118      0.7142857           0.8333333            0.3         0.6666667
+## 119      0.7142857           0.8333333            0.6         0.6666667
+## 120      0.4285714           0.6666667            0.6         0.0000000
+## 121      0.4285714           0.8333333            0.6         0.0000000
+## 122      0.7142857           0.8333333            0.5         0.0000000
+## 123      0.7142857           0.8333333            0.8         0.6666667
+## 124      0.4285714           1.0000000            1.0         1.0000000
+## 125      0.4285714           0.8333333            0.7         0.3333333
+## 126      0.7142857           1.0000000            0.4         1.0000000
+## 127      1.0000000           0.6666667            0.7         0.0000000
+## 128      0.7142857           1.0000000            0.7         0.0000000
+## 129      0.4285714           1.0000000            0.5         1.0000000
+## 130      0.7142857           0.8333333            0.9         0.6666667
+## 131      0.4285714           0.8333333            0.6         0.0000000
+## 132      0.4285714           1.0000000            0.8         0.6666667
+## 133      0.7142857           0.6666667            0.7         0.0000000
+## 134      0.7142857           1.0000000            0.5         0.6666667
+## 135      0.7142857           0.5000000            0.7         0.0000000
+## 136      0.7142857           1.0000000            0.5         0.6666667
+## 137      0.7142857           0.8333333            1.0         0.0000000
+## 138      0.7142857           0.8333333            0.0         0.6666667
+## 139      0.4285714           1.0000000            0.9         0.0000000
+## 140      0.7142857           0.6666667            1.0         0.3333333
+## 141      0.7142857           0.1666667            0.5         0.0000000
+##     hrs_trabajo genero planes_egreso
+## 1           0.4      1             0
+## 2           0.0      0             1
+## 3           0.4      0             1
+## 4           0.4      0             1
+## 5           0.8      1             1
+## 6           0.0      1             1
+## 7           0.0      1             0
+## 8           0.0      1             1
+## 9           0.4      0             0
+## 10          0.0      1             0
+## 11          0.8      1             1
+## 12          0.8      1             0
+## 13          0.0      0             0
+## 14          0.4      1             1
+## 15          0.4      1             1
+## 16          0.4      1             1
+## 17          0.8      1             1
+## 18          0.0      0             1
+## 19          0.0      1             1
+## 20          1.0      0             0
+## 21          0.0      1             1
+## 22          0.0      0             1
+## 23          0.4      1             1
+## 24          0.4      1             0
+## 25          0.8      0             1
+## 26          0.0      0             0
+## 27          0.0      1             0
+## 28          1.0      1             0
+## 29          0.8      0             1
+## 30          0.0      1             0
+## 31          0.4      1             1
+## 32          0.4      0             1
+## 33          0.0      1             0
+## 34          0.0      0             0
+## 35          0.4      0             0
+## 36          0.4      0             0
+## 37          0.4      0             1
+## 38          0.0      1             0
+## 39          0.0      1             1
+## 40          0.4      0             0
+## 41          0.0      1             1
+## 42          0.0      0             0
+## 43          0.0      0             1
+## 44          0.4      1             1
+## 45          0.4      0             1
+## 46          0.0      1             0
+## 47          0.4      0             0
+## 48          0.4      1             1
+## 49          0.8      0             0
+## 50          0.4      1             0
+## 51          0.8      0             1
+## 52          1.0      1             0
+## 53          0.0      1             0
+## 54          0.4      0             0
+## 55          0.0      1             1
+## 56          0.4      1             1
+## 57          0.4      0             0
+## 58          0.0      1             0
+## 59          0.4      0             1
+## 60          1.0      1             1
+## 61          0.4      1             0
+## 62          0.4      1             1
+## 63          0.8      0             0
+## 64          0.0      1             1
+## 65          0.4      1             0
+## 66          0.8      1             1
+## 67          0.0      1             0
+## 68          0.0      1             0
+## 69          0.0      1             0
+## 70          0.4      1             0
+## 71          0.4      0             0
+## 72          0.8      1             0
+## 73          1.0      0             1
+## 74          0.0      1             1
+## 75          0.8      1             1
+## 76          0.0      1             1
+## 77          0.4      1             1
+## 78          0.0      0             0
+## 79          1.0      1             1
+## 80          0.4      1             1
+## 81          0.0      0             1
+## 82          0.4      1             1
+## 83          0.0      1             1
+## 84          0.4      0             1
+## 85          0.4      1             1
+## 86          0.8      1             1
+## 87          0.4      0             0
+## 88          1.0      0             0
+## 89          0.4      1             1
+## 90          0.8      1             1
+## 91          0.0      0             1
+## 92          0.4      0             0
+## 93          0.0      0             0
+## 94          0.4      1             0
+## 95          0.4      0             1
+## 96          0.4      0             1
+## 97          0.0      1             0
+## 98          0.4      0             1
+## 99          1.0      0             1
+## 100         0.0      1             0
+## 101         0.0      0             1
+## 102         0.4      1             1
+## 103         0.0      1             1
+## 104         0.4      0             0
+## 105         0.0      1             0
+## 106         0.4      1             1
+## 107         0.4      0             1
+## 108         0.4      0             1
+## 109         0.4      1             0
+## 110         0.0      1             0
+## 111         0.0      0             1
+## 112         0.4      0             1
+## 113         0.4      1             0
+## 114         0.0      0             0
+## 115         0.0      0             0
+## 116         0.0      0             1
+## 117         0.4      1             0
+## 118         0.8      1             1
+## 119         0.0      1             1
+## 120         0.4      1             0
+## 121         0.4      0             0
+## 122         0.0      1             1
+## 123         0.4      0             0
+## 124         0.0      0             0
+## 125         0.8      0             1
+## 126         0.4      0             1
+## 127         0.0      1             1
+## 128         0.0      0             1
+## 129         0.8      1             1
+## 130         0.0      0             0
+## 131         1.0      0             1
+## 132         0.4      1             0
+## 133         0.0      0             1
+## 134         0.4      1             1
+## 135         0.0      0             0
+## 136         0.0      1             0
+## 137         0.0      0             1
+## 138         0.0      1             1
+## 139         0.0      1             0
+## 140         0.4      0             1
+## 141         0.4      1             1</code></pre>
 </div>
 
 

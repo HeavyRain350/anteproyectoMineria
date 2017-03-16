@@ -174,8 +174,8 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 </div>
 <div id="head-tail" class="section level5">
 <h5>Head &amp; Tail</h5>
-<div id="con-las-funciones-head-y-tail-podemos-obtener-una-pequea-muestra-de-los-datos" class="section level6">
-<h6>Con las funciones head y tail podemos obtener una peque??a muestra de los datos</h6>
+<div id="with-the-head-and-tail-functions-we-can-get-a-small-sample-of-the-data-those-first-six-records-with-each-of-its-attributes-and-their-values-and-the-last-six-records-of-the-dataset." class="section level6">
+<h6>With the head and tail functions we can get a small sample of the data, those first six records with each of its attributes and their values and the last six records of the dataset.</h6>
 <pre class="r"><code>head(dsuaz)</code></pre>
 <pre><code>##   hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
 ## 1               6          0               0                 4
@@ -262,6 +262,55 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ## 139             Enfermeria   Semestre 2       Laborar
 ## 140 Ingenieria de Software   Semestre 8      Posgrado
 ## 141              Psicologia Semestre 10      Posgrado</code></pre>
+</div>
+</div>
+<div id="dataset-summary" class="section level5">
+<h5>Dataset Summary</h5>
+<div id="por-medio-de-la-funcin-summary-obtenemos-distintas-estadsticas-de-los-datos-almacenados-en-el-dataset.-esta-funcin-invoca-distintos-mtodos-de-acuerdo-al-tipo-de-objeto-que-est-recibiendo-como-argumento-en-este-caso-especfico-es-un-dataset." class="section level6">
+<h6>Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.</h6>
+<pre class="r"><code>summary(dsuaz)</code></pre>
+<pre><code>##  hrs_estudio_dia   hrs_tv_dia    hrs_vjuegos_dia hrs_actsocial_dia
+##  Min.   :0.000   Min.   :0.000   Min.   :0.000   Min.   : 0.00    
+##  1st Qu.:4.000   1st Qu.:0.000   1st Qu.:0.000   1st Qu.: 1.00    
+##  Median :4.000   Median :0.000   Median :0.000   Median : 2.00    
+##  Mean   :4.383   Mean   :1.532   Mean   :1.135   Mean   : 2.39    
+##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.: 3.00    
+##  Max.   :8.000   Max.   :6.000   Max.   :6.000   Max.   :10.00    
+##  hrs_universidad_dia    promedio     hrs_ejercicio_dia hrs_dormir_dia  
+##  Min.   :0.000       Min.   :7.000   Min.   :0.000     Min.   : 3.000  
+##  1st Qu.:6.000       1st Qu.:8.000   1st Qu.:0.000     1st Qu.: 6.000  
+##  Median :7.000       Median :8.310   Median :0.000     Median : 8.000  
+##  Mean   :6.298       Mean   :8.406   Mean   :1.504     Mean   : 6.936  
+##  3rd Qu.:7.000       3rd Qu.:8.900   3rd Qu.:4.000     3rd Qu.: 8.000  
+##  Max.   :8.000       Max.   :9.800   Max.   :4.000     Max.   :10.000  
+##  transporte_publico    comedor          becario       materias_repetidas
+##  Min.   :0.0000     Min.   :0.0000   Min.   :0.0000   Min.   :0.0000    
+##  1st Qu.:1.0000     1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000    
+##  Median :1.0000     Median :0.0000   Median :0.0000   Median :0.0000    
+##  Mean   :0.8298     Mean   :0.4752   Mean   :0.3333   Mean   :0.4113    
+##  3rd Qu.:1.0000     3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000    
+##  Max.   :1.0000     Max.   :1.0000   Max.   :1.0000   Max.   :5.0000    
+##  dificultad_licenciatura pasion_licenciatura oferta_laboral  
+##  Length:141              Min.   : 4.000      Min.   : 0.000  
+##  Class :character        1st Qu.: 8.000      1st Qu.: 5.000  
+##  Mode  :character        Median : 9.000      Median : 7.000  
+##                          Mean   : 8.794      Mean   : 6.851  
+##                          3rd Qu.:10.000      3rd Qu.: 9.000  
+##                          Max.   :10.000      Max.   :10.000  
+##  Ssalario_estimado   hrs_trabajo      municipio            genero         
+##  Length:141         Min.   : 8.000   Length:141         Length:141        
+##  Class :character   1st Qu.: 8.000   Class :character   Class :character  
+##  Mode  :character   Median :10.000   Mode  :character   Mode  :character  
+##                     Mean   : 9.624                                        
+##                     3rd Qu.:10.000                                        
+##                     Max.   :13.000                                        
+##       edad       licenciatura         semestre         planes_egreso     
+##  Min.   :18.00   Length:141         Length:141         Length:141        
+##  1st Qu.:19.00   Class :character   Class :character   Class :character  
+##  Median :21.00   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :20.97                                                           
+##  3rd Qu.:22.00                                                           
+##  Max.   :28.00</code></pre>
 </div>
 </div>
 </div>
@@ -729,6 +778,9 @@ frame_normalizado &lt;- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,2
 ## 139         0.0      1             0
 ## 140         0.4      0             1
 ## 141         0.4      1             1</code></pre>
+</div>
+<div id="compute-distances-1" class="section level3">
+<h3>Compute Distances</h3>
 </div>
 
 

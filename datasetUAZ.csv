@@ -1,0 +1,142 @@
+Horas de estudio por dia (sin contar las horas de clase),Horas de television por dia,Horas de videojuegos por dia,Horas de actividades sociales por dia,Horas al dia en la universidad aprox.,Promedio academico aprox.,Horas de ejercicio por dia,Horas de sueño por dia,Utilizacion de transporte publico,Utilizas el comedor estudiantil,Tienes alguna beca,Materias repetidas,Dificultad percibida de la carrera,Pasion por la carrera,Facilidad percibida para ofertas laborales terminando estudios,Sueldo estimado que esperas percibir al terminar los estudios (mensual),Horas estimadas una vez posicionada en un trabajo fijo,Municipio de origen,Genero,Edad,Carrera ,Semestre en el que estas estudiando,Que piensas hacer despues de salir de la carrera.
+6,0,0,4,7,9,4,8,1,0,1,0,Regular,10,5,15 - 20 mil,10,Zacatecas,Mujer,21,Enfermeria ,Semestre 6,Laborar
+6,0,0,4,7,9,4,8,1,0,1,0,Regular,10,5,15 - 20 mil,10,Zacatecas,Mujer,21,Enfermeria ,Semestre 6,Laborar
+4,0,0,2,7,7,4,6,1,1,0,0,Regular,9,8,6 - 10 mil,8,Tacoaleche ,Mujer,19,Enfermeria ,Semestre 4,Laborar
+4,0,6,4,6,8,0,6,1,0,0,0,Regular,6,8,6 - 10 mil,10,Rio Grande,Hombre,19,Enfermeria ,Semestre 2,Laborar
+8,4,0,2,6,8,0,6,1,0,0,0,Regular,10,8,6 - 10 mil,10,Guadalupe,Mujer,21,Enfermeria ,Semestre 2,Laborar
+4,4,0,2,6,"8,2",0,6,1,0,0,0,Dificil,8,5,10 - 15 mil,8,Zacatecas,Mujer,22,Enfermeria ,Semestre 8,Laborar
+4,4,0,3,7,"8,2",0,8,1,0,0,0,Regular,8,5,10 - 15 mil,8,Zacatecas,Mujer,22,Enfermeria ,Semestre 8,Laborar
+8,0,0,2,7,"8,4",0,6,1,0,0,0,Regular,10,0,6 - 10 mil,12,Zacatecas,Mujer,19,Enfermeria ,Semestre 2,Posgrado
+4,0,4,2,7,"8,7",4,8,1,1,1,0,Regular,9,10,10 - 15 mil,8,Jerez,Hombre,22,Enfermeria ,Semestre 7,Posgrado
+4,4,0,0,7,"8,8",0,6,1,1,0,0,Regular,10,9,10 - 15 mil,8,Zacatecas,Mujer,18,Enfermeria ,Semestre 2,Laborar
+4,4,4,2,4,"7,8",4,8,1,0,0,2,Muy dificil,8,10,15 - 20 mil,8,Zacatecas,Hombre,27,Fisica,Semestre 8,Posgrado
+4,0,0,3,6,8,4,6,1,0,0,1,Regular,10,7,6 - 10 mil,10,Guadalupe,Mujer,20,Fisica,Semestre 4,Posgrado
+4,0,0,0,7,"8,1",4,6,1,1,0,1,Dificil,8,6,10 - 15 mil,10,Zacatecas,Mujer,23,Fisica,Semestre 8,Laborar
+4,0,0,2,7,"8,3",0,8,1,1,0,1,Regular,9,7,6 - 10 mil,10,Guadalupe,Mujer,20,Fisica,Semestre 4,Posgrado
+4,0,0,3,7,"8,5",4,6,1,1,1,0,Regular,8,9,6 - 10 mil,10,Panuco ,Mujer,20,Fisica,Semestre 4,Laborar
+0,0,0,3,7,"8,6",0,6,1,1,1,0,Dificil,8,9,10 - 15 mil,12,Guadalupe,Mujer,19,Fisica,Semestre 4,Posgrado
+6,0,0,3,7,"8,6",0,8,0,1,0,0,Dificil,10,7,10 - 15 mil,8,Guadalupe,Hombre,20,Fisica,Semestre 4,Posgrado
+4,0,0,3,7,"8,7",0,6,1,1,1,0,Dificil,6,6,6 - 10 mil,10,Zacatecas,Mujer,22,Fisica,Semestre 8,Posgrado
+4,0,0,1,7,"8,7",0,8,0,0,0,0,Dificil,8,10,15 - 20 mil,10,Fresnillo,Hombre,19,Fisica,Semestre 4,Posgrado
+4,4,0,0,7,"8,82",0,8,1,0,0,0,Dificil,7,10,6 - 10 mil,10,Zacatecas,Mujer,20,Fisica,Semestre 4,Posgrado
+4,4,4,0,7,7,4,6,1,1,0,1,Dificil,10,10,mas de 20 mil,8,Jerez,Hombre,21,Ingenieria de Software ,Semestre 2,Posgrado
+4,0,4,4,7,7,0,8,1,1,0,3,Regular,8,9,15 - 20 mil,10,Fresnillo,Hombre,22,Ingenieria de Software ,Semestre 2,Laborar
+6,0,4,8,6,8,0,8,1,0,0,3,Dificil,9,8,10 - 15 mil,8,Jerez,Hombre,24,Ingenieria de Software ,Semestre 10,Laborar
+4,0,4,2,7,8,0,8,1,1,1,0,Dificil,8,5,10 - 15 mil,10,Morelos,Hombre,18,Ingenieria de Software ,Semestre 2,Posgrado
+4,0,0,2,7,8,0,8,1,1,1,0,Regular,9,10,mas de 20 mil,8,Jerez,Hombre,19,Ingenieria de Software ,Semestre 2,Posgrado
+4,0,0,3,7,8,0,8,1,1,1,1,Regular,8,8,mas de 20 mil,10,Villa Gonzales Ortega,Hombre,18,Ingenieria de Software ,Semestre 2,Posgrado
+4,0,4,3,4,8,4,8,1,1,0,4,Regular,7,7,10 - 15 mil,8,Tabasco,Hombre,20,Ingenieria de Software ,Semestre 4,Laborar
+0,4,4,5,4,8,4,8,1,0,1,0,Regular,8,9,10 - 15 mil,8,Zacatecas,Hombre,21,Ingenieria de Software ,Semestre 8,Posgrado
+4,0,0,3,7,8,4,8,1,0,1,0,Dificil,9,8,mas de 20 mil,8,Jerez,Hombre,21,Ingenieria de Software ,Semestre 8,Laborar
+4,4,4,2,7,9,0,8,1,1,1,0,Dificil,9,7,15 - 20 mil,12,Susticacán,Hombre,19,Ingenieria de Software ,Semestre 2,Laborar
+4,4,0,2,4,9,4,8,1,1,0,0,Dificil,9,10,10 - 15 mil,10,Zacatecas,Hombre,21,Ingenieria de Software ,Semestre 8,Laborar
+4,4,0,1,6,"7,5",0,8,1,0,0,2,Regular,7,9,10 - 15 mil,10,Calera,Hombre,21,Ingenieria de Software ,Semestre 8,Laborar
+4,0,0,1,6,"7,6",0,8,1,0,0,5,Dificil,7,9,mas de 20 mil,8,Jerez,Hombre,25,Ingenieria de Software ,Semestre 8,Laborar
+4,4,6,10,6,"7,8",0,8,1,1,0,4,Regular,8,10,15 - 20 mil,8,Jerez,Hombre,22,Ingenieria de Software ,Semestre 8,Laborar
+4,4,6,1,6,"7,8",0,10,1,1,0,0,Regular,8,7,10 - 15 mil,8,Zacatecas,Mujer,20,Ingenieria de Software ,Semestre 2,Posgrado
+6,4,4,1,6,8,0,6,0,0,0,0,Regular,10,5,10 - 15 mil,10,Jerez,Hombre,24,Ingenieria de Software ,Semestre 9,Laborar
+4,0,0,0,4,"8,2",0,8,1,0,0,5,Dificil,8,8,6 - 10 mil,8,Panuco ,Hombre,21,Ingenieria de Software ,Semestre 4,Posgrado
+4,4,4,3,4,"8,3",0,8,1,1,0,0,Dificil,9,10,10 - 15 mil,8,Jerez,Hombre,22,Ingenieria de Software ,Semestre 8,Posgrado
+4,0,4,1,6,"8,3",0,8,1,1,1,1,Regular,9,8,6 - 10 mil,10,Guadalupe,Hombre,19,Ingenieria de Software ,Semestre 4,Laborar
+4,6,4,0,7,"8,4",4,3,1,0,1,0,Dificil,8,9,15 - 20 mil,10,Guadalupe,Hombre,19,Ingenieria de Software ,Semestre 4,Posgrado
+4,4,4,2,7,"8,5",0,6,0,1,0,0,Dificil,10,9,10 - 15 mil,10,Zacatecas,Hombre,20,Ingenieria de Software ,Semestre 2,Posgrado
+4,0,4,2,4,"8,5",0,8,0,1,1,1,Dificil,8,9,15 - 20 mil,10,Zacatecas,Hombre,22,Ingenieria de Software ,Semestre 8,Laborar
+0,0,6,1,7,"8,5",0,8,1,1,1,0,Dificil,7,10,15 - 20 mil,10,Fresnillo,Hombre,22,Ingenieria de Software ,Semestre 4,Posgrado
+4,4,4,0,7,"8,5",4,8,1,0,0,1,Dificil,9,9,15 - 20 mil,8,Huejuquilla el Alto,Mujer,20,Ingenieria de Software ,Semestre 4,Laborar
+4,0,0,3,6,"8,57",4,8,1,1,1,0,Regular,8,10,15 - 20 mil,10,Panuco ,Hombre,22,Ingenieria de Software ,Semestre 8,Posgrado
+6,0,0,2,4,"8,8",0,6,1,0,0,0,Regular,10,10,mas de 20 mil,8,Rio Grande,Hombre,28,Ingenieria de Software ,Semestre 10,Laborar
+6,0,0,1,4,"8,9",0,6,1,1,1,0,Regular,9,10,mas de 20 mil,10,Torreón,Hombre,21,Ingenieria de Software ,Semestre 8,Posgrado
+4,4,0,2,4,"8,98",0,10,1,0,1,0,Dificil,7,7,10 - 15 mil,12,Jerez,Mujer,21,Ingenieria de Software ,Semestre 8,Posgrado
+4,0,0,3,7,9,0,6,0,1,1,0,Regular,10,10,10 - 15 mil,10,Jerez,Hombre,18,Ingenieria de Software ,Semestre 2,Posgrado
+6,0,4,3,0,"9,6",4,8,1,1,0,0,Regular,10,7,6 - 10 mil,8,Jerez,Hombre,22,Ingenieria de Software ,Semestre 10,Posgrado
+0,0,0,2,4,"9,6",4,8,0,0,1,0,Regular,8,9,mas de 20 mil,10,Orizaba,Hombre,21,Ingenieria de Software ,Semestre 8,Posgrado
+4,0,4,2,4,"9,77",4,8,0,0,0,0,Regular,8,7,10 - 15 mil,8,Zacatecas,Hombre,22,Ingenieria de Software ,Semestre 10,Posgrado
+4,0,6,3,4,"9,78",4,8,1,0,0,0,Regular,9,9,10 - 15 mil,10,Calera,Hombre,21,Ingenieria de Software ,Semestre 8,Laborar
+4,0,0,3,6,"9,8",4,8,1,1,1,0,Regular,10,10,mas de 20 mil,8,Jerez,Hombre,20,Ingenieria de Software ,Semestre 6,Laborar
+4,4,6,0,6,"7,9",0,8,1,0,0,4,Regular,9,5,6 - 10 mil,10,Villanueva,Hombre,23,Ingenieria en Computacion,Semestre 9,Laborar
+6,0,0,6,4,8,4,3,1,0,1,2,Regular,8,7,15 - 20 mil,8,Zacatecas,Mujer,21,Ingenieria en Computacion,Semestre 8,Posgrado
+4,0,4,1,7,"8,1",4,8,1,1,0,0,Regular,9,8,10 - 15 mil,10,Zacatecas,Hombre,19,Ingenieria en Computacion,Semestre 2,Laborar
+4,0,0,1,6,"8,2",0,8,1,1,1,0,Regular,10,6,15 - 20 mil,8,Trancoso ,Hombre,21,Ingenieria en Computacion,Semestre 6,Laborar
+4,4,0,4,4,"8,2",4,8,1,1,1,0,Dificil,10,6,10 - 15 mil,8,Guadalupe,Hombre,25,Ingenieria en Computacion,Semestre 10,Laborar
+4,0,4,2,4,"8,3",4,6,0,0,1,0,Regular,9,10,mas de 20 mil,8,Zacatecas,Hombre,23,Ingenieria en Computacion,Semestre 10,Posgrado
+4,0,4,2,7,"8,5",4,6,1,0,0,0,Regular,9,6,10 - 15 mil,10,Fresnillo,Hombre,20,Ingenieria en Computacion,Semestre 6,Laborar
+6,4,0,2,7,"8,5",0,8,1,1,1,0,Dificil,9,9,15 - 20 mil,10,Monte Escobedo,Mujer,20,Ingenieria en Computacion,Semestre 4,Posgrado
+8,0,0,0,7,"8,6",0,3,1,0,0,0,Muy dificil,8,8,15 - 20 mil,13,Zacatecas,Mujer,22,Ingenieria en Computacion,Semestre 4,Laborar
+4,4,0,10,7,"8,6",4,8,1,1,1,2,Regular,8,4,mas de 20 mil,13,Juan Aldama,Hombre,24,Ingenieria en Computacion,Semestre 10,Laborar
+6,0,0,1,7,"9,1",0,6,1,1,1,2,Regular,9,4,10 - 15 mil,10,General Panfilo Natera,Mujer,25,Ingenieria en Computacion,Semestre 7,Laborar
+4,0,4,2,7,8,4,6,1,0,0,0,Muy dificil,10,5,mas de 20 mil,12,Calera,Mujer,18,Medicina Humana,Semestre 2,Posgrado
+4,0,0,0,7,8,0,8,1,0,0,1,Muy dificil,10,10,mas de 20 mil,12,Zacatecas,Mujer,19,Medicina Humana,Semestre 2,Laborar
+6,0,0,1,7,8,0,8,1,1,0,0,Dificil,8,5,10 - 15 mil,12,Zacatecas,Hombre,19,Medicina Humana,Semestre 2,Posgrado
+4,0,0,2,7,8,4,8,1,0,0,0,Muy dificil,8,5,mas de 20 mil,13,Zacatecas,Hombre,21,Medicina Humana,Semestre 8,Posgrado
+6,0,0,9,7,9,0,8,1,1,0,0,Regular,8,0,mas de 20 mil,13,Zacatecas,Mujer,18,Medicina Humana,Semestre 2,Posgrado
+8,0,0,2,7,9,0,8,1,0,0,0,Regular,10,7,10 - 15 mil,10,Zacatecas,Hombre,19,Medicina Humana,Semestre 3,Posgrado
+4,4,4,4,7,"7,2",4,6,0,0,0,0,Dificil,9,7,15 - 20 mil,12,Guadalupe,Hombre,22,Medicina Humana,Semestre 8,Posgrado
+4,0,0,4,7,"8,5",0,8,0,0,0,4,Dificil,10,10,mas de 20 mil,10,Concepcion del Oro,Mujer,19,Medicina Humana,Semestre 5,Laborar
+6,0,0,0,7,7,0,6,1,1,0,0,Dificil,10,8,mas de 20 mil,12,Pinos,Mujer,18,Medicina Humana,Semestre 2,Laborar
+4,4,4,4,7,"7,2",4,6,0,0,0,0,Dificil,9,7,15 - 20 mil,12,Guadalupe,Hombre,22,Medicina Humana,Semestre 8,Posgrado
+4,0,0,1,7,"7,6",0,6,1,0,0,1,Dificil,10,4,6 - 10 mil,10,Jerez,Mujer,21,Medicina Humana,Semestre 7,Laborar
+4,0,0,3,7,"7,7",4,8,1,1,0,1,Dificil,10,8,6 - 10 mil,8,Zacatecas,Mujer,21,Medicina Humana,Semestre 5,Laborar
+0,0,4,0,7,8,0,6,1,1,1,0,Dificil,8,8,15 - 20 mil,13,Fresnillo,Hombre,20,Medicina Humana,Semestre 4,Laborar
+4,0,0,3,7,8,0,6,1,1,1,0,Muy dificil,9,6,10 - 15 mil,13,Tepetongo,Hombre,21,Medicina Humana,Semestre 6,Posgrado
+4,4,0,4,7,8,0,6,0,1,0,1,Dificil,9,4,6 - 10 mil,10,Concepcion del Oro,Mujer,22,Medicina Humana,Semestre 8,Posgrado
+4,0,0,3,7,8,4,6,0,0,0,0,Regular,5,1,15 - 20 mil,10,Zacatecas,Mujer,23,Medicina Humana,Semestre 6,Posgrado
+4,4,0,3,7,"8,01",0,3,1,0,0,0,Dificil,4,9,15 - 20 mil,10,Guadalupe,Mujer,22,Medicina Humana,Semestre 10,Posgrado
+4,0,0,0,7,"8,09",0,6,1,0,1,0,Regular,9,9,6 - 10 mil,10,Zacatecas,Mujer,21,Medicina Humana,Semestre 5,Posgrado
+4,0,0,1,7,"8,2",0,6,1,1,1,0,Muy dificil,9,10,6 - 10 mil,12,Naucalpan,Mujer,19,Medicina Humana,Semestre 2,Posgrado
+4,0,0,1,7,"8,2",0,6,1,1,1,0,Muy dificil,9,10,6 - 10 mil,12,Naucalpan,Mujer,19,Medicina Humana,Semestre 2,Posgrado
+8,0,0,3,7,"8,5",0,3,0,0,0,0,Dificil,10,4,15 - 20 mil,13,Zacatecas,Mujer,19,Medicina Humana,Semestre 2,Laborar
+8,0,0,0,7,"8,8",0,3,1,0,0,0,Dificil,10,10,mas de 20 mil,13,Calera,Mujer,18,Medicina Humana,Semestre 4,Posgrado
+8,0,0,0,7,"8,9",0,3,1,1,1,0,Dificil,10,7,mas de 20 mil,13,San Luis Potosi,Hombre,20,Medicina Humana,Semestre 2,Posgrado
+4,0,0,2,6,"8,9",0,6,0,0,0,2,Dificil,7,9,15 - 20 mil,8,Zacatecas,Mujer,23,Medicina Humana,Semestre 5,Laborar
+0,0,0,6,6,8,0,8,0,0,0,0,Dificil,9,3,6 - 10 mil,12,Zacatecas,Mujer,23,Medicina Humana ,Semestre 10,Posgrado
+6,4,0,0,7,7,0,6,1,1,0,0,Muy dificil,7,5,10 - 15 mil,10,Fresnillo,Mujer,18,Medicina Humana ,Semestre 2,Posgrado
+4,4,0,4,7,"8,13",0,6,1,0,0,0,Dificil,9,8,15 - 20 mil,10,Ojocaliente,Hombre,23,Medicina Humana ,Semestre 10,Posgrado
+8,0,0,3,6,"8,3",0,6,1,0,0,0,Regular,10,5,10 - 15 mil,10,Calera ,Mujer,19,Medicina Humana ,Semestre 4,Laborar
+8,0,0,3,6,"8,3",0,6,1,0,0,0,Regular,10,5,10 - 15 mil,10,Calera ,Mujer,19,Medicina Humana ,Semestre 4,Laborar
+6,4,0,3,7,"9,1",4,8,1,0,0,0,Facil,10,6,6 - 10 mil,12,Fresnillo,Mujer,19,Medicina Humana ,Semestre 1,Posgrado
+4,4,0,1,7,8,4,6,1,0,1,0,Muy dificil,5,9,mas de 20 mil,10,Rio Grande,Hombre,21,Odontologia,Semestre 4,Posgrado
+4,0,0,2,7,8,0,8,1,0,0,1,Regular,8,4,6 - 10 mil,12,Zacatecas,Hombre,21,Odontologia,Semestre 6,Laborar
+4,4,0,2,7,9,0,8,0,0,0,0,Dificil,10,7,15 - 20 mil,10,Guadalupe,Mujer,20,Odontologia,Semestre 6,Posgrado
+4,4,0,4,7,"7,8",0,8,1,0,0,0,Regular,10,5,6 - 10 mil,8,Villa Gonzales Ortega ,Mujer,19,Odontologia,Semestre 4,Posgrado
+4,0,4,2,7,"7,5",0,8,0,0,0,0,Regular,10,4,mas de 20 mil,10,Zacatecas,Hombre,22,Odontologia,Semestre 8,Posgrado
+4,0,0,1,7,"7,6",0,6,1,0,0,0,Dificil,10,5,15 - 20 mil,8,Juan Aldama,Mujer,22,Odontologia,Semestre 8,Posgrado
+4,0,0,6,7,"8,7",4,6,0,0,0,0,Regular,10,5,mas de 20 mil,8,Jerez,Mujer,22,Odontologia,Semestre 8,Posgrado
+6,0,0,1,7,"8,94",4,6,0,0,0,0,Regular,10,5,15 - 20 mil,8,Zacatecas,Mujer,21,Odontologia,Semestre 8,Posgrado
+4,0,0,2,7,9,0,6,1,1,0,0,Regular,9,7,10 - 15 mil,8,Garcia de la cadena ,Hombre,24,Odontologia,Semestre 10,Posgrado
+6,0,0,1,6,8,0,8,1,1,1,0,Regular,10,5,6 - 10 mil,10,Pinos,Mujer,18,Psicologia,Semestre 2,Posgrado
+4,4,0,2,6,8,4,8,1,0,0,0,Regular,9,0,6 - 10 mil,8,Zacatecas,Mujer,19,Psicologia,Semestre 2,Posgrado
+4,0,0,1,6,8,0,10,0,0,0,0,Regular,10,10,15 - 20 mil,8,Guadalupe,Mujer,26,Psicologia,Semestre 10,Laborar
+4,4,0,3,6,8,0,8,1,0,1,0,Regular,10,5,6 - 10 mil,8,Jerez,Mujer,18,Psicologia,Semestre 1,Laborar
+4,0,0,0,6,"8,14",4,8,1,0,0,0,Regular,9,4,6 - 10 mil,10,Zacatecas,Mujer,22,Psicologia,Semestre 10,Posgrado
+4,0,0,4,6,"8,2",0,3,1,1,1,0,Regular,9,6,10 - 15 mil,8,Mazapil,Mujer,18,Psicologia,Semestre 2,Laborar
+4,4,0,3,6,"8,31",0,8,1,0,0,0,Regular,9,5,10 - 15 mil,8,Zacatecas,Mujer,19,Psicologia,Semestre 2,Posgrado
+6,4,0,1,6,"8,5",4,6,1,1,0,0,Dificil,10,4,15 - 20 mil,12,Jerez,Hombre,24,Psicologia,Semestre 10,Posgrado
+4,4,0,1,6,"8,5",0,8,1,0,0,0,Regular,9,1,6 - 10 mil,8,Panuco ,Mujer,22,Psicologia,Semestre 10,Laborar
+4,0,0,3,6,"8,5",4,8,1,1,0,0,Regular,5,5,15 - 20 mil,8,Calera,Mujer,20,Psicologia,Semestre 4,Posgrado
+4,4,4,6,6,"8,6",4,6,1,0,0,1,Facil,10,6,10 - 15 mil,10,Zacatecas,Hombre,23,Psicologia,Semestre 10,Posgrado
+4,0,4,4,6,"8,6",0,8,1,1,1,0,Regular,6,3,6 - 10 mil,10,Jerez,Mujer,24,Psicologia,Semestre 10,Posgrado
+4,4,0,6,7,"8,6",0,8,1,1,1,0,Regular,9,6,6 - 10 mil,8,Zacatecas,Mujer,21,Psicologia,Semestre 8,Posgrado
+4,0,0,3,7,"8,8",0,6,1,1,1,0,Regular,8,8,10 - 15 mil,8,Zacatecas,Mujer,21,Psicologia,Semestre 2,Posgrado
+4,0,0,2,6,"8,8",0,10,1,1,1,0,Dificil,10,5,6 - 10 mil,8,Panuco ,Mujer,23,Psicologia,Semestre 10,Laborar
+4,0,0,2,6,9,4,8,1,1,0,0,Regular,10,7,6 - 10 mil,10,Valparaiso,Mujer,24,Psicologia,Semestre 10,Laborar
+4,4,0,2,6,9,4,3,1,1,1,0,Regular,9,8,10 - 15 mil,8,Sombrerete,Mujer,23,Psicologia,Semestre 10,Laborar
+4,4,0,6,7,9,0,8,1,1,0,0,Regular,10,8,mas de 20 mil,8,Guadalupe,Mujer,19,Psicologia,Semestre 2,Laborar
+4,4,4,4,6,"9,1",4,8,0,1,0,0,Regular,10,5,6 - 10 mil,10,Jerez,Mujer,21,Psicologia,Semestre 6,Posgrado
+4,4,0,5,6,"9,2",0,8,1,1,0,0,Facil,10,5,10 - 15 mil,8,Panuco ,Mujer,18,Psicologia,Semestre 2,Posgrado
+4,0,0,2,6,"9,3",0,6,1,1,0,0,Regular,9,7,6 - 10 mil,10,Zacatecas,Mujer,19,Psicologia,Semestre 2,Posgrado
+4,4,0,1,7,"9,3",0,8,1,1,0,0,Dificil,10,5,6 - 10 mil,8,Zacatecas,Mujer,22,Psicologia,Semestre 10,Laborar
+4,0,0,3,6,"9,3",0,8,1,1,1,0,Regular,10,4,6 - 10 mil,8,Panfilo natera ,Mujer,22,Psicologia,Semestre 10,Posgrado
+4,4,0,2,6,"9,5",0,8,1,1,0,0,Regular,5,5,10 - 15 mil,10,Guadalupe,Mujer,22,Psicologia,Semestre 10,Posgrado
+4,4,0,2,7,"9,7",4,8,1,0,0,0,Dificil,9,9,6 - 10 mil,8,Zacatecas,Hombre,22,Psicologia,Semestre 6,Laborar
+4,4,0,2,7,"9,7",4,8,1,0,0,0,Dificil,9,9,6 - 10 mil,8,Zacatecas,Hombre,22,Psicologia,Semestre 6,Laborar
+4,0,0,3,7,"8,9",4,6,1,0,0,0,Regular,10,8,10 - 15 mil,8,Jerez,Mujer,23,Quimico Farmaceutico Biologo,Semestre 10,Laborar
+4,4,4,1,6,"7,6",4,3,1,0,0,0,Regular,4,7,15 - 20 mil,10,Zacatecas,Hombre,20,Quimico Farmaceutico Biologo,Semestre 8,Laborar
+4,0,0,3,7,"7,6",0,6,1,0,0,0,Regular,8,8,15 - 20 mil,12,Guadalupe,Mujer,21,Quimico Farmaceutico Biologo,Semestre 6,Posgrado
+6,4,0,2,7,8,0,6,1,0,0,0,Regular,9,7,15 - 20 mil,8,Zacatecas,Mujer,18,Quimico Farmaceutico Biologo,Semestre 2,Posgrado
+4,0,0,2,7,"8,2",0,6,1,0,0,0,Regular,9,8,6 - 10 mil,8,Morelos,Mujer,20,Quimico Farmaceutico Biologo,Semestre 6,Posgrado
+4,4,0,3,4,"8,2",0,8,1,1,1,0,Dificil,10,2,6 - 10 mil,10,Tlaltenago Zac,Mujer,23,Quimico Farmaceutico Biologo,Semestre 10,Laborar
+4,0,0,2,6,"8,4",4,6,1,0,1,0,Regular,8,4,10 - 15 mil,8,Guadalupe,Mujer,23,Quimico Farmaceutico Biologo,Semestre 10,Laborar
+4,0,4,0,7,"8,5",0,8,1,0,0,0,Muy dificil,10,5,15 - 20 mil,10,Guadalupe,Mujer,21,Quimico Farmaceutico Biologo,Semestre 8,Posgrado
+4,4,0,1,7,9,0,6,1,1,0,0,Regular,7,5,6 - 10 mil,8,Zacatecas,Mujer,19,Quimico Farmaceutico Biologo,Semestre 2,Laborar
+4,4,0,0,6,9,4,6,1,1,0,0,Dificil,9,5,15 - 20 mil,10,Fresnillo,Mujer,23,Quimico Farmaceutico Biologo,Semestre 10,Posgrado
+6,4,0,0,7,"9,4",4,8,1,0,0,0,Dificil,10,7,10 - 15 mil,8,Zacatecas,Mujer,22,Quimico Farmaceutico Biologo,Semestre 10,Posgrado

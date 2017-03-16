@@ -25,3 +25,37 @@ wbcd <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
 str(wbcd)
 ```
 
+### Parte 2- KNN- Fórmulas para Normalizar
+```{r set}
+# Funcion para Normalizar por min-max
+minmax <- function(x) (
+  return (( x - min(x)) / (max(x) - min(x)))
+  ) 
+  
+
+# Funcion para Normalizar por z-Score
+zscore <- function(x) (
+  return (x - mean(x) / (sd(x)))
+  )
+```
+
+### Parte 2- KNN- Normalización
+```{r set}
+wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. <- factor(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.,levels=c("6 - 10 mil","10 - 15 mil","15 - 20 mil", "mas de 20 mil"), labels=c(1,2,3,4))
+
+wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. <- as.numeric(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.);
+
+# 1- Laborar 2- Posgrada
+wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. <- factor(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.,
+                                      labels=c(1,2))
+
+wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera. <- as.numeric(wbcd$Que.piensas.hacer.despues.de.salir.de.la.carrera.)
+
+# 1- Hombre 2- Mujer
+wbcd$Genero <- factor(wbcd$Genero,
+                           labels=c(1,2))
+
+wbcd$Genero <- as.numeric(wbcd$Genero)
+
+frame_normalizado <- as.data.frame(sapply(wbcd[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
+```

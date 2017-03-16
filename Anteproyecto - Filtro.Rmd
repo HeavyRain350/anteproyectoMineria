@@ -28,10 +28,16 @@ str(dsuaz)
 ```
 
 ##### Head & Tail
-###### Con las funciones head y tail podemos obtener una peque??a muestra de los datos 
+###### With the head and tail functions we can get a small sample of the data, those first six records with each of its attributes and their values and the last six records of the dataset.
 ```{r, headtrain}
 head(dsuaz)
 tail(dsuaz)
+```
+
+##### Dataset Summary
+###### Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.
+```{r, summary}
+summary(dsuaz)
 ```
 
 ### Parte 2- KNN- F?rmulas para Normalizar

@@ -68,13 +68,48 @@ dsuaz$genero <- as.numeric(dsuaz$genero)
 
 dsuaz$licenciatura <- factor(dsuaz$licenciatura)
 
-frame_normalizado <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
+dsuaz_n <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
 ```
 
 
 ### Compute Distances
 ```{r}
-frame_normalizado
+table(dsuaz$licenciatura)
 ```
 
-### Compute Distances
+### Training and Testing set
+
+```{r}
+dsuaz_train <- dsuaz_n[1:114,]
+dsuaz_testing <- dsuaz_n[115:142,]
+
+dsuaz_train_labels <- dsuaz[1:114,21]
+dsuaz_testing_labels <- dsuaz[115:142,21]
+```
+
+
+
+### Training and Testing set
+
+```{r}
+dsuaz_train <- dsuaz_n[1:113,]
+dsuaz_testing <- dsuaz_n[114:141,]
+dim(dsuaz_testing_labels)
+dim(dsuaz_train)
+dsuaz_train_labels <- dsuaz[1:113,21]
+dsuaz_testing_labels <- dsuaz[114:141,21]
+dsuaz_testing_labels
+```
+
+
+### KNN classification outputs
+
+```{r}
+library(class)
+library(gmodels)
+dsuaz_results <- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 20)
+
+CrossTable(x = dsuaz_testing_labels,
+            y = dsuaz_results,
+            prop.chisq = FALSE)
+```

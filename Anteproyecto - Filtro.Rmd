@@ -6,26 +6,35 @@ date: "16 de marzo de 2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
+### UAZ Students
 
-###Alumnos UAZ
-
-######Este dataset contiene datos relevantes de los alumnos en nivel licenciatura de distintos programas de la Universidad Aut??noma de Zacatecas.
+###### This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.
+###### The data were obtained through surveys that were made to the student population, later we selected those that could help us in our investigation.
+###### The data set file's name is datasetUAZ.csv, in the next block we read the dataset to continue working with it.
 
 ```{r set}
 knitr::opts_chunk$set(echo = TRUE)
-wbcd <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
+dsuaz <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
 ```
 
 
+#### The Survey
+###### The survey consisted of 23 questions, which became our attributes in the dataset, The survey was carried out digitally, we created the survey with the tool of Google, and through social networks we distributed it among the students.
+###### After completing the survey we obtained 254 responses in total, however after analyzing the data we realized that only 142 records were useful, since we grouped the data according to the degree to which they belonged we observed that the numbers of students of The same degree that answered our survey was very different, so to have more balanced data regarding the number of students who answered the survey we decided to eliminate those answers that were below average.
+###### Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:
 ```{r strwbcd}
-str(wbcd)
+str(dsuaz)
 ```
 
-### Parte 2- KNN- Fórmulas para Normalizar
+##### Head & Tail
+###### Con las funciones head y tail podemos obtener una peque??a muestra de los datos 
+```{r, headtrain}
+head(dsuaz)
+tail(dsuaz)
+```
+
+### Parte 2- KNN- F?rmulas para Normalizar
 ```{r set}
 # Funcion para Normalizar por min-max
 minmax <- function(x) (
@@ -39,7 +48,7 @@ zscore <- function(x) (
   )
 ```
 
-### Parte 2- KNN- Normalización
+### Parte 2- KNN- Normalizaci?n
 ```{r set}
 wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual. <- factor(wbcd$Sueldo.estimado.que.esperas.percibir.al.terminar.los.estudios..mensual.,levels=c("6 - 10 mil","10 - 15 mil","15 - 20 mil", "mas de 20 mil"), labels=c(1,2,3,4))
 

@@ -147,170 +147,121 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 <div id="then-we-can-observe-each-one-of-the-questions-we-made-and-some-examples-of-the-types-of-answers-that-we-obtained" class="section level6">
 <h6>Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:</h6>
 <pre class="r"><code>str(dsuaz)</code></pre>
-<pre><code>## 'data.frame':    141 obs. of  23 variables:
-##  $ hrs_estudio_dia        : int  6 4 4 0 4 4 4 4 4 4 ...
-##  $ hrs_tv_dia             : int  0 0 0 0 0 0 4 0 0 4 ...
-##  $ hrs_vjuegos_dia        : int  0 4 4 0 0 0 4 0 4 0 ...
-##  $ hrs_actsocial_dia      : int  4 2 2 2 1 6 0 3 1 2 ...
-##  $ hrs_universidad_dia    : int  7 7 7 4 7 7 7 6 7 6 ...
-##  $ promedio               : num  9 8.7 8 9.6 8.2 8.7 8.5 9.3 8.1 8.2 ...
-##  $ hrs_ejercicio_dia      : int  4 4 0 4 0 4 4 0 4 0 ...
-##  $ hrs_dormir_dia         : int  8 8 8 8 6 6 8 8 8 6 ...
-##  $ transporte_publico     : int  1 1 1 0 1 0 1 1 1 1 ...
-##  $ comedor                : int  0 1 1 0 1 0 0 1 1 0 ...
-##  $ becario                : int  1 1 1 1 1 0 0 1 0 0 ...
-##  $ materias_repetidas     : int  0 0 0 0 0 0 1 0 0 0 ...
-##  $ dificultad_licenciatura: chr  &quot;Regular&quot; &quot;Regular&quot; &quot;Dificil&quot; &quot;Regular&quot; ...
-##  $ pasion_licenciatura    : int  10 9 8 8 9 10 9 10 9 8 ...
-##  $ oferta_laboral         : int  5 10 5 9 10 5 9 4 8 5 ...
-##  $ Ssalario_estimado      : chr  &quot;15 - 20 mil&quot; &quot;10 - 15 mil&quot; &quot;10 - 15 mil&quot; &quot;mas de 20 mil&quot; ...
-##  $ hrs_trabajo            : int  10 8 10 10 12 8 8 8 10 8 ...
-##  $ municipio              : chr  &quot;Zacatecas&quot; &quot;Jerez&quot; &quot;Morelos&quot; &quot;Orizaba&quot; ...
-##  $ genero                 : chr  &quot;Mujer&quot; &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; ...
-##  $ edad                   : int  21 22 18 21 19 22 20 22 19 22 ...
-##  $ licenciatura           : chr  &quot;Enfermeria &quot; &quot;Enfermeria &quot; &quot;Ingenieria de Software &quot; &quot;Ingenieria de Software &quot; ...
-##  $ semestre               : chr  &quot;Semestre 6&quot; &quot;Semestre 7&quot; &quot;Semestre 2&quot; &quot;Semestre 8&quot; ...
-##  $ planes_egreso          : chr  &quot;Laborar&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; ...</code></pre>
+<pre><code>## 'data.frame':    113 obs. of  23 variables:
+##  $ hrs_estudio_dia        : int  4 4 0 4 4 4 4 4 0 6 ...
+##  $ hrs_tv_dia             : int  0 2 0 0 4 0 0 0 2 4 ...
+##  $ hrs_vjuegos_dia        : int  4 0 0 0 4 0 0 0 2 0 ...
+##  $ hrs_actsocial_dia      : int  2 1 2 1 0 3 0 1 1 0 ...
+##  $ hrs_universidad_dia    : int  7 8 4 7 7 6 7 6 8 7 ...
+##  $ promedio               : num  8 8.7 9.6 8.2 8.5 9.3 8 7.6 7.2 7 ...
+##  $ hrs_ejercicio_dia      : int  0 0 4 0 4 0 0 0 4 0 ...
+##  $ hrs_dormir_dia         : int  8 6 8 6 8 8 8 8 6 6 ...
+##  $ transporte_publico     : int  1 1 0 1 1 1 1 1 0 1 ...
+##  $ comedor                : int  1 1 0 1 0 1 0 0 0 1 ...
+##  $ becario                : int  1 1 1 1 0 1 0 0 0 0 ...
+##  $ materias_repetidas     : int  0 0 0 0 1 0 1 5 2 0 ...
+##  $ dificultad_licenciatura: chr  &quot;Dificil&quot; &quot;Regular&quot; &quot;Regular&quot; &quot;Muy dificil&quot; ...
+##  $ pasion_licenciatura    : int  8 9 8 9 9 10 10 7 6 7 ...
+##  $ oferta_laboral         : int  5 8 9 10 9 4 10 9 8 5 ...
+##  $ Ssalario_estimado      : chr  &quot;10 - 15 mil&quot; &quot;15 - 20 mil&quot; &quot;mas de 20 mil&quot; &quot;6 - 10 mil&quot; ...
+##  $ hrs_trabajo            : int  10 10 10 12 8 8 12 8 12 10 ...
+##  $ municipio              : chr  &quot;Morelos&quot; &quot;Ojocaliente&quot; &quot;Orizaba&quot; &quot;Naucalpan&quot; ...
+##  $ genero                 : chr  &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; &quot;Mujer&quot; ...
+##  $ edad                   : int  18 20 21 19 20 22 19 25 22 18 ...
+##  $ licenciatura           : chr  &quot;Ingenieria de Software &quot; &quot;Quimico Farmaceutico Biologo&quot; &quot;Ingenieria de Software &quot; &quot;Medicina Humana&quot; ...
+##  $ semestre               : chr  &quot;Semestre 2&quot; &quot;Semestre 1&quot; &quot;Semestre 8&quot; &quot;Semestre 2&quot; ...
+##  $ planes_egreso          : chr  &quot;Posgrado&quot; &quot;Laborar&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; ...</code></pre>
 </div>
 <div id="head-tail" class="section level5">
 <h5>Head &amp; Tail</h5>
-<div id="with-the-head-and-tail-functions-we-can-get-a-small-sample-of-the-data-those-first-six-records-with-each-of-its-attributes-and-their-values-and-the-last-six-records-of-the-dataset." class="section level6">
-<h6>With the head and tail functions we can get a small sample of the data, those first six records with each of its attributes and their values and the last six records of the dataset.</h6>
+<div id="con-las-funciones-head-y-tail-podemos-obtener-una-pequea-muestra-de-los-datos" class="section level6">
+<h6>Con las funciones head y tail podemos obtener una peque??a muestra de los datos</h6>
 <pre class="r"><code>head(dsuaz)</code></pre>
 <pre><code>##   hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
-## 1               6          0               0                 4
-## 2               4          0               4                 2
-## 3               4          0               4                 2
-## 4               0          0               0                 2
-## 5               4          0               0                 1
-## 6               4          0               0                 6
+## 1               4          0               4                 2
+## 2               4          2               0                 1
+## 3               0          0               0                 2
+## 4               4          0               0                 1
+## 5               4          4               4                 0
+## 6               4          0               0                 3
 ##   hrs_universidad_dia promedio hrs_ejercicio_dia hrs_dormir_dia
-## 1                   7      9.0                 4              8
-## 2                   7      8.7                 4              8
-## 3                   7      8.0                 0              8
-## 4                   4      9.6                 4              8
-## 5                   7      8.2                 0              6
-## 6                   7      8.7                 4              6
+## 1                   7      8.0                 0              8
+## 2                   8      8.7                 0              6
+## 3                   4      9.6                 4              8
+## 4                   7      8.2                 0              6
+## 5                   7      8.5                 4              8
+## 6                   6      9.3                 0              8
 ##   transporte_publico comedor becario materias_repetidas
-## 1                  1       0       1                  0
+## 1                  1       1       1                  0
 ## 2                  1       1       1                  0
-## 3                  1       1       1                  0
-## 4                  0       0       1                  0
-## 5                  1       1       1                  0
-## 6                  0       0       0                  0
+## 3                  0       0       1                  0
+## 4                  1       1       1                  0
+## 5                  1       0       0                  1
+## 6                  1       1       1                  0
 ##   dificultad_licenciatura pasion_licenciatura oferta_laboral
-## 1                 Regular                  10              5
-## 2                 Regular                   9             10
-## 3                 Dificil                   8              5
-## 4                 Regular                   8              9
-## 5             Muy dificil                   9             10
-## 6                 Regular                  10              5
-##   Ssalario_estimado hrs_trabajo municipio genero edad
-## 1       15 - 20 mil          10 Zacatecas  Mujer   21
-## 2       10 - 15 mil           8     Jerez Hombre   22
-## 3       10 - 15 mil          10   Morelos Hombre   18
-## 4     mas de 20 mil          10   Orizaba Hombre   21
-## 5        6 - 10 mil          12 Naucalpan  Mujer   19
-## 6     mas de 20 mil           8     Jerez  Mujer   22
-##              licenciatura   semestre planes_egreso
-## 1             Enfermeria  Semestre 6       Laborar
-## 2             Enfermeria  Semestre 7      Posgrado
-## 3 Ingenieria de Software  Semestre 2      Posgrado
-## 4 Ingenieria de Software  Semestre 8      Posgrado
-## 5         Medicina Humana Semestre 2      Posgrado
-## 6             Odontologia Semestre 8      Posgrado</code></pre>
+## 1                 Dificil                   8              5
+## 2                 Regular                   9              8
+## 3                 Regular                   8              9
+## 4             Muy dificil                   9             10
+## 5                 Dificil                   9              9
+## 6                 Regular                  10              4
+##   Ssalario_estimado hrs_trabajo           municipio genero edad
+## 1       10 - 15 mil          10             Morelos Hombre   18
+## 2       15 - 20 mil          10         Ojocaliente Hombre   20
+## 3     mas de 20 mil          10             Orizaba Hombre   21
+## 4        6 - 10 mil          12           Naucalpan  Mujer   19
+## 5       15 - 20 mil           8 Huejuquilla el Alto  Mujer   20
+## 6        6 - 10 mil           8     Panfilo natera   Mujer   22
+##                   licenciatura    semestre planes_egreso
+## 1      Ingenieria de Software   Semestre 2      Posgrado
+## 2 Quimico Farmaceutico Biologo  Semestre 1       Laborar
+## 3      Ingenieria de Software   Semestre 8      Posgrado
+## 4              Medicina Humana  Semestre 2      Posgrado
+## 5      Ingenieria de Software   Semestre 4       Laborar
+## 6                   Psicologia Semestre 10      Posgrado</code></pre>
 <pre class="r"><code>tail(dsuaz)</code></pre>
 <pre><code>##     hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
-## 136               4          4               0                 1
-## 137               4          4               4                 3
-## 138               4          4               0                 2
-## 139               4          4               0                 0
-## 140               4          0               0                 3
-## 141               4          4               0                 2
+## 108               4          4               0                 1
+## 109               4          4               4                 3
+## 110               4          4               0                 2
+## 111               4          0               0                 3
+## 112               4          4               0                 2
+## 113               4          2               0                 2
 ##     hrs_universidad_dia promedio hrs_ejercicio_dia hrs_dormir_dia
-## 136                   7     9.30                 0              8
-## 137                   4     8.30                 0              8
-## 138                   6     8.00                 4              8
-## 139                   7     8.80                 0              6
-## 140                   6     8.57                 4              8
-## 141                   6     9.50                 0              8
+## 108                   7     9.30                 0              8
+## 109                   4     8.30                 0              8
+## 110                   6     8.00                 4              8
+## 111                   6     8.57                 4              8
+## 112                   6     9.50                 0              8
+## 113                   6     8.70                 2              6
 ##     transporte_publico comedor becario materias_repetidas
-## 136                  1       1       0                  0
-## 137                  1       1       0                  0
-## 138                  1       0       0                  0
-## 139                  1       1       0                  0
-## 140                  1       1       1                  0
-## 141                  1       1       0                  0
+## 108                  1       1       0                  0
+## 109                  1       1       0                  0
+## 110                  1       0       0                  0
+## 111                  1       1       1                  0
+## 112                  1       1       0                  0
+## 113                  1       0       0                  0
 ##     dificultad_licenciatura pasion_licenciatura oferta_laboral
-## 136                 Dificil                  10              5
-## 137                 Dificil                   9             10
-## 138                 Regular                   9              0
-## 139                 Regular                  10              9
-## 140                 Regular                   8             10
-## 141                 Regular                   5              5
-##     Ssalario_estimado hrs_trabajo municipio genero edad
-## 136        6 - 10 mil           8 Zacatecas  Mujer   22
-## 137       10 - 15 mil           8     Jerez Hombre   22
-## 138        6 - 10 mil           8 Zacatecas  Mujer   19
-## 139       10 - 15 mil           8 Zacatecas  Mujer   18
-## 140       15 - 20 mil          10   Panuco  Hombre   22
-## 141       10 - 15 mil          10 Guadalupe  Mujer   22
-##                licenciatura    semestre planes_egreso
-## 136              Psicologia Semestre 10       Laborar
-## 137 Ingenieria de Software   Semestre 8      Posgrado
-## 138              Psicologia  Semestre 2      Posgrado
-## 139             Enfermeria   Semestre 2       Laborar
-## 140 Ingenieria de Software   Semestre 8      Posgrado
-## 141              Psicologia Semestre 10      Posgrado</code></pre>
-</div>
-</div>
-<div id="dataset-summary" class="section level5">
-<h5>Dataset Summary</h5>
-<div id="por-medio-de-la-funcin-summary-obtenemos-distintas-estadsticas-de-los-datos-almacenados-en-el-dataset.-esta-funcin-invoca-distintos-mtodos-de-acuerdo-al-tipo-de-objeto-que-est-recibiendo-como-argumento-en-este-caso-especfico-es-un-dataset." class="section level6">
-<h6>Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.</h6>
-<pre class="r"><code>summary(dsuaz)</code></pre>
-<pre><code>##  hrs_estudio_dia   hrs_tv_dia    hrs_vjuegos_dia hrs_actsocial_dia
-##  Min.   :0.000   Min.   :0.000   Min.   :0.000   Min.   : 0.00    
-##  1st Qu.:4.000   1st Qu.:0.000   1st Qu.:0.000   1st Qu.: 1.00    
-##  Median :4.000   Median :0.000   Median :0.000   Median : 2.00    
-##  Mean   :4.383   Mean   :1.532   Mean   :1.135   Mean   : 2.39    
-##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.: 3.00    
-##  Max.   :8.000   Max.   :6.000   Max.   :6.000   Max.   :10.00    
-##  hrs_universidad_dia    promedio     hrs_ejercicio_dia hrs_dormir_dia  
-##  Min.   :0.000       Min.   :7.000   Min.   :0.000     Min.   : 3.000  
-##  1st Qu.:6.000       1st Qu.:8.000   1st Qu.:0.000     1st Qu.: 6.000  
-##  Median :7.000       Median :8.310   Median :0.000     Median : 8.000  
-##  Mean   :6.298       Mean   :8.406   Mean   :1.504     Mean   : 6.936  
-##  3rd Qu.:7.000       3rd Qu.:8.900   3rd Qu.:4.000     3rd Qu.: 8.000  
-##  Max.   :8.000       Max.   :9.800   Max.   :4.000     Max.   :10.000  
-##  transporte_publico    comedor          becario       materias_repetidas
-##  Min.   :0.0000     Min.   :0.0000   Min.   :0.0000   Min.   :0.0000    
-##  1st Qu.:1.0000     1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000    
-##  Median :1.0000     Median :0.0000   Median :0.0000   Median :0.0000    
-##  Mean   :0.8298     Mean   :0.4752   Mean   :0.3333   Mean   :0.4113    
-##  3rd Qu.:1.0000     3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000    
-##  Max.   :1.0000     Max.   :1.0000   Max.   :1.0000   Max.   :5.0000    
-##  dificultad_licenciatura pasion_licenciatura oferta_laboral  
-##  Length:141              Min.   : 4.000      Min.   : 0.000  
-##  Class :character        1st Qu.: 8.000      1st Qu.: 5.000  
-##  Mode  :character        Median : 9.000      Median : 7.000  
-##                          Mean   : 8.794      Mean   : 6.851  
-##                          3rd Qu.:10.000      3rd Qu.: 9.000  
-##                          Max.   :10.000      Max.   :10.000  
-##  Ssalario_estimado   hrs_trabajo      municipio            genero         
-##  Length:141         Min.   : 8.000   Length:141         Length:141        
-##  Class :character   1st Qu.: 8.000   Class :character   Class :character  
-##  Mode  :character   Median :10.000   Mode  :character   Mode  :character  
-##                     Mean   : 9.624                                        
-##                     3rd Qu.:10.000                                        
-##                     Max.   :13.000                                        
-##       edad       licenciatura         semestre         planes_egreso     
-##  Min.   :18.00   Length:141         Length:141         Length:141        
-##  1st Qu.:19.00   Class :character   Class :character   Class :character  
-##  Median :21.00   Mode  :character   Mode  :character   Mode  :character  
-##  Mean   :20.97                                                           
-##  3rd Qu.:22.00                                                           
-##  Max.   :28.00</code></pre>
+## 108                 Dificil                  10              5
+## 109                 Dificil                   9             10
+## 110                 Regular                   9              0
+## 111                 Regular                   8             10
+## 112                 Regular                   5              5
+## 113                 Dificil                   9              8
+##     Ssalario_estimado hrs_trabajo           municipio genero edad
+## 108        6 - 10 mil           8           Zacatecas  Mujer   22
+## 109       10 - 15 mil           8               Jerez Hombre   22
+## 110        6 - 10 mil           8           Zacatecas  Mujer   19
+## 111       15 - 20 mil          10             Panuco  Hombre   22
+## 112       10 - 15 mil          10           Guadalupe  Mujer   22
+## 113       15 - 20 mil           8 Huejuquilla el Alto Hombre   23
+##                     licenciatura    semestre planes_egreso
+## 108                   Psicologia Semestre 10       Laborar
+## 109      Ingenieria de Software   Semestre 8      Posgrado
+## 110                   Psicologia  Semestre 2      Posgrado
+## 111      Ingenieria de Software   Semestre 8      Posgrado
+## 112                   Psicologia Semestre 10      Posgrado
+## 113 Quimico Farmaceutico Biologo  Semestre 8       Laborar</code></pre>
 </div>
 </div>
 </div>
@@ -347,22 +298,16 @@ dsuaz$genero &lt;- as.numeric(dsuaz$genero)
 
 dsuaz$licenciatura &lt;- factor(dsuaz$licenciatura)
 
-dsuaz_n &lt;- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))</code></pre>
+dsuaz_n &lt;- as.data.frame(sapply(dsuaz[,c(1,2,3,4,5,6,7,8,9,10,11,14,15,16,17,19,23)], minmax))</code></pre>
 </div>
 <div id="compute-distances" class="section level3">
 <h3>Compute Distances</h3>
 <pre class="r"><code>table(dsuaz$licenciatura)</code></pre>
 <pre><code>## 
-##                  Enfermeria                        Fisica 
-##                           10                            9 
-##      Ingenieria de Software     Ingenieria en Computacion 
-##                           34                           11 
-##              Medicina Humana             Medicina Humana  
-##                           24                            6 
-##                  Odontologia                   Psicologia 
-##                            9                           26 
-## Quimico Farmaceutico Biologo 
-##                           12</code></pre>
+##      Ingenieria de Software               Medicina Humana 
+##                           33                           30 
+##                   Psicologia Quimico Farmaceutico Biologo 
+##                           25                           25</code></pre>
 </div>
 <div id="training-and-testing-set" class="section level3">
 <h3>Training and Testing set</h3>
@@ -374,37 +319,35 @@ dsuaz_testing_labels &lt;- dsuaz[115:142,21]</code></pre>
 </div>
 <div id="training-and-testing-set-1" class="section level3">
 <h3>Training and Testing set</h3>
-<pre class="r"><code>dsuaz_train &lt;- dsuaz_n[1:113,]
-dsuaz_testing &lt;- dsuaz_n[114:141,]
+<pre class="r"><code>dsuaz_train &lt;- dsuaz_n[1:90,]
+dsuaz_testing &lt;- dsuaz_n[91:113,]
 dim(dsuaz_testing_labels)</code></pre>
 <pre><code>## NULL</code></pre>
 <pre class="r"><code>dim(dsuaz_train)</code></pre>
-<pre><code>## [1] 113  11</code></pre>
-<pre class="r"><code>dsuaz_train_labels &lt;- dsuaz[1:113,21]
-dsuaz_testing_labels &lt;- dsuaz[114:141,21]
+<pre><code>## [1] 90 17</code></pre>
+<pre class="r"><code>dsuaz_train_labels &lt;- dsuaz[1:90,21]
+dsuaz_testing_labels &lt;- dsuaz[91:113,21]
 dsuaz_testing_labels</code></pre>
-<pre><code>##  [1] Psicologia                Ingenieria de Software   
-##  [3] Ingenieria de Software    Medicina Humana          
-##  [5] Medicina Humana           Psicologia               
-##  [7] Fisica                    Ingenieria en Computacion
-##  [9] Psicologia                Ingenieria de Software   
-## [11] Ingenieria de Software    Medicina Humana          
-## [13] Odontologia               Ingenieria de Software   
-## [15] Fisica                    Medicina Humana          
-## [17] Psicologia                Medicina Humana          
-## [19] Enfermeria                Ingenieria de Software   
-## [21] Psicologia                Ingenieria de Software   
-## [23] Psicologia                Ingenieria de Software   
-## [25] Psicologia                Enfermeria               
-## [27] Ingenieria de Software    Psicologia               
-## 9 Levels: Enfermeria  Fisica ... Quimico Farmaceutico Biologo</code></pre>
+<pre><code>##  [1] Ingenieria de Software       Quimico Farmaceutico Biologo
+##  [3] Medicina Humana              Medicina Humana             
+##  [5] Psicologia                   Psicologia                  
+##  [7] Ingenieria de Software       Quimico Farmaceutico Biologo
+##  [9] Medicina Humana              Quimico Farmaceutico Biologo
+## [11] Ingenieria de Software       Medicina Humana             
+## [13] Psicologia                   Medicina Humana             
+## [15] Ingenieria de Software       Psicologia                  
+## [17] Quimico Farmaceutico Biologo Psicologia                  
+## [19] Ingenieria de Software       Psicologia                  
+## [21] Ingenieria de Software       Psicologia                  
+## [23] Quimico Farmaceutico Biologo
+## 4 Levels: Ingenieria de Software  Medicina Humana ... Quimico Farmaceutico Biologo</code></pre>
 </div>
 <div id="knn-classification-outputs" class="section level3">
 <h3>KNN classification outputs</h3>
 <pre class="r"><code>library(class)
 library(gmodels)</code></pre>
 <pre><code>## Warning: package 'gmodels' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>dsuaz_results &lt;- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 20)
+<pre class="r"><code>dsuaz_results &lt;- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 22)
 
 CrossTable(x = dsuaz_testing_labels,
             y = dsuaz_results,
@@ -420,60 +363,37 @@ CrossTable(x = dsuaz_testing_labels,
 ## |-------------------------|
 ## 
 ##  
-## Total Observations in Table:  28 
+## Total Observations in Table:  23 
 ## 
 ##  
-##                           | dsuaz_results 
-##      dsuaz_testing_labels |                  Enfermeria  |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##               Enfermeria  |                            1 |                            0 |                            0 |                            1 |                            0 |                            2 | 
-##                           |                        0.500 |                        0.000 |                        0.000 |                        0.500 |                        0.000 |                        0.071 | 
-##                           |                        0.500 |                        0.000 |                        0.000 |                        0.167 |                        0.000 |                              | 
-##                           |                        0.036 |                        0.000 |                        0.000 |                        0.036 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                    Fisica |                            1 |                            1 |                            0 |                            0 |                            0 |                            2 | 
-##                           |                        0.500 |                        0.500 |                        0.000 |                        0.000 |                        0.000 |                        0.071 | 
-##                           |                        0.500 |                        0.071 |                        0.000 |                        0.000 |                        0.000 |                              | 
-##                           |                        0.036 |                        0.036 |                        0.000 |                        0.000 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##   Ingenieria de Software  |                            0 |                            8 |                            0 |                            1 |                            0 |                            9 | 
-##                           |                        0.000 |                        0.889 |                        0.000 |                        0.111 |                        0.000 |                        0.321 | 
-##                           |                        0.000 |                        0.571 |                        0.000 |                        0.167 |                        0.000 |                              | 
-##                           |                        0.000 |                        0.286 |                        0.000 |                        0.036 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-## Ingenieria en Computacion |                            0 |                            1 |                            0 |                            0 |                            0 |                            1 | 
-##                           |                        0.000 |                        1.000 |                        0.000 |                        0.000 |                        0.000 |                        0.036 | 
-##                           |                        0.000 |                        0.071 |                        0.000 |                        0.000 |                        0.000 |                              | 
-##                           |                        0.000 |                        0.036 |                        0.000 |                        0.000 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##           Medicina Humana |                            0 |                            1 |                            3 |                            0 |                            0 |                            4 | 
-##                           |                        0.000 |                        0.250 |                        0.750 |                        0.000 |                        0.000 |                        0.143 | 
-##                           |                        0.000 |                        0.071 |                        0.750 |                        0.000 |                        0.000 |                              | 
-##                           |                        0.000 |                        0.036 |                        0.107 |                        0.000 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##          Medicina Humana  |                            0 |                            0 |                            1 |                            0 |                            0 |                            1 | 
-##                           |                        0.000 |                        0.000 |                        1.000 |                        0.000 |                        0.000 |                        0.036 | 
-##                           |                        0.000 |                        0.000 |                        0.250 |                        0.000 |                        0.000 |                              | 
-##                           |                        0.000 |                        0.000 |                        0.036 |                        0.000 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##               Odontologia |                            0 |                            1 |                            0 |                            0 |                            0 |                            1 | 
-##                           |                        0.000 |                        1.000 |                        0.000 |                        0.000 |                        0.000 |                        0.036 | 
-##                           |                        0.000 |                        0.071 |                        0.000 |                        0.000 |                        0.000 |                              | 
-##                           |                        0.000 |                        0.036 |                        0.000 |                        0.000 |                        0.000 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                Psicologia |                            0 |                            2 |                            0 |                            4 |                            2 |                            8 | 
-##                           |                        0.000 |                        0.250 |                        0.000 |                        0.500 |                        0.250 |                        0.286 | 
-##                           |                        0.000 |                        0.143 |                        0.000 |                        0.667 |                        1.000 |                              | 
-##                           |                        0.000 |                        0.071 |                        0.000 |                        0.143 |                        0.071 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##              Column Total |                            2 |                           14 |                            4 |                            6 |                            2 |                           28 | 
-##                           |                        0.071 |                        0.500 |                        0.143 |                        0.214 |                        0.071 |                              | 
-## --------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+##                              | dsuaz_results 
+##         dsuaz_testing_labels |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+##      Ingenieria de Software  |                            5 |                            0 |                            1 |                            0 |                            6 | 
+##                              |                        0.833 |                        0.000 |                        0.167 |                        0.000 |                        0.261 | 
+##                              |                        0.556 |                        0.000 |                        0.250 |                        0.000 |                              | 
+##                              |                        0.217 |                        0.000 |                        0.043 |                        0.000 |                              | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+##              Medicina Humana |                            1 |                            4 |                            0 |                            0 |                            5 | 
+##                              |                        0.200 |                        0.800 |                        0.000 |                        0.000 |                        0.217 | 
+##                              |                        0.111 |                        0.444 |                        0.000 |                        0.000 |                              | 
+##                              |                        0.043 |                        0.174 |                        0.000 |                        0.000 |                              | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+##                   Psicologia |                            1 |                            3 |                            3 |                            0 |                            7 | 
+##                              |                        0.143 |                        0.429 |                        0.429 |                        0.000 |                        0.304 | 
+##                              |                        0.111 |                        0.333 |                        0.750 |                        0.000 |                              | 
+##                              |                        0.043 |                        0.130 |                        0.130 |                        0.000 |                              | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+## Quimico Farmaceutico Biologo |                            2 |                            2 |                            0 |                            1 |                            5 | 
+##                              |                        0.400 |                        0.400 |                        0.000 |                        0.200 |                        0.217 | 
+##                              |                        0.222 |                        0.222 |                        0.000 |                        1.000 |                              | 
+##                              |                        0.087 |                        0.087 |                        0.000 |                        0.043 |                              | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
+##                 Column Total |                            9 |                            9 |                            4 |                            1 |                           23 | 
+##                              |                        0.391 |                        0.391 |                        0.174 |                        0.043 |                              | 
+## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## 
 ## </code></pre>
-</div>
-<div id="compute-distances-1" class="section level3">
-<h3>Compute Distances</h3>
 </div>
 
 

@@ -28,16 +28,10 @@ str(dsuaz)
 ```
 
 ##### Head & Tail
-###### With the head and tail functions we can get a small sample of the data, those first six records with each of its attributes and their values and the last six records of the dataset.
+###### Con las funciones head y tail podemos obtener una peque??a muestra de los datos 
 ```{r, headtrain}
 head(dsuaz)
 tail(dsuaz)
-```
-
-##### Dataset Summary
-###### Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.
-```{r, summary}
-summary(dsuaz)
 ```
 
 ### Parte 2- KNN- F?rmulas para Normalizar
@@ -74,8 +68,9 @@ dsuaz$genero <- as.numeric(dsuaz$genero)
 
 dsuaz$licenciatura <- factor(dsuaz$licenciatura)
 
-dsuaz_n <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
+dsuaz_n <- as.data.frame(sapply(dsuaz[,c(1,2,3,4,5,6,7,8,9,10,11,14,15,16,17,19,23)], minmax))
 ```
+
 
 
 ### Compute Distances
@@ -98,12 +93,12 @@ dsuaz_testing_labels <- dsuaz[115:142,21]
 ### Training and Testing set
 
 ```{r}
-dsuaz_train <- dsuaz_n[1:113,]
-dsuaz_testing <- dsuaz_n[114:141,]
+dsuaz_train <- dsuaz_n[1:90,]
+dsuaz_testing <- dsuaz_n[91:113,]
 dim(dsuaz_testing_labels)
 dim(dsuaz_train)
-dsuaz_train_labels <- dsuaz[1:113,21]
-dsuaz_testing_labels <- dsuaz[114:141,21]
+dsuaz_train_labels <- dsuaz[1:90,21]
+dsuaz_testing_labels <- dsuaz[91:113,21]
 dsuaz_testing_labels
 ```
 
@@ -113,7 +108,7 @@ dsuaz_testing_labels
 ```{r}
 library(class)
 library(gmodels)
-dsuaz_results <- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 20)
+dsuaz_results <- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 22)
 
 CrossTable(x = dsuaz_testing_labels,
             y = dsuaz_results,

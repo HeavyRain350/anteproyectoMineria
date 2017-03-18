@@ -28,13 +28,129 @@ str(dsuaz)
 ```
 
 ##### Head & Tail
-###### Con las funciones head y tail podemos obtener una peque??a muestra de los datos 
-```{r, headtrain}
+###### With the head and tail functions we can get a small sample of the data, those first six records with each of its attributes and their values and the last six records of the dataset.
+```{r, headtail}
 head(dsuaz)
 tail(dsuaz)
 ```
 
-### Parte 2- KNN- Formulas to Normalize
+##### Dataset Summary
+###### Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.
+```{r, summary}
+summary(dsuaz)
+```
+```{r, genero}
+table(dsuaz$genero)
+summary(dsuaz$genero)
+
+genero <- factor(dsuaz$genero)
+planesegreso <- factor(dsuaz$planes_egreso)
+hrsestudio <- factor(dsuaz$hrs_estudio_dia)
+
+
+plot(genero, hrsestudio, xlab = "GENDER", ylab = "STUDY HOURS")
+
+plot(genero, planesegreso, xlab = "GENDER", ylab = "EARNING PLANS")
+```
+
+```{r, edad}
+table(dsuaz$edad)
+summary(dsuaz$edad)
+```
+
+```{r, municipio}
+table(dsuaz$municipio)
+```
+
+```{r, hrsestudio}
+table(dsuaz$hrs_estudio_dia)
+summary(dsuaz$hrs_estudio_dia)
+```
+
+```{r, hrstv}
+table(dsuaz$hrs_tv_dia)
+summary(dsuaz$hrs_tv_dia)
+```
+
+```{r, hrsejercicio}
+table(dsuaz$hrs_ejercicio_dia)
+summary(dsuaz$hrs_ejercicio_dia)
+```
+
+
+```{r, hrsatcvsocial}
+table(dsuaz$hrs_actsocial_dia)
+summary(dsuaz$hrs_actsocial_dia)
+```
+
+```{r, hrsuniversidad}
+table(dsuaz$hrs_universidad_dia)
+summary(dsuaz$hrs_universidad_dia)
+```
+
+```{r, hrsdormir}
+table(dsuaz$hrs_dormir_dia)
+summary(dsuaz$hrs_dormir_dia)
+```
+
+```{r, usotransporte}
+table(dsuaz$transporte_publico)
+summary(dsuaz$transporte_publico)
+```
+
+```{r, comedor}
+table(dsuaz$comedor)
+summary(dsuaz$comedor)
+```
+
+```{r, becario}
+table(dsuaz$becario)
+summary(dsuaz$becario)
+```
+
+```{r, licenciatura}
+table(dsuaz$licenciatura)
+```
+
+```{r, semestre}
+table(dsuaz$semestre)
+summary(dsuaz$semestre)
+```
+
+```{r, dificultad}
+table(dsuaz$dificultad_licenciatura)
+summary(dsuaz$dificultad_licenciatura)
+```
+
+```{r, pasion}
+table(dsuaz$pasion_licenciatura)
+summary(dsuaz$pasion_licenciatura)
+```
+
+```{r, materiasrepetidas}
+table(dsuaz$materias_repetidas)
+summary(dsuaz$materias_repetidas)
+```
+
+```{r, promedio}
+table(dsuaz$promedio)
+summary(dsuaz$promedio)
+```
+
+```{r, ofertalaboral}
+table(dsuaz$oferta_laboral)
+summary(dsuaz$oferta_laboral)
+```
+
+```{r, salario}
+table(dsuaz$Ssalario_estimado)
+```
+
+```{r, planesegreso}
+table(dsuaz$planes_egreso)
+```
+
+### Parte 2- KNN- F?rmulas para Normalizar
 ```{r set}
 
 # Funcion para Normalizar por min-max
@@ -49,7 +165,7 @@ zscore <- function(x) (
   )
 ```
 
-### Parte 2- KNN- Normalization
+### Parte 2- KNN- Normalizaci?n
 ```{r}
 dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
@@ -68,50 +184,42 @@ dsuaz$genero <- as.numeric(dsuaz$genero)
 
 dsuaz$licenciatura <- factor(dsuaz$licenciatura)
 
-dsuaz$dificultad_licenciatura <- factor(dsuaz$dificultad_licenciatura)
-
-dsuaz$dificultad_licenciatura <- as.numeric(dsuaz$dificultad_licenciatura)
-
-dsuaz_n <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], minmax))
-dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
-
-#dsuaz_n <- c(sapply(dsuaz[c(1,2)], minmax)) 3,5,8,13,17,19,23
-
-#dsuaz_zs <- c(sapply(dsuaz[c(1,2)], zscore))
-
+dsuaz_n <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
 ```
-
 
 
 ### Compute Distances
+```{r}
+table(dsuaz$licenciatura)
+```
+
+### Training and Testing set
+
+```{r}
+dsuaz_train <- dsuaz_n[1:114,]
+dsuaz_testing <- dsuaz_n[115:142,]
+
+dsuaz_train_labels <- dsuaz[1:114,21]
+dsuaz_testing_labels <- dsuaz[115:142,21]
+```
+
 
 
 ### Training and Testing set
-#### Min Max Normalization
+
 ```{r}
-
-dsuaz_train <- dsuaz_n[1:90,]
-dsuaz_testing <- dsuaz_n[91:113,]
-
-dsuaz_train_labels <- dsuaz[1:90,21]
-dsuaz_testing_labels <- dsuaz[91:113,21]
-
+dsuaz_train <- dsuaz_n[1:113,]
+dsuaz_testing <- dsuaz_n[114:141,]
+dim(dsuaz_testing_labels)
 dim(dsuaz_train)
-dim(dsuaz_testing)
-```
-
-#### Z-score Normalization
-```{r}
-dsuaz_train_zs <- dsuaz_zs[1:90,]
-dsuaz_testing_zs <- dsuaz_zs[91:113,]
-
-dim(dsuaz_train_zs)
-dim(dsuaz_testing_zs)
+dsuaz_train_labels <- dsuaz[1:113,21]
+dsuaz_testing_labels <- dsuaz[114:141,21]
+dsuaz_testing_labels
 ```
 
 
 ### KNN classification outputs
-#### Min Max Normalization
+
 ```{r}
 library(class)
 library(gmodels)
@@ -121,24 +229,3 @@ CrossTable(x = dsuaz_testing_labels,
             y = dsuaz_results,
             prop.chisq = FALSE)
 ```
-
-#### Z-score Normalization
-```{r}
-library(class)
-library(gmodels)
-dsuaz_results_zs <- knn(train = dsuaz_train_zs,test = dsuaz_testing_zs,cl = dsuaz_train_labels, k = 20)
-
-CrossTable(x = dsuaz_testing_labels,
-            y = dsuaz_results_zs,
-            prop.chisq = FALSE)
-```
-
-### Determine the optimal K
-#### Min Max Normalization
-<center>
-![](images/KNN table min-max.png)
-
-#### Z-score Normalization
-#### In the table, we can see that the k equal to 10 is the best because it gives us the best true porcentage over the rest
-<center>
-![](images/KNN table Z-score.png)

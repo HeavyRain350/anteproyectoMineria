@@ -150,6 +150,82 @@ table(dsuaz$Ssalario_estimado)
 table(dsuaz$planes_egreso)
 ```
 
+### Boxplots
+```{r}
+boxplot(dsuaz$hrs_estudio_dia, xlab="Study hours each day")
+```
+
+```{r}
+boxplot(dsuaz$promedio, xlab="Qualification of each student")
+```
+
+```{r}
+boxplot(dsuaz$hrs_dormir_dia, xlab="Sleep hours for each student")
+```
+
+```{r}
+boxplot(dsuaz$pasion_licenciatura, xlab="Students pasion/love with his/her career")
+```
+
+```{r}
+boxplot(dsuaz$oferta_laboral, xlab="difficulty to get a job with his/her career")
+```
+
+```{r}
+boxplot(dsuaz$edad, xlab="Students age")
+```
+
+### Histograms. Interpretation
+```{r}
+hist(dsuaz$hrs_estudio_dia,
+     main = "Histogram of the study hours each day",
+     xlab = "Hours",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
+
+```{r}
+hist(dsuaz$promedio,
+     main = "Histogram of qualification of each student",
+     xlab = "Qualification",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
+
+```{r}
+hist(dsuaz$hrs_dormir_dia,
+     main = "Histogram of the sleep hours for each student",
+     xlab = "Hours",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
+
+```{r}
+
+hist(dsuaz$pasion_licenciatura,
+     main = "Histogram of the students pasion/love with his/her career",
+     xlab = "Pasion",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
+
+```{r}
+
+hist(dsuaz$oferta_laboral,
+     main = "Histogram of the difficulty to get a job with his/her career",
+     xlab = "difficulty",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
+
+```{r}
+
+hist(dsuaz$edad,
+     main = "Histogram of the student age",
+     xlab = "Age",
+     ylab = "Students quantity",
+     labels = TRUE)
+```
 ### Parte 2- KNN- Formulas to Normalize
 ```{r set}
 

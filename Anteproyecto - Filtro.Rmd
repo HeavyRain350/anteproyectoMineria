@@ -150,7 +150,7 @@ table(dsuaz$Ssalario_estimado)
 table(dsuaz$planes_egreso)
 ```
 
-### Parte 2- KNN- F?rmulas para Normalizar
+### Parte 2- KNN- Formulas to Normalize
 ```{r set}
 
 # Funcion para Normalizar por min-max
@@ -165,7 +165,7 @@ zscore <- function(x) (
   )
 ```
 
-### Parte 2- KNN- Normalizaci?n
+### Parte 2- KNN- Normalization
 ```{r}
 dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
@@ -184,41 +184,85 @@ dsuaz$genero <- as.numeric(dsuaz$genero)
 
 dsuaz$licenciatura <- factor(dsuaz$licenciatura)
 
-dsuaz_n <- as.data.frame(sapply(dsuaz[,c(1,2,4,5,8,14,15,16,17,19,23)], minmax))
+dsuaz_n <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], minmax))
+dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 ```
 
 
 ### Compute Distances
 ```{r}
-table(dsuaz$licenciatura)
+
 ```
 
 ### Training and Testing set
-
+#### Count of persons in each career
 ```{r}
-dsuaz_train <- dsuaz_n[1:114,]
-dsuaz_testing <- dsuaz_n[115:142,]
-
-dsuaz_train_labels <- dsuaz[1:114,21]
-dsuaz_testing_labels <- dsuaz[115:142,21]
+dsuaz_train_labels <- dsuaz[1:90,21]
+dsuaz_testing_labels <- dsuaz[91:113,21]
+table(dsuaz_train_labels)
+table(dsuaz_testing_labels)
 ```
 
-
-
-### Training and Testing set
-
+#### Min Max Normalization
 ```{r}
-dsuaz_train <- dsuaz_n[1:113,]
-dsuaz_testing <- dsuaz_n[114:141,]
-dim(dsuaz_testing_labels)
+dsuaz_train <- dsuaz_n[1:90,]
+dsuaz_testing <- dsuaz_n[91:113,]
+
 dim(dsuaz_train)
-dsuaz_train_labels <- dsuaz[1:113,21]
-dsuaz_testing_labels <- dsuaz[114:141,21]
-dsuaz_testing_labels
+dim(dsuaz_testing)
+```
+
+#### Z-score Normalization
+```{r}
+dsuaz_train_zs <- dsuaz_zs[1:90,]
+dsuaz_testing_zs <- dsuaz_zs[91:113,]
+
+dim(dsuaz_train_zs)
+dim(dsuaz_testing_zs)
 ```
 
 
 ### KNN classification outputs
+#### Min Max Normalization
+```{r}
+library(class)
+library(gmodels)
+dsuaz_results <- knn(train = dsuaz_train,test = dsuaz_testing,cl = dsuaz_train_labels, k = 1)
+
+CrossTable(x = dsuaz_testing_labels,
+            y = dsuaz_results,
+            prop.chisq = FALSE)
+```
+
+#### Z-score Normalization
+
+```{r}
+ library(class)
+ library(gmodels)
+ dsuaz_results_zs <- knn(train = dsuaz_train_zs,test = dsuaz_testing_zs,cl = dsuaz_train_labels, k = 1)
+ 
+ CrossTable(x = dsuaz_testing_labels,
+             y = dsuaz_results_zs,
+             prop.chisq = FALSE)
+```
+ 
+### Determine the optimal K
+#### Min Max Normalization
+#### In the table, we can see that the k equal to 20 is the best because it gives us the best true porcentage over the rest.
+<center>
+![](images/KNN table min-max.png)
+
+#### Z-score Normalization
+#### In the table, we can see that the k equal to 10, 12 or 18 are the best because they give us the best true porcentage over the rest.
+<center>
+![](images/KNN table Z-score.png)
+
+### Frequency table and interpretation
+
+####These are the table of the best k in the Min Max Normalization and Z-score normlization respectively
+####In this scenario, the best normalization to use with the knn algorythm is the z-score, because it gives best true porcentage with 73.91%, min max in the other hand only gives 69.59%. Z-score got 2 fails in almost cases and careers, min max fail a lot with QBF students, z-score gave best results.
+
+#### Min Max Normalization
 
 ```{r}
 library(class)
@@ -229,3 +273,16 @@ CrossTable(x = dsuaz_testing_labels,
             y = dsuaz_results,
             prop.chisq = FALSE)
 ```
+
+#### Z-score Normalization
+
+```{r}
+ library(class)
+ library(gmodels)
+ dsuaz_results_zs <- knn(train = dsuaz_train_zs,test = dsuaz_testing_zs,cl = dsuaz_train_labels, k = 10)
+ 
+ CrossTable(x = dsuaz_testing_labels,
+             y = dsuaz_results_zs,
+             prop.chisq = FALSE)
+```
+

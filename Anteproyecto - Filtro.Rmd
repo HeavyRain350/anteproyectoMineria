@@ -22,6 +22,8 @@ dsuaz <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
 #### The Survey
 ###### The survey consisted of 23 questions, which became our attributes in the dataset, The survey was carried out digitally, we created the survey with the tool of Google, and through social networks we distributed it among the students.
 ###### After completing the survey we obtained 254 responses in total, however after analyzing the data we realized that only 142 records were useful, since we grouped the data according to the degree to which they belonged we observed that the numbers of students of The same degree that answered our survey was very different, so to have more balanced data regarding the number of students who answered the survey we decided to eliminate those answers that were below average.
+###### The main limitation we found when trying to conduct the survey was the time we had and the amount of answers we were supposed to have, for that reason we decided to do it digitally with the help of social networks.
+###### Due to this we had the disadvantage that the students answered very attached to their feelings and not in an objective way, due to this our data needed of format and cleaning that we had to realize by hand.
 ###### Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:
 ```{r strwbcd}
 str(dsuaz)
@@ -35,133 +37,165 @@ tail(dsuaz)
 ```
 
 ##### Dataset Summary
-###### Por medio de la funci??n summary obtenemos distintas estad??sticas de los datos almacenados en el dataset. Esta funci??n invoca distintos m??todos de acuerdo al tipo de objeto que est?? recibiendo como argumento, en este caso espec??fico es un dataset.
+###### With the summary function we obtain different statistics of the data stored in the dataset. This function invokes different methods according to the type of object that is. Receiving as argument, in this specific case is a dataset.
+###### We can observe the values: minimum, maximum, mean, median and quartiles of each of the variables that make up the dataset.
 ```{r, summary}
 summary(dsuaz)
 ```
+
+#### Variables Description
+
+##### Gender
+###### The interview was conducted to students of the UAZ, of which 51 were men and 62 women.
 ```{r, genero}
 table(dsuaz$genero)
-summary(dsuaz$genero)
-
-genero <- factor(dsuaz$genero)
-planesegreso <- factor(dsuaz$planes_egreso)
-hrsestudio <- factor(dsuaz$hrs_estudio_dia)
-
-
-plot(genero, hrsestudio, xlab = "GENDER", ylab = "STUDY HOURS")
-
-plot(genero, planesegreso, xlab = "GENDER", ylab = "EARNING PLANS")
 ```
 
+##### Age
+###### The ages of the students interviewed range from 18 to 28 years. In the next block we can observe the number of students interviewed for each of the ages obtained with the survey.
+###### But we can also observe other data with the summary function, note that the first quartile is in 19 years and the third in 22 years, which indicates that the greater number of students is between these ages, in fact the Median is 21 years, if we go back a little, we can see that actually 21 years has the largest number of students same that 22 years.
 ```{r, edad}
 table(dsuaz$edad)
 summary(dsuaz$edad)
 ```
 
+#####Town
+###### In the next block we can see from which city the students interviewed come from.
 ```{r, municipio}
 table(dsuaz$municipio)
 ```
 
+##### Study Hours per day
+######We asked the interviewed students how many hours they spend studying outside the university, most spend between 4 and 6 hours studying a day.
 ```{r, hrsestudio}
 table(dsuaz$hrs_estudio_dia)
 summary(dsuaz$hrs_estudio_dia)
 ```
 
+##### Tv hours per day
+###### More than half of the total number of students interviewed responded by not spending any time watching TV per day. However we still have 39 students watch 4 hours of TV per day and a student who watches TV 6 hours per day.
 ```{r, hrstv}
 table(dsuaz$hrs_tv_dia)
 summary(dsuaz$hrs_tv_dia)
 ```
 
+##### Exercise hours per day
+###### Most students do not do any type of exercise a day, only 39 students are those who perform 2 to 4 hours of exercise per day.
 ```{r, hrsejercicio}
 table(dsuaz$hrs_ejercicio_dia)
 summary(dsuaz$hrs_ejercicio_dia)
 ```
 
-
+##### Hours of social activity per day
+###### Almost all students interviewed said they have time for social activities per day, most students spend between 1 and 3 hours a day to interact with other people.
 ```{r, hrsatcvsocial}
 table(dsuaz$hrs_actsocial_dia)
 summary(dsuaz$hrs_actsocial_dia)
 ```
 
+##### Hours students spend in college
+###### Students spend from 0 to 8 hours in college. The median is 7, and the first and third quartiles are between 6 and 7, so that most of the students, 91 to be exact, spend from 6 to 7 hours receiving classes in classrooms.
 ```{r, hrsuniversidad}
 table(dsuaz$hrs_universidad_dia)
 summary(dsuaz$hrs_universidad_dia)
 ```
 
+##### Hours of sleep per day
+###### In the next block we can see that most students sleep between 6 and 8 hours a day, few students sleep less than 6 hours per day and are even fewer those who sleep more than 10 hours .
+###### Given the number of hours recommended for anyone to sleep, we have obtained good answers from the students.
 ```{r, hrsdormir}
 table(dsuaz$hrs_dormir_dia)
 summary(dsuaz$hrs_dormir_dia)
 ```
 
+##### Use of public transportation between students
+###### We used the values 0 for answer no, and 1 for yes. So, most of the students use the public transportation, just 22 students dont use it.
 ```{r, usotransporte}
 table(dsuaz$transporte_publico)
 summary(dsuaz$transporte_publico)
 ```
+
+##### Use of cafeteria between students
+###### We used the values 0 for answer no, and 1 for yes. In this case the results are pretty balanced, only 50 percent plus one, that is, 57 of the students do not use the college canteen and 56 of the students interviewed do so.
 
 ```{r, comedor}
 table(dsuaz$comedor)
 summary(dsuaz$comedor)
 ```
 
+##### Students who have a scholarship
+###### We used the values 0 for answer no, and 1 for yes. 
+###### We asked to the students if they had some type of scholarship, without specifying what type, simply if they had one or not. 87 percent of the students interviewed responded that they did not have any type of scholarship, the rest, 36 students from the total of those interviewed said they had a scholarship.
 ```{r, becario}
 table(dsuaz$becario)
 summary(dsuaz$becario)
 ```
 
+##### Students per career
+###### The interview was released to UAZ students, but as mentioned earlier we eliminated the answers from those who did not have enough results to study.
+###### Therefore our study has been done with the students of the following four careers:
+###### ---> Software Engineering
+###### ---> Medicine
+###### ---> Psychology
+###### ---> Pharmaceutical Chemist Biologist
+###### In the next block we can find the amount of students in each career.
 ```{r, licenciatura}
 table(dsuaz$licenciatura)
 ```
 
+##### Semester students
+###### We interview students from each semester of the different careers, the semesters of which we have the most results are the second, eighth and tenth semester. The first and third quartiles tell us where the greatest number of students are, between the second and eighth semester.
 ```{r, semestre}
 table(dsuaz$semestre)
 summary(dsuaz$semestre)
 ```
 
+##### Difficulty perceived by students of their career
 ```{r, dificultad}
 table(dsuaz$dificultad_licenciatura)
 summary(dsuaz$dificultad_licenciatura)
 ```
 
+##### Passion of students for their career 
 ```{r, pasion}
 table(dsuaz$pasion_licenciatura)
 summary(dsuaz$pasion_licenciatura)
 ```
 
+##### Amount subjects failed by students
 ```{r, materiasrepetidas}
 table(dsuaz$materias_repetidas)
 summary(dsuaz$materias_repetidas)
 ```
 
+##### Academic average of the students
 ```{r, promedio}
 table(dsuaz$promedio)
 summary(dsuaz$promedio)
 ```
 
+##### Expectation of job offer
 ```{r, ofertalaboral}
 table(dsuaz$oferta_laboral)
 summary(dsuaz$oferta_laboral)
 ```
 
+##### Expectation of monthly salary upon graduation
 ```{r, salario}
 table(dsuaz$Ssalario_estimado)
 ```
 
+##### Plans of students upon graduation
 ```{r, planesegreso}
 table(dsuaz$planes_egreso)
 ```
 
-### Boxplots
-```{r}
-boxplot(dsuaz$hrs_estudio_dia, xlab="Study hours each day")
-```
+## Boxplots
 
 ```{r}
 boxplot(dsuaz$promedio, xlab="Qualification of each student")
 ```
 
-```{r}
-boxplot(dsuaz$hrs_dormir_dia, xlab="Sleep hours for each student")
-```
 
 ```{r}
 boxplot(dsuaz$pasion_licenciatura, xlab="Students pasion/love with his/her career")
@@ -173,6 +207,141 @@ boxplot(dsuaz$oferta_laboral, xlab="difficulty to get a job with his/her career"
 
 ```{r}
 boxplot(dsuaz$edad, xlab="Students age")
+```
+
+### Gender boxplots
+
+##### Hours of Study according to the gender
+```{r, studyhrspergenderboxplot}
+boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$genero),las = 2,main=toupper('Hours of Study according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of study", font.lab=3, col='#FFBD59', names = c('Male','Female'))
+```
+
+##### Hours of Sleep according to the gender
+```{r, hrssleeppergenderboxplot}
+boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$genero),las = 2,main=toupper('Hours of Sleep according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Sleep", font.lab=3, col='#FF2E47', names = c('Male','Female'))
+```
+
+##### Hours of Exercise according to the gender
+```{r, hrseexercisepergenderboxplot}
+boxplot(split(dsuaz$hrs_ejercicio_dia,dsuaz$genero),las = 2,main=toupper('Hours of Exercise according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Exercise", font.lab=3, col='#8CBA5C', names = c('Male','Female'))
+```
+
+##### Hours of Video Games according to the gender
+```{r, hrsvgmspergenderboxplot}
+boxplot(split(dsuaz$hrs_vjuegos_dia,dsuaz$genero),las = 2,main=toupper('Hours of Video Games according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Video Games", font.lab=3, col='#B266A6', names = c('Male','Female'))
+```
+
+##### Hours of TV according to the gender
+```{r, hrstvpergenderboxplot}
+boxplot(split(dsuaz$hrs_tv_dia,dsuaz$genero),las = 2,main=toupper('Hours of TV according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of TV", font.lab=3, col='#6E6E9C', names = c('Male','Female'))
+```
+
+##### Hours of Social Activity according to the gender
+```{r, hrsactvsocialpergenderboxplot}
+boxplot(split(dsuaz$hrs_actsocial_dia,dsuaz$genero),las = 2,main=toupper('Hours of Social Activity according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Activity Social", font.lab=3, col='#26667D', names = c('Male','Female'))
+```
+
+
+
+### Sleepy hours boxplots
+
+##### Sleep hours for each student
+```{r}
+boxplot(dsuaz$hrs_dormir_dia, xlab="Sleep hours for each student")
+```
+
+##### Hours of sleep according to age
+```{r, sleephrsperagelboxplot}
+boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$edad),main=toupper('Hours of sleep according to age'), font.main=3, cex.main=1.2, xlab="Age", ylab="Hours of sleep", font.lab=3, col="#31B1B1")
+```
+
+##### Hours of Study according to the career
+```{r, sleephrsperlicenciaturalboxplot}
+boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Study according to the career'), font.main=3, cex.main=1.2, ylab="Hours of sleep", font.lab=3, col='#409973', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+
+### Study hours boxplots
+
+##### Study hours each day
+```{r, studyhrs}
+boxplot(dsuaz$hrs_estudio_dia, xlab="Study hours each day")
+```
+
+##### Hours of Study according to age
+```{r, studyhrsperagelboxplot}
+boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$edad),main=toupper('Hours of Study according to age'), font.main=3, cex.main=1.2, xlab="Age", ylab="Hours of study", font.lab=3, col="#0A8FA3")
+```
+
+##### Hours of Study according to the semester
+```{r, studyhrspersemesterlboxplot}
+boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$semestre),main=toupper('Hours of Study according to the semester'), font.main=3, cex.main=1.2, xlab="Semester", ylab="Hours of study", font.lab=3, col="#1A80B2")
+```
+
+##### Hours of Study according to the career
+```{r, studyhrsperlicenciaturalboxplot}
+boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Study according to the career'), font.main=3, cex.main=1.2, ylab="Hours of study", font.lab=3, col='#FFBD59', names = c('Software','Medicine','Psychology','QFB'))
+```
+### Career boxplots
+
+##### Hours at university according to the career
+```{r, unihrsperlicenciaturalboxplot}
+boxplot(split(dsuaz$hrs_universidad_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours at University according to the career'), font.main=3, cex.main=1.2, ylab="Hours at university", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Use of public transport according to the career
+```{r, transporteperlicenciaturalboxplot}
+boxplot(split(dsuaz$transporte_publico,dsuaz$licenciatura),las = 2,main=toupper('Use of public transport according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Use of Cafeteria according to the career
+```{r, cafateriaperlicenciaturalboxplot}
+boxplot(split(dsuaz$comedor,dsuaz$licenciatura),las = 2,main=toupper('Used of Cafeteria according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#75A8ED', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Scholarships according to the career
+```{r, scholarchipsperlicenciaturalboxplot}
+boxplot(split(dsuaz$becario,dsuaz$licenciatura),las = 2,main=toupper('Scholarships according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#852499', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Difficulty appreciated according to the career
+###### 1 = Easy
+###### 2 = Regular
+###### 3 = Hard
+###### 4 = Really Hard
+```{r, difficultyperlicenciaturalboxplot}
+boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Difficulty appreciated according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 4 = Max", font.lab=3, col='#FA668A', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Repeated subjects according to the career
+```{r, repeatedperlicenciaturalboxplot}
+boxplot(split(dsuaz$materias_repetidas,dsuaz$licenciatura),las = 2,main=toupper('Repeated subjects according to the career'), font.main=3, cex.main=1.2, ylab="Repeated subjects", font.lab=3, col='#2E61DB', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+
+##### Passion according to the career
+```{r, passionperlicenciaturalboxplot}
+boxplot(split(dsuaz$pasion_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Passion according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#B24073', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Semester according to the career
+```{r, semesterperlicenciaturalboxplot}
+boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Semester according to the career'), font.main=3, cex.main=1.2, ylab="Semester", font.lab=3, col='#FF99A3', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Grade point average  according to the career
+```{r, gpaperlicenciaturalboxplot}
+boxplot(split(dsuaz$promedio,dsuaz$licenciatura),las = 2,main=toupper('GPA according to the career'), font.main=3, cex.main=1.2, ylab="GPA", font.lab=3, col='#69BD8A', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Job offer expectation according to the career
+```{r, joblicenciaturalboxplot}
+boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Job offer expectation according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#992966', names = c('Software','Medicine','Psychology','QFB'))
+```
+
+##### Hours of work expected according to the career
+```{r, hrsworklicenciaturalboxplot}
+boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of work expected according to the career'), font.main=3, cex.main=1.2, ylab="Hours of work expected", font.lab=3, col='#1F8594', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 ### Histograms. Interpretation

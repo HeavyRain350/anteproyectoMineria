@@ -151,41 +151,61 @@ summary(dsuaz$semestre)
 ```
 
 ##### Difficulty perceived by students of their career
+###### Students also asked about the difficulty with which they perceived their studies in each race, values are:
+###### ---> 1: Easy
+###### ---> 2: Regular
+###### ---> 3: Difficult
+###### ---> 4: Very Difficult
+###### Looking at the results of the summary we realize that almost all students think that their career is regular or difficult, there were students who thought it was easy or very difficult, but one hundred students were the opinion among the first and third quartile, regular or difficult.
 ```{r, dificultad}
 table(dsuaz$dificultad_licenciatura)
 summary(dsuaz$dificultad_licenciatura)
 ```
 
 ##### Passion of students for their career 
+###### Another important part that we wanted to find out was the passion that every student has for his career, we gave them a scale of 1 to 10, in which 1 was nothing at all to 10, very passionate.
+###### The results were as follows, the lowest values we obtained were four, although the majority remained between 8 and 10, which indicates that although they are not the total of the students, much of them is in the place that he is passionate about.
 ```{r, pasion}
 table(dsuaz$pasion_licenciatura)
 summary(dsuaz$pasion_licenciatura)
 ```
 
 ##### Amount subjects failed by students
+###### The above factors can lead to a good execution of our school activities or the opposite. Such is the case of those students who end up repeating subjects.
+###### So we asked them how many subjects they had repeated so far in your career. The results were as follows, 92 students out of 113 who are the total, said they did not repeat any subject, 10 students have repeated one subject and the rest have repeated 2 to 5 subjects.
 ```{r, materiasrepetidas}
 table(dsuaz$materias_repetidas)
 summary(dsuaz$materias_repetidas)
 ```
 
 ##### Academic average of the students
+###### One way to know a student's performance is their academic average, and although it is not the only or best way to do it, our grade point average ends up being a letter of introduction in a school environment.
+###### So we decided to ask the students what their current grade point average is.
+###### These range from 7 to 9.8. Our first and third quartiles are between 8.0 and 8.98, which indicates that the majority of students are in the same grade range, 21 students said to have an academic average of 8.0, second with 11 students is 8.5 and third with 10 students 9.0.
 ```{r, promedio}
 table(dsuaz$promedio)
 summary(dsuaz$promedio)
 ```
 
 ##### Expectation of job offer
+###### Another important factor to take into account about the career we choose is the expectation of work that we have when graduating. We asked the students about their job offer expectation, we obtained the following results.
+###### The range of answers is from 0 to 10. 0 no expectation of job offer upon graduation and 10 much expectation, our results spread throughout the scale.
+###### The first quartile is in 5 and the third in 9, 20 students rated their job offer expectation with 5, another group of 20 students put 8 and another 20 qualified with 10.
+###### Taking as acceptable from 8 to 10, only 58 students, that is, only 65 percent of the students have a good expectation of the job offer when they graduate, the remaining 35 percent think not it will be easy to get a job upon graduation.
 ```{r, ofertalaboral}
 table(dsuaz$oferta_laboral)
 summary(dsuaz$oferta_laboral)
 ```
 
 ##### Expectation of monthly salary upon graduation
+###### In addition to the job offer, it is important to know the estimated salary we will have upon graduation, so we ask the students what their monthly salary expectations are when they enter the labor market.
+###### The results are the following:
 ```{r, salario}
 table(dsuaz$Ssalario_estimado)
 ```
 
 ##### Plans of students upon graduation
+###### In addition to the previous questions we wanted to know what the students want to do when they graduate, whether they work or study a postgraduate course, the results were:
 ```{r, planesegreso}
 table(dsuaz$planes_egreso)
 ```

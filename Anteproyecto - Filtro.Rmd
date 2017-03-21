@@ -6,7 +6,8 @@ date: "16 de marzo de 2017"
 output: html_document
 ---
 
-
+### 1? Section
+### -----------------------------
 ### UAZ Students
 
 ###### This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.
@@ -210,53 +211,86 @@ table(dsuaz$Ssalario_estimado)
 table(dsuaz$planes_egreso)
 ```
 
-## Boxplots
+### Box plots
+###### A box plot is a graphical rendition of statistical data based on the minimum, first quartile, median, third quartile, and maximum. The term "box plot" comes from the fact that the graph looks like a rectangle with lines extending from the top and bottom. 
+<center>
+![](images/boxplot.png)
 
+#### Grade point average
+###### In the following box plot we can observe the grade point average of the students, the minus 7.0, the greater 9.8.
+###### The median is 8.4, which we can observe in the highlighted line, the greater number of students is between 8.0 and 8.9.
 ```{r}
-boxplot(dsuaz$promedio, xlab="Qualification of each student")
+boxplot(dsuaz$promedio, main="GPA of each student", col='#2999AD', ylab="Grade")
 ```
 
-
+#### Passion of students for their career 
+###### Here we observe the passion that the students have for their career.
+###### Most students rated their passion for their career between 8 and 10, the median is 9.
+###### We have an outlier, that is, isolated data of 4, which means that although there are few concurrences with this data, we have students who answered 4.
 ```{r}
-boxplot(dsuaz$pasion_licenciatura, xlab="Students pasion/love with his/her career")
+boxplot(dsuaz$pasion_licenciatura, main  = "Passion of students for their career", col = "#FFC700", ylab = "Passion")
+```
+#### Job offer expectation
+###### Here the results range from 0 to 10, across the whole scale.
+###### The median is 8, and the first and third quartiles are between 5 and 9, which indicates that the majority of students qualify their expectation of labor supply among this range.
+```{r}
+boxplot(dsuaz$oferta_laboral, main="Job offer expectation", col="#A30F2E", ylab="Expectation")
 ```
 
+#### Students Age
+###### Students range from the age of 18 up to 28 years, in the latter case we have an isolated data, so the maximum is marked in 26 years.
+###### The median age among respondents is 21 years.
+###### Most of the students interviewed are between the ages of 19 and 22 years old.
 ```{r}
-boxplot(dsuaz$oferta_laboral, xlab="difficulty to get a job with his/her career")
-```
-
-```{r}
-boxplot(dsuaz$edad, xlab="Students age")
+boxplot(dsuaz$edad, main="Students age", col = "#66B21A", ylab="Age")
 ```
 
 ### Gender boxplots
-
-##### Hours of Study according to the gender
+#### Hours of Study according to the gender
+###### In the box below we can see the difference in study hours according to the gender of the students.
+###### We can observe that the median in both genders is 4 hours of study per day, but in addition there are no minimum, maximum or the other elements of the box plot.
+###### This is because almost all students spend 4 hours per day to study, and we only have some isolated cases in both sexes of those who do not study abolutely anything and some others study 6 or 8 hours daily.
 ```{r, studyhrspergenderboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$genero),las = 2,main=toupper('Hours of Study according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of study", font.lab=3, col='#FFBD59', names = c('Male','Female'))
 ```
 
-##### Hours of Sleep according to the gender
+#### Hours of Sleep according to the gender
+###### Here we observe the number of hours of sleep depending on the gender of the students, the median in both genders is 8 hours a day.
+###### In both genders the minimum daily sleep time is 3 hours, but only a few women responded that they slept more than 8 hours, so the maximum in the women's boxplot is 10.
 ```{r, hrssleeppergenderboxplot}
 boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$genero),las = 2,main=toupper('Hours of Sleep according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Sleep", font.lab=3, col='#FF2E47', names = c('Male','Female'))
 ```
 
-##### Hours of Exercise according to the gender
+#### Hours of Exercise according to the gender
+###### This graph shows the number of hours dedicated to physical exercise by gender.
+###### In both genders the median and the first quartile are in the same place, 0, which indicates that most students do not spend time exercising daily.
+###### However in the graph of the masculine gender we can observe the maximum and the third quartile in 4 as opposed to the graph of the feminine gender that its third quartile is in 2 and the maximum in 4, this means that of Students who do exercise men spend more time than women exercising.
 ```{r, hrseexercisepergenderboxplot}
 boxplot(split(dsuaz$hrs_ejercicio_dia,dsuaz$genero),las = 2,main=toupper('Hours of Exercise according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Exercise", font.lab=3, col='#8CBA5C', names = c('Male','Female'))
 ```
 
-##### Hours of Video Games according to the gender
+#### Hours of Video Games according to the gender
+###### In the following graph we can observe the amount of hours that students dedicate to playing video games according to the masculine or feminine gender.
+###### On the left side we can see the box plot of the masculine gender, the median is 2, the first and third quartiles are between 0 and 4, which indicates that most male students dedicated between 0 or 4 hours playing video games daily, the maximum is at 6.
+###### On the opposite side, there are the results of the female students, who agreed not to spend any time of the day playing video games except some who said they dedicate 4 or 6 hours a day daily.
 ```{r, hrsvgmspergenderboxplot}
 boxplot(split(dsuaz$hrs_vjuegos_dia,dsuaz$genero),las = 2,main=toupper('Hours of Video Games according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Video Games", font.lab=3, col='#B266A6', names = c('Male','Female'))
 ```
 
-##### Hours of TV according to the gender
+#### Hours of TV according to the gender
+###### Below we can see the number of hours students spend watching TV per day according to their gender.
+###### In both genders agreed on the first and third quartiles, which are between 0 and 4, the same as the minimum and the median found at 0, which indicates that a significant proportion of the students do not dedicate Time to watch television, however the majority is between 0 and 4 hours a day.
+###### We can also observe that there are men who spend more time than women in front of the TV, since they go from 4 to 6 hours a day from the third quartile to the maximum value.
 ```{r, hrstvpergenderboxplot}
 boxplot(split(dsuaz$hrs_tv_dia,dsuaz$genero),las = 2,main=toupper('Hours of TV according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of TV", font.lab=3, col='#6E6E9C', names = c('Male','Female'))
 ```
 
-##### Hours of Social Activity according to the gender
+#### Hours of Social Activity according to the gender
+###### Below we can see the number of hours dedicated to social activities per day.
+###### Here we can see that both genders seem more than one could imagine, since both graphs are almost identical, except for the isolated cases that appear.
+###### Both men and women spend between 0 and 6 hours for social activities daily, in both genders the majority of students spend between 1 and 3 hours a day for these activities.
+###### We can also observe that in both genders the median is 2 hours.
+###### In both cases we can observe some isolated cases, ranging from 8 to 10 hours for social activities per day.
 ```{r, hrsactvsocialpergenderboxplot}
 boxplot(split(dsuaz$hrs_actsocial_dia,dsuaz$genero),las = 2,main=toupper('Hours of Social Activity according to the gender'), font.main=3, cex.main=1.2, ylab="Hours of Activity Social", font.lab=3, col='#26667D', names = c('Male','Female'))
 ```
@@ -264,67 +298,83 @@ boxplot(split(dsuaz$hrs_actsocial_dia,dsuaz$genero),las = 2,main=toupper('Hours 
 
 
 ### Sleepy hours boxplots
-
-##### Sleep hours for each student
+#### Sleep hours for each student
+###### Here we observe the number of hours of sleep that the students dedicated daily, the answers were of 3 to 10 hours daily.
+###### But most students sleep 6-8 hours per day.
+###### The median is 8 hours per day, which is recommended by science.
 ```{r}
-boxplot(dsuaz$hrs_dormir_dia, xlab="Sleep hours for each student")
+boxplot(dsuaz$hrs_dormir_dia, main="Sleep hours for each student", ylab = "Sleepy hours", col = "#FF2185")
 ```
 
-##### Hours of sleep according to age
+#### Hours of sleep according to age
+###### In the following graph we can see the number of hours that students sleep depending on the age they have.
+###### Most students between the ages of 18, 19, 20, 21, 23 and 24 years old sleep between 6 and 8 hours a day.
+###### 22- and 25-year-olds agreed to sleep 8 hours per day, except for some 22-year-olds who reported sleeping 6 or 3 hours per day.
+###### On the other hand the students of 26 years said to sleep 10 hrs daily and the students of 28 years 6 hours daily.
 ```{r, sleephrsperagelboxplot}
 boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$edad),main=toupper('Hours of sleep according to age'), font.main=3, cex.main=1.2, xlab="Age", ylab="Hours of sleep", font.lab=3, col="#31B1B1")
 ```
 
-##### Hours of Study according to the career
+#### Hours of Sleep according to the career
+###### In the following box plots we can observe the number of hours that students sleep depending on the career they attend.
+###### The results are divided into two identical patterns.
+###### On the one hand we have Software Engineering students and Psychology students who agreed to sleep 8 hours a day, but also present the same isolated cases in which some students responded to sleep 3, 6 or 10 Hours daily.
+###### The other pattern we found with the students of Medicine and those of Chemical Pharmaceutical Biologist, who agreed on their minimum and maximum values between 3 and 8 hours of sleep per day.
+###### In addition the median of medical students and QFB is 6 hours. And most of the students in these two careers sleep between 6 and 8 hours a day.
 ```{r, sleephrsperlicenciaturalboxplot}
-boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Study according to the career'), font.main=3, cex.main=1.2, ylab="Hours of sleep", font.lab=3, col='#409973', names = c('Software','Medicine','Psychology','QFB'))
+boxplot(split(dsuaz$hrs_dormir_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Sleep according to the career'), font.main=3, cex.main=1.2, ylab="Hours of sleep", font.lab=3, col='#409973', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
 ### Study hours boxplots
-
-##### Study hours each day
+#### Study hours each day
+###### In the box below we can observe the number of hours students interviewed dedicated to studying during the day.
+###### Most students agreed to sleep 8 hours a day, there were only a few isolated cases marked with the outliers, of students who said they slept 0, 6 or 8 hours a day.
 ```{r, studyhrs}
 boxplot(dsuaz$hrs_estudio_dia, xlab="Study hours each day")
 ```
 
-##### Hours of Study according to age
+#### Hours of Study according to age
+##### Below we can see the number of hours students study per day, thanks to this graph we can realize that most students study the same number of hours regardless of the age they have.
+###### The majority of students aged 18 to 26 study 4 hours per day, only 28-year-old students answered that they were studying 6 hours per day.
+###### We might think that the younger the student is less dedicated or spend less time studying, but thanks to this survey we were able to realize that age does not have a strong impact on the amount of hours that the students invest in their preparation outside the classroom.
 ```{r, studyhrsperagelboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$edad),main=toupper('Hours of Study according to age'), font.main=3, cex.main=1.2, xlab="Age", ylab="Hours of study", font.lab=3, col="#0A8FA3")
 ```
 
-##### Hours of Study according to the semester
+#### Hours of Study according to the semester
+
 ```{r, studyhrspersemesterlboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$semestre),main=toupper('Hours of Study according to the semester'), font.main=3, cex.main=1.2, xlab="Semester", ylab="Hours of study", font.lab=3, col="#1A80B2")
 ```
 
-##### Hours of Study according to the career
+#### Hours of Study according to the career
 ```{r, studyhrsperlicenciaturalboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Study according to the career'), font.main=3, cex.main=1.2, ylab="Hours of study", font.lab=3, col='#FFBD59', names = c('Software','Medicine','Psychology','QFB'))
 ```
 ### Career boxplots
 
-##### Hours at university according to the career
+#### Hours at university according to the career
 ```{r, unihrsperlicenciaturalboxplot}
 boxplot(split(dsuaz$hrs_universidad_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours at University according to the career'), font.main=3, cex.main=1.2, ylab="Hours at university", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Use of public transport according to the career
+#### Use of public transport according to the career
 ```{r, transporteperlicenciaturalboxplot}
 boxplot(split(dsuaz$transporte_publico,dsuaz$licenciatura),las = 2,main=toupper('Use of public transport according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Use of Cafeteria according to the career
+#### Use of Cafeteria according to the career
 ```{r, cafateriaperlicenciaturalboxplot}
 boxplot(split(dsuaz$comedor,dsuaz$licenciatura),las = 2,main=toupper('Used of Cafeteria according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#75A8ED', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Scholarships according to the career
+#### Scholarships according to the career
 ```{r, scholarchipsperlicenciaturalboxplot}
 boxplot(split(dsuaz$becario,dsuaz$licenciatura),las = 2,main=toupper('Scholarships according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#852499', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Difficulty appreciated according to the career
+#### Difficulty appreciated according to the career
 ###### 1 = Easy
 ###### 2 = Regular
 ###### 3 = Hard
@@ -333,33 +383,33 @@ boxplot(split(dsuaz$becario,dsuaz$licenciatura),las = 2,main=toupper('Scholarshi
 boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Difficulty appreciated according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 4 = Max", font.lab=3, col='#FA668A', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Repeated subjects according to the career
+#### Repeated subjects according to the career
 ```{r, repeatedperlicenciaturalboxplot}
 boxplot(split(dsuaz$materias_repetidas,dsuaz$licenciatura),las = 2,main=toupper('Repeated subjects according to the career'), font.main=3, cex.main=1.2, ylab="Repeated subjects", font.lab=3, col='#2E61DB', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
-##### Passion according to the career
+#### Passion according to the career
 ```{r, passionperlicenciaturalboxplot}
 boxplot(split(dsuaz$pasion_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Passion according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#B24073', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Semester according to the career
+#### Semester according to the career
 ```{r, semesterperlicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Semester according to the career'), font.main=3, cex.main=1.2, ylab="Semester", font.lab=3, col='#FF99A3', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Grade point average  according to the career
+#### Grade point average  according to the career
 ```{r, gpaperlicenciaturalboxplot}
 boxplot(split(dsuaz$promedio,dsuaz$licenciatura),las = 2,main=toupper('GPA according to the career'), font.main=3, cex.main=1.2, ylab="GPA", font.lab=3, col='#69BD8A', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Job offer expectation according to the career
+#### Job offer expectation according to the career
 ```{r, joblicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Job offer expectation according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#992966', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-##### Hours of work expected according to the career
+#### Hours of work expected according to the career
 ```{r, hrsworklicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of work expected according to the career'), font.main=3, cex.main=1.2, ylab="Hours of work expected", font.lab=3, col='#1F8594', names = c('Software','Medicine','Psychology','QFB'))
 ```
@@ -415,6 +465,7 @@ hist(dsuaz$edad,
      ylab = "Students quantity",
      labels = TRUE)
 ```
+
 ### Parte 2- KNN- Formulas to Normalize
 ```{r set}
 
@@ -430,7 +481,9 @@ zscore <- function(x) (
   )
 ```
 
-### Parte 2- KNN- Normalization
+### 2? Section
+### -----------------------------
+###- KNN- Normalization
 ```{r}
 dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
@@ -453,6 +506,46 @@ dsuaz_n <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], minmax))
 dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 ```
 
+### Which feature were selected and why
+
+## Hours per day spent playing video games
+## This was signficant feature to analyze, because 
+## it remarks the extra- time that  they have. 
+## This is "leiusre time", with this we can ensure if the career 
+## requires of extra- time in homeworks, projects, academic research 
+## but this was an initial view, when we saw the data we understand 
+## that there is a relation that is more representative in 
+## students form TIC careers (Informatics, Software, Science of Computer) play videogames, 
+## this will enourage the estimation for the career "Engineer of Software", 
+## more hours is more probably is related to that career.
+
+## Hours per day spent on the University
+## In this feature we saw a lot of variance according of the career, 
+## the range is about 6 - 8 hours, but there is a relation between the career, 
+## and its very common se that the increase of this hours is related from student of Medicine, 
+## if we put this feature in order from high values to low, we saw that the careers have a force 
+## relation, and of course this will encourage the estimation for the career "Medicine" in a theroy way.
+
+## Hours per day spent for sleep
+## This feature was really interesant in the moment of analyze also it has a dependecy on the careers, 
+## it decreases in students of Medicin and Engineer of Software, 
+## of course there are the exceptions but this is in the point of the majority view, 
+## that why this factor was selected. 
+
+## Difficulty on carrer
+## In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-, 
+## this factor for us is one of the most important becase it remarks, 
+## the complexity of differents careers, also this is so personal for each students, 
+## but if we analyze well the data it has dependecies form the carreer, 
+## if we order this factor we will se in first Medicine, 
+## (Farmaceutic biochemist & Engineer Software in the same level) and in the last Psicology, 
+## so there is a strong relation between them and a important factor for calssifying predictions.
+
+## Hours in a workday (in their careers)
+## The range in this data is from 8 to 13, this is a factor from a personal 
+## opinion or without having so few information, but in a simple view it has 
+## a lot of dependecy in fact of the career is according to the hours in workday, studentes 
+## in Engineer Software has few hours than Medicin student. 
 
 ### Compute Distances
 ```{r}

@@ -123,9 +123,10 @@ $(document).ready(function () {
 </div>
 
 
-<div id="section" class="section level3">
-<h3>1? Section</h3>
-</div>
+<div id="section" class="section level1">
+<h1>### 1? Section</h1>
+<div id="first-section" class="section level2">
+<h2>First Section</h2>
 <div id="section-1" class="section level3">
 <h3>—————————–</h3>
 </div>
@@ -159,7 +160,7 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 <div id="then-we-can-observe-each-one-of-the-questions-we-made-and-some-examples-of-the-types-of-answers-that-we-obtained" class="section level6">
 <h6>Then we can observe each one of the questions we made and some examples of the types of answers that we obtained:</h6>
 <pre class="r"><code>str(dsuaz)</code></pre>
-<pre><code>## 'data.frame':    113 obs. of  23 variables:
+<pre><code>## 'data.frame':    113 obs. of  24 variables:
 ##  $ hrs_estudio_dia        : int  4 4 0 4 4 4 4 4 0 6 ...
 ##  $ hrs_tv_dia             : int  0 2 0 0 4 0 0 0 2 4 ...
 ##  $ hrs_vjuegos_dia        : int  4 0 0 0 4 0 0 0 2 0 ...
@@ -180,9 +181,10 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ##  $ municipio              : chr  &quot;Morelos&quot; &quot;Ojocaliente&quot; &quot;Orizaba&quot; &quot;Naucalpan&quot; ...
 ##  $ genero                 : chr  &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; &quot;Mujer&quot; ...
 ##  $ edad                   : int  18 20 21 19 20 22 19 25 22 18 ...
-##  $ licenciatura           : chr  &quot;Ingenieria de Software &quot; &quot;Quimico Farmaceutico Biologo&quot; &quot;Ingenieria de Software &quot; &quot;Medicina Humana&quot; ...
+##  $ licenciatura           : chr  &quot;Ingenieria de Software&quot; &quot;Quimico Farmaceutico Biologo&quot; &quot;Ingenieria de Software&quot; &quot;Medicina Humana&quot; ...
 ##  $ semestre               : int  2 1 8 2 4 10 2 8 8 2 ...
-##  $ planes_egreso          : chr  &quot;Posgrado&quot; &quot;Laborar&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; ...</code></pre>
+##  $ planes_egreso          : chr  &quot;Posgrado&quot; &quot;Laborar&quot; &quot;Posgrado&quot; &quot;Posgrado&quot; ...
+##  $ X                      : logi  NA NA NA NA NA NA ...</code></pre>
 </div>
 <div id="head-tail" class="section level5">
 <h5>Head &amp; Tail</h5>
@@ -223,14 +225,14 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ## 3     mas de 20 mil          10             Orizaba Hombre   21
 ## 4        6 - 10 mil          12           Naucalpan  Mujer   19
 ## 5       15 - 20 mil           8 Huejuquilla el Alto  Mujer   20
-## 6        6 - 10 mil           8     Panfilo natera   Mujer   22
-##                   licenciatura semestre planes_egreso
-## 1      Ingenieria de Software         2      Posgrado
-## 2 Quimico Farmaceutico Biologo        1       Laborar
-## 3      Ingenieria de Software         8      Posgrado
-## 4              Medicina Humana        2      Posgrado
-## 5      Ingenieria de Software         4       Laborar
-## 6                   Psicologia       10      Posgrado</code></pre>
+## 6        6 - 10 mil           8      Panfilo natera  Mujer   22
+##                   licenciatura semestre planes_egreso  X
+## 1       Ingenieria de Software        2      Posgrado NA
+## 2 Quimico Farmaceutico Biologo        1       Laborar NA
+## 3       Ingenieria de Software        8      Posgrado NA
+## 4              Medicina Humana        2      Posgrado NA
+## 5       Ingenieria de Software        4       Laborar NA
+## 6                   Psicologia       10      Posgrado NA</code></pre>
 <pre class="r"><code>tail(dsuaz)</code></pre>
 <pre><code>##     hrs_estudio_dia hrs_tv_dia hrs_vjuegos_dia hrs_actsocial_dia
 ## 108               4          4               0                 1
@@ -264,16 +266,16 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ## 108        6 - 10 mil           8           Zacatecas  Mujer   22
 ## 109       10 - 15 mil           8               Jerez Hombre   22
 ## 110        6 - 10 mil           8           Zacatecas  Mujer   19
-## 111       15 - 20 mil          10             Panuco  Hombre   22
+## 111       15 - 20 mil          10              Panuco Hombre   22
 ## 112       10 - 15 mil          10           Guadalupe  Mujer   22
 ## 113       15 - 20 mil           8 Huejuquilla el Alto Hombre   23
-##                     licenciatura semestre planes_egreso
-## 108                   Psicologia       10       Laborar
-## 109      Ingenieria de Software         8      Posgrado
-## 110                   Psicologia        2      Posgrado
-## 111      Ingenieria de Software         8      Posgrado
-## 112                   Psicologia       10      Posgrado
-## 113 Quimico Farmaceutico Biologo        8       Laborar</code></pre>
+##                     licenciatura semestre planes_egreso  X
+## 108                   Psicologia       10       Laborar NA
+## 109       Ingenieria de Software        8      Posgrado NA
+## 110                   Psicologia        2      Posgrado NA
+## 111       Ingenieria de Software        8      Posgrado NA
+## 112                   Psicologia       10      Posgrado NA
+## 113 Quimico Farmaceutico Biologo        8       Laborar NA</code></pre>
 </div>
 </div>
 <div id="dataset-summary" class="section level5">
@@ -325,7 +327,14 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ##  Median :21.00   Mode  :character   Median : 6.000   Mode  :character  
 ##  Mean   :20.99                      Mean   : 6.044                     
 ##  3rd Qu.:22.00                      3rd Qu.: 8.000                     
-##  Max.   :28.00                      Max.   :10.000</code></pre>
+##  Max.   :28.00                      Max.   :10.000                     
+##     X          
+##  Mode:logical  
+##  NA's:113      
+##                
+##                
+##                
+## </code></pre>
 </div>
 </div>
 </div>
@@ -369,9 +378,9 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 ##                  11                   2                  19 
 ##             Mazapil             Morelos           Naucalpan 
 ##                   1                   2                   2 
-##         Ojocaliente             Orizaba     Panfilo natera  
+##         Ojocaliente             Orizaba      Panfilo natera 
 ##                   2                   1                   1 
-##             Panuco                Pinos          Rio Grande 
+##              Panuco               Pinos          Rio Grande 
 ##                   5                   2                   2 
 ##     San Luis Potosi          Sombrerete          Susticacan 
 ##                   1                   2                   1 
@@ -528,7 +537,7 @@ dsuaz &lt;- read.csv(&quot;datasetUAZ.csv&quot;, stringsAsFactors = FALSE)</code
 <h6>In the next block we can find the amount of students in each career.</h6>
 <pre class="r"><code>table(dsuaz$licenciatura)</code></pre>
 <pre><code>## 
-##      Ingenieria de Software               Medicina Humana 
+##       Ingenieria de Software              Medicina Humana 
 ##                           33                           30 
 ##                   Psicologia Quimico Farmaceutico Biologo 
 ##                           25                           25</code></pre>
@@ -1061,109 +1070,139 @@ dsuaz_zs &lt;- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))</code></pre
 <div id="which-feature-were-selected-and-why" class="section level3">
 <h3>Which feature were selected and why</h3>
 </div>
-<div id="hours-per-day-spent-playing-video-games" class="section level2">
-<h2>Hours per day spent playing video games</h2>
+<div id="hours-per-day-spent-playing-video-games" class="section level3">
+<h3>Hours per day spent playing video games</h3>
+<div id="this-was-signficant-feature-to-analyze-because" class="section level6">
+<h6>This was signficant feature to analyze, because</h6>
 </div>
-<div id="this-was-signficant-feature-to-analyze-because" class="section level2">
-<h2>This was signficant feature to analyze, because</h2>
+<div id="it-remarks-the-extra--time-that-they-have." class="section level6">
+<h6>it remarks the extra- time that they have.</h6>
 </div>
-<div id="it-remarks-the-extra--time-that-they-have." class="section level2">
-<h2>it remarks the extra- time that they have.</h2>
+<div id="this-is-leiusre-time-with-this-we-can-ensure-if-the-career" class="section level6">
+<h6>This is “leiusre time”, with this we can ensure if the career</h6>
 </div>
-<div id="this-is-leiusre-time-with-this-we-can-ensure-if-the-career" class="section level2">
-<h2>This is “leiusre time”, with this we can ensure if the career</h2>
+<div id="requires-of-extra--time-in-homeworks-projects-academic-research" class="section level6">
+<h6>requires of extra- time in homeworks, projects, academic research</h6>
 </div>
-<div id="requires-of-extra--time-in-homeworks-projects-academic-research" class="section level2">
-<h2>requires of extra- time in homeworks, projects, academic research</h2>
+<div id="but-this-was-an-initial-view-when-we-saw-the-data-we-understand" class="section level6">
+<h6>but this was an initial view, when we saw the data we understand</h6>
 </div>
-<div id="but-this-was-an-initial-view-when-we-saw-the-data-we-understand" class="section level2">
-<h2>but this was an initial view, when we saw the data we understand</h2>
+<div id="that-there-is-a-relation-that-is-more-representative-in" class="section level6">
+<h6>that there is a relation that is more representative in</h6>
 </div>
-<div id="that-there-is-a-relation-that-is-more-representative-in" class="section level2">
-<h2>that there is a relation that is more representative in</h2>
+<div id="students-form-tic-careers-informatics-software-science-of-computer-play-videogames" class="section level6">
+<h6>students form TIC careers (Informatics, Software, Science of Computer) play videogames,</h6>
 </div>
-<div id="students-form-tic-careers-informatics-software-science-of-computer-play-videogames" class="section level2">
-<h2>students form TIC careers (Informatics, Software, Science of Computer) play videogames,</h2>
+<div id="this-will-enourage-the-estimation-for-the-career-engineer-of-software" class="section level6">
+<h6>this will enourage the estimation for the career “Engineer of Software”,</h6>
 </div>
-<div id="this-will-enourage-the-estimation-for-the-career-engineer-of-software" class="section level2">
-<h2>this will enourage the estimation for the career “Engineer of Software”,</h2>
+<div id="more-hours-is-more-probably-is-related-to-that-career." class="section level6">
+<h6>more hours is more probably is related to that career.</h6>
 </div>
-<div id="more-hours-is-more-probably-is-related-to-that-career." class="section level2">
-<h2>more hours is more probably is related to that career.</h2>
 </div>
-<div id="hours-per-day-spent-on-the-university" class="section level2">
-<h2>Hours per day spent on the University</h2>
+<div id="hours-per-day-spent-on-the-university" class="section level3">
+<h3>Hours per day spent on the University</h3>
+<div id="in-this-feature-we-saw-a-lot-of-variance-according-of-the-career" class="section level6">
+<h6>In this feature we saw a lot of variance according of the career,</h6>
 </div>
-<div id="in-this-feature-we-saw-a-lot-of-variance-according-of-the-career" class="section level2">
-<h2>In this feature we saw a lot of variance according of the career,</h2>
+<div id="the-range-is-about-6---8-hours-but-there-is-a-relation-between-the-career" class="section level6">
+<h6>the range is about 6 - 8 hours, but there is a relation between the career,</h6>
 </div>
-<div id="the-range-is-about-6---8-hours-but-there-is-a-relation-between-the-career" class="section level2">
-<h2>the range is about 6 - 8 hours, but there is a relation between the career,</h2>
+<div id="and-its-very-common-se-that-the-increase-of-this-hours-is-related-from-student-of-medicine" class="section level6">
+<h6>and its very common se that the increase of this hours is related from student of Medicine,</h6>
 </div>
-<div id="and-its-very-common-se-that-the-increase-of-this-hours-is-related-from-student-of-medicine" class="section level2">
-<h2>and its very common se that the increase of this hours is related from student of Medicine,</h2>
+<div id="if-we-put-this-feature-in-order-from-high-values-to-low-we-saw-that-the-careers-have-a-force" class="section level6">
+<h6>if we put this feature in order from high values to low, we saw that the careers have a force</h6>
 </div>
-<div id="if-we-put-this-feature-in-order-from-high-values-to-low-we-saw-that-the-careers-have-a-force" class="section level2">
-<h2>if we put this feature in order from high values to low, we saw that the careers have a force</h2>
+<div id="relation-and-of-course-this-will-encourage-the-estimation-for-the-career-medicine-in-a-theroy-way." class="section level6">
+<h6>relation, and of course this will encourage the estimation for the career “Medicine” in a theroy way.</h6>
 </div>
-<div id="relation-and-of-course-this-will-encourage-the-estimation-for-the-career-medicine-in-a-theroy-way." class="section level2">
-<h2>relation, and of course this will encourage the estimation for the career “Medicine” in a theroy way.</h2>
 </div>
-<div id="hours-per-day-spent-for-sleep" class="section level2">
-<h2>Hours per day spent for sleep</h2>
+<div id="hours-per-day-spent-for-sleep" class="section level3">
+<h3>Hours per day spent for sleep</h3>
+<div id="this-feature-was-really-interesant-in-the-moment-of-analyze-also-it-has-a-dependecy-on-the-careers" class="section level6">
+<h6>This feature was really interesant in the moment of analyze also it has a dependecy on the careers,</h6>
 </div>
-<div id="this-feature-was-really-interesant-in-the-moment-of-analyze-also-it-has-a-dependecy-on-the-careers" class="section level2">
-<h2>This feature was really interesant in the moment of analyze also it has a dependecy on the careers,</h2>
+<div id="it-decreases-in-students-of-medicin-and-engineer-of-software" class="section level6">
+<h6>it decreases in students of Medicin and Engineer of Software,</h6>
 </div>
-<div id="it-decreases-in-students-of-medicin-and-engineer-of-software" class="section level2">
-<h2>it decreases in students of Medicin and Engineer of Software,</h2>
+<div id="of-course-there-are-the-exceptions-but-this-is-in-the-point-of-the-majority-view" class="section level6">
+<h6>of course there are the exceptions but this is in the point of the majority view,</h6>
 </div>
-<div id="of-course-there-are-the-exceptions-but-this-is-in-the-point-of-the-majority-view" class="section level2">
-<h2>of course there are the exceptions but this is in the point of the majority view,</h2>
+<div id="that-why-this-factor-was-selected." class="section level6">
+<h6>that why this factor was selected.</h6>
 </div>
-<div id="that-why-this-factor-was-selected." class="section level2">
-<h2>that why this factor was selected.</h2>
 </div>
-<div id="difficulty-on-carrer" class="section level2">
-<h2>Difficulty on carrer</h2>
+<div id="difficulty-on-carrer" class="section level3">
+<h3>Difficulty on carrer</h3>
+<div id="in-terms-of-1--4-levels--in-1-is-super-easy-2-normal-3-hard-4-very-hard-" class="section level6">
+<h6>In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-,</h6>
 </div>
-<div id="in-terms-of-1--4-levels--in-1-is-super-easy-2-normal-3-hard-4-very-hard-" class="section level2">
-<h2>In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-,</h2>
+<div id="this-factor-for-us-is-one-of-the-most-important-becase-it-remarks" class="section level6">
+<h6>this factor for us is one of the most important becase it remarks,</h6>
 </div>
-<div id="this-factor-for-us-is-one-of-the-most-important-becase-it-remarks" class="section level2">
-<h2>this factor for us is one of the most important becase it remarks,</h2>
+<div id="the-complexity-of-differents-careers-also-this-is-so-personal-for-each-students" class="section level6">
+<h6>the complexity of differents careers, also this is so personal for each students,</h6>
 </div>
-<div id="the-complexity-of-differents-careers-also-this-is-so-personal-for-each-students" class="section level2">
-<h2>the complexity of differents careers, also this is so personal for each students,</h2>
+<div id="but-if-we-analyze-well-the-data-it-has-dependecies-form-the-carreer" class="section level6">
+<h6>but if we analyze well the data it has dependecies form the carreer,</h6>
 </div>
-<div id="but-if-we-analyze-well-the-data-it-has-dependecies-form-the-carreer" class="section level2">
-<h2>but if we analyze well the data it has dependecies form the carreer,</h2>
+<div id="if-we-order-this-factor-we-will-se-in-first-medicine" class="section level6">
+<h6>if we order this factor we will se in first Medicine,</h6>
 </div>
-<div id="if-we-order-this-factor-we-will-se-in-first-medicine" class="section level2">
-<h2>if we order this factor we will se in first Medicine,</h2>
+<div id="farmaceutic-biochemist-engineer-software-in-the-same-level-and-in-the-last-psicology" class="section level6">
+<h6>(Farmaceutic biochemist &amp; Engineer Software in the same level) and in the last Psicology,</h6>
 </div>
-<div id="farmaceutic-biochemist-engineer-software-in-the-same-level-and-in-the-last-psicology" class="section level2">
-<h2>(Farmaceutic biochemist &amp; Engineer Software in the same level) and in the last Psicology,</h2>
+<div id="so-there-is-a-strong-relation-between-them-and-a-important-factor-for-calssifying-predictions." class="section level6">
+<h6>so there is a strong relation between them and a important factor for calssifying predictions.</h6>
 </div>
-<div id="so-there-is-a-strong-relation-between-them-and-a-important-factor-for-calssifying-predictions." class="section level2">
-<h2>so there is a strong relation between them and a important factor for calssifying predictions.</h2>
+</div>
 </div>
 <div id="hours-in-a-workday-in-their-careers" class="section level2">
 <h2>Hours in a workday (in their careers)</h2>
+<div id="the-range-in-this-data-is-from-8-to-13-this-is-a-factor-from-a-personal" class="section level6">
+<h6>The range in this data is from 8 to 13, this is a factor from a personal</h6>
 </div>
-<div id="the-range-in-this-data-is-from-8-to-13-this-is-a-factor-from-a-personal" class="section level2">
-<h2>The range in this data is from 8 to 13, this is a factor from a personal</h2>
+<div id="opinion-or-without-having-so-few-information-but-in-a-simple-view-it-has" class="section level6">
+<h6>opinion or without having so few information, but in a simple view it has</h6>
 </div>
-<div id="opinion-or-without-having-so-few-information-but-in-a-simple-view-it-has" class="section level2">
-<h2>opinion or without having so few information, but in a simple view it has</h2>
+<div id="a-lot-of-dependecy-in-fact-of-the-career-is-according-to-the-hours-in-workday-studentes" class="section level6">
+<h6>a lot of dependecy in fact of the career is according to the hours in workday, studentes</h6>
 </div>
-<div id="a-lot-of-dependecy-in-fact-of-the-career-is-according-to-the-hours-in-workday-studentes" class="section level2">
-<h2>a lot of dependecy in fact of the career is according to the hours in workday, studentes</h2>
+<div id="in-engineer-software-has-few-hours-than-medicin-student." class="section level6">
+<h6>in Engineer Software has few hours than Medicin student.</h6>
 </div>
-<div id="in-engineer-software-has-few-hours-than-medicin-student." class="section level2">
-<h2>in Engineer Software has few hours than Medicin student.</h2>
 <div id="compute-distances" class="section level3">
 <h3>Compute Distances</h3>
+<div id="first-we-genrate-the-vectors-using-rnorm.-each-vector-should-have-the-same-quantity-of-observations-but-different-mean-and-sd.-store-the-vectors-in-a-data.frame-named-distances-where-variables-vector01-and-vector02" class="section level6">
+<h6>First, we genrate the vectors using rnorm(). Each vector should have the same quantity of observations but different mean and SD. Store the vectors in a data.frame named distances where variables vector01 and vector02</h6>
+<p>correspond to the two vectors previously generated.</p>
+<pre class="r"><code>a = dsuaz[,c(3)]
+b = dsuaz[,c(5)]
+
+vector01 = rnorm(a, mean=a, sd=1)
+vector02 = rnorm(b, mean=b, sd=5)
+
+distances &lt;- data.frame(vector01,vector02)</code></pre>
+</div>
+</div>
+<div id="compute-distances-formulas" class="section level3">
+<h3>Compute Distances Formulas</h3>
+<div id="print-the-formulas-for-euclidean-manhattan-canberra-and-mahalanobis-distances-with-code." class="section level6">
+<h6>Print the formulas for euclidean, manhattan, canberra and mahalanobis distances (with code).</h6>
+<p>EUCLIDEAN</p>
+<p><span class="math inline">\(d(p,q) = \sqrt{(p_1^2-q_1^2)+(p_2^2-q_2^2)+...+(p_i^2-q_i^2)+...+(p_n^2-n_1^2)}\)</span></p>
+<p>MANHATTAN</p>
+<p><span class="math inline">\(d(i,n) = \sum_{i=1}^{m}|x_{i}-y_{i}|\)</span></p>
+<p>CANBERRA</p>
+<p><span class="math inline">\(d(x,y) = \sum_{i=1}^{n}\frac{|x_{i}-y_{i}|}{|x_{i}+y_{i}|}\)</span></p>
+<p>MAHALANOBIS</p>
+<p><span class="math inline">\(d^2 = (x-\varphi)'\sum^-1(x-\varphi)\)</span> correspond to the two vectors previously generated.</p>
+<p>Add 3 columns to the data.frame. The first column should store the euclidean distance between vector01 and vector02. . The second column should store the Manhattan distance between vector01 and vector02. . The third column should store the Canberra distance between vector01 and vector02. . The fourth column should store the Mahalabobis distance between vector01 and vector02.</p>
+<pre class="r"><code>distances$euclidean &lt;- as.matrix(dist(distances, method = &quot;euclidean&quot;, diag = FALSE, upper = FALSE, p = 2))
+distances$manhattan &lt;- as.matrix(dist(distances, method = &quot;manhattan&quot;, diag = FALSE, upper = FALSE, p = 2))
+distances$canberra &lt;- as.matrix(dist(distances, method = &quot;canberra&quot;, diag = FALSE, upper = FALSE, p = 2))</code></pre>
+</div>
 </div>
 <div id="training-and-testing-set" class="section level3">
 <h3>Training and Testing set</h3>
@@ -1173,13 +1212,13 @@ dsuaz_zs &lt;- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))</code></pre
 dsuaz_testing_labels &lt;- dsuaz[91:113,21]
 table(dsuaz_train_labels)</code></pre>
 <pre><code>## dsuaz_train_labels
-##      Ingenieria de Software               Medicina Humana 
+##       Ingenieria de Software              Medicina Humana 
 ##                           27                           25 
 ##                   Psicologia Quimico Farmaceutico Biologo 
 ##                           18                           20</code></pre>
 <pre class="r"><code>table(dsuaz_testing_labels)</code></pre>
 <pre><code>## dsuaz_testing_labels
-##      Ingenieria de Software               Medicina Humana 
+##       Ingenieria de Software              Medicina Humana 
 ##                            6                            5 
 ##                   Psicologia Quimico Farmaceutico Biologo 
 ##                            7                            5</code></pre>
@@ -1232,30 +1271,30 @@ CrossTable(x = dsuaz_testing_labels,
 ## 
 ##  
 ##                              | dsuaz_results 
-##         dsuaz_testing_labels |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
+##         dsuaz_testing_labels |       Ingenieria de Software |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##      Ingenieria de Software  |                            3 |                            0 |                            3 |                            0 |                            6 | 
-##                              |                        0.500 |                        0.000 |                        0.500 |                        0.000 |                        0.261 | 
-##                              |                        1.000 |                        0.000 |                        0.375 |                        0.000 |                              | 
-##                              |                        0.130 |                        0.000 |                        0.130 |                        0.000 |                              | 
+##       Ingenieria de Software |                            3 |                            0 |                            2 |                            1 |                            6 | 
+##                              |                        0.500 |                        0.000 |                        0.333 |                        0.167 |                        0.261 | 
+##                              |                        0.750 |                        0.000 |                        0.286 |                        0.333 |                              | 
+##                              |                        0.130 |                        0.000 |                        0.087 |                        0.043 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ##              Medicina Humana |                            0 |                            5 |                            0 |                            0 |                            5 | 
 ##                              |                        0.000 |                        1.000 |                        0.000 |                        0.000 |                        0.217 | 
-##                              |                        0.000 |                        0.500 |                        0.000 |                        0.000 |                              | 
+##                              |                        0.000 |                        0.556 |                        0.000 |                        0.000 |                              | 
 ##                              |                        0.000 |                        0.217 |                        0.000 |                        0.000 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                   Psicologia |                            0 |                            2 |                            5 |                            0 |                            7 | 
-##                              |                        0.000 |                        0.286 |                        0.714 |                        0.000 |                        0.304 | 
-##                              |                        0.000 |                        0.200 |                        0.625 |                        0.000 |                              | 
-##                              |                        0.000 |                        0.087 |                        0.217 |                        0.000 |                              | 
+##                   Psicologia |                            1 |                            1 |                            5 |                            0 |                            7 | 
+##                              |                        0.143 |                        0.143 |                        0.714 |                        0.000 |                        0.304 | 
+##                              |                        0.250 |                        0.111 |                        0.714 |                        0.000 |                              | 
+##                              |                        0.043 |                        0.043 |                        0.217 |                        0.000 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## Quimico Farmaceutico Biologo |                            0 |                            3 |                            0 |                            2 |                            5 | 
 ##                              |                        0.000 |                        0.600 |                        0.000 |                        0.400 |                        0.217 | 
-##                              |                        0.000 |                        0.300 |                        0.000 |                        1.000 |                              | 
+##                              |                        0.000 |                        0.333 |                        0.000 |                        0.667 |                              | 
 ##                              |                        0.000 |                        0.130 |                        0.000 |                        0.087 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                 Column Total |                            3 |                           10 |                            8 |                            2 |                           23 | 
-##                              |                        0.130 |                        0.435 |                        0.348 |                        0.087 |                              | 
+##                 Column Total |                            4 |                            9 |                            7 |                            3 |                           23 | 
+##                              |                        0.174 |                        0.391 |                        0.304 |                        0.130 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## 
 ## </code></pre>
@@ -1284,11 +1323,11 @@ CrossTable(x = dsuaz_testing_labels,
 ## 
 ##  
 ##                              | dsuaz_results_zs 
-##         dsuaz_testing_labels |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
+##         dsuaz_testing_labels |       Ingenieria de Software |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##      Ingenieria de Software  |                            3 |                            0 |                            2 |                            1 |                            6 | 
+##       Ingenieria de Software |                            3 |                            0 |                            2 |                            1 |                            6 | 
 ##                              |                        0.500 |                        0.000 |                        0.333 |                        0.167 |                        0.261 | 
-##                              |                        1.000 |                        0.000 |                        0.333 |                        0.167 |                              | 
+##                              |                        1.000 |                        0.000 |                        0.286 |                        0.200 |                              | 
 ##                              |                        0.130 |                        0.000 |                        0.087 |                        0.043 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ##              Medicina Humana |                            0 |                            5 |                            0 |                            0 |                            5 | 
@@ -1296,18 +1335,18 @@ CrossTable(x = dsuaz_testing_labels,
 ##                              |                        0.000 |                        0.625 |                        0.000 |                        0.000 |                              | 
 ##                              |                        0.000 |                        0.217 |                        0.000 |                        0.000 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                   Psicologia |                            0 |                            1 |                            4 |                            2 |                            7 | 
-##                              |                        0.000 |                        0.143 |                        0.571 |                        0.286 |                        0.304 | 
-##                              |                        0.000 |                        0.125 |                        0.667 |                        0.333 |                              | 
-##                              |                        0.000 |                        0.043 |                        0.174 |                        0.087 |                              | 
+##                   Psicologia |                            0 |                            1 |                            5 |                            1 |                            7 | 
+##                              |                        0.000 |                        0.143 |                        0.714 |                        0.143 |                        0.304 | 
+##                              |                        0.000 |                        0.125 |                        0.714 |                        0.200 |                              | 
+##                              |                        0.000 |                        0.043 |                        0.217 |                        0.043 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## Quimico Farmaceutico Biologo |                            0 |                            2 |                            0 |                            3 |                            5 | 
 ##                              |                        0.000 |                        0.400 |                        0.000 |                        0.600 |                        0.217 | 
-##                              |                        0.000 |                        0.250 |                        0.000 |                        0.500 |                              | 
+##                              |                        0.000 |                        0.250 |                        0.000 |                        0.600 |                              | 
 ##                              |                        0.000 |                        0.087 |                        0.000 |                        0.130 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                 Column Total |                            3 |                            8 |                            6 |                            6 |                           23 | 
-##                              |                        0.130 |                        0.348 |                        0.261 |                        0.261 |                              | 
+##                 Column Total |                            3 |                            8 |                            7 |                            5 |                           23 | 
+##                              |                        0.130 |                        0.348 |                        0.304 |                        0.217 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## 
 ## </code></pre>
@@ -1370,11 +1409,11 @@ CrossTable(x = dsuaz_testing_labels,
 ## 
 ##  
 ##                              | dsuaz_results 
-##         dsuaz_testing_labels |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
+##         dsuaz_testing_labels |       Ingenieria de Software |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##      Ingenieria de Software  |                            4 |                            0 |                            1 |                            1 |                            6 | 
+##       Ingenieria de Software |                            4 |                            0 |                            1 |                            1 |                            6 | 
 ##                              |                        0.667 |                        0.000 |                        0.167 |                        0.167 |                        0.261 | 
-##                              |                        0.667 |                        0.000 |                        0.200 |                        0.143 |                              | 
+##                              |                        0.667 |                        0.000 |                        0.333 |                        0.111 |                              | 
 ##                              |                        0.174 |                        0.000 |                        0.043 |                        0.043 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ##              Medicina Humana |                            1 |                            4 |                            0 |                            0 |                            5 | 
@@ -1382,18 +1421,18 @@ CrossTable(x = dsuaz_testing_labels,
 ##                              |                        0.167 |                        0.800 |                        0.000 |                        0.000 |                              | 
 ##                              |                        0.043 |                        0.174 |                        0.000 |                        0.000 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                   Psicologia |                            0 |                            0 |                            3 |                            4 |                            7 | 
-##                              |                        0.000 |                        0.000 |                        0.429 |                        0.571 |                        0.304 | 
-##                              |                        0.000 |                        0.000 |                        0.600 |                        0.571 |                              | 
-##                              |                        0.000 |                        0.000 |                        0.130 |                        0.174 |                              | 
+##                   Psicologia |                            0 |                            0 |                            2 |                            5 |                            7 | 
+##                              |                        0.000 |                        0.000 |                        0.286 |                        0.714 |                        0.304 | 
+##                              |                        0.000 |                        0.000 |                        0.667 |                        0.556 |                              | 
+##                              |                        0.000 |                        0.000 |                        0.087 |                        0.217 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-## Quimico Farmaceutico Biologo |                            1 |                            1 |                            1 |                            2 |                            5 | 
-##                              |                        0.200 |                        0.200 |                        0.200 |                        0.400 |                        0.217 | 
-##                              |                        0.167 |                        0.200 |                        0.200 |                        0.286 |                              | 
-##                              |                        0.043 |                        0.043 |                        0.043 |                        0.087 |                              | 
+## Quimico Farmaceutico Biologo |                            1 |                            1 |                            0 |                            3 |                            5 | 
+##                              |                        0.200 |                        0.200 |                        0.000 |                        0.600 |                        0.217 | 
+##                              |                        0.167 |                        0.200 |                        0.000 |                        0.333 |                              | 
+##                              |                        0.043 |                        0.043 |                        0.000 |                        0.130 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##                 Column Total |                            6 |                            5 |                            5 |                            7 |                           23 | 
-##                              |                        0.261 |                        0.217 |                        0.217 |                        0.304 |                              | 
+##                 Column Total |                            6 |                            5 |                            3 |                            9 |                           23 | 
+##                              |                        0.261 |                        0.217 |                        0.130 |                        0.391 |                              | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## 
 ## </code></pre>
@@ -1422,9 +1461,9 @@ CrossTable(x = dsuaz_testing_labels,
 ## 
 ##  
 ##                              | dsuaz_results_zs 
-##         dsuaz_testing_labels |      Ingenieria de Software  |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
+##         dsuaz_testing_labels |       Ingenieria de Software |              Medicina Humana |                   Psicologia | Quimico Farmaceutico Biologo |                    Row Total | 
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-##      Ingenieria de Software  |                            4 |                            0 |                            2 |                            0 |                            6 | 
+##       Ingenieria de Software |                            4 |                            0 |                            2 |                            0 |                            6 | 
 ##                              |                        0.667 |                        0.000 |                        0.333 |                        0.000 |                        0.261 | 
 ##                              |                        0.571 |                        0.000 |                        0.222 |                        0.000 |                              | 
 ##                              |                        0.174 |                        0.000 |                        0.087 |                        0.000 |                              | 
@@ -1449,6 +1488,7 @@ CrossTable(x = dsuaz_testing_labels,
 ## -----------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
 ## 
 ## </code></pre>
+</div>
 </div>
 </div>
 </div>

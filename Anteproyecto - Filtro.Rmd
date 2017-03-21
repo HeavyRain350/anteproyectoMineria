@@ -6,7 +6,8 @@ date: "16 de marzo de 2017"
 output: html_document
 ---
 
-
+### 1° Section
+### -----------------------------
 ### UAZ Students
 
 ###### This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.
@@ -479,7 +480,9 @@ zscore <- function(x) (
   )
 ```
 
-### Parte 2- KNN- Normalization
+### 2° Section
+### -----------------------------
+###- KNN- Normalization
 ```{r}
 dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
@@ -502,6 +505,46 @@ dsuaz_n <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], minmax))
 dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 ```
 
+### Which feature were selected and why
+
+## Hours per day spent playing video games
+## This was signficant feature to analyze, because 
+## it remarks the extra- time that  they have. 
+## This is "leiusre time", with this we can ensure if the career 
+## requires of extra- time in homeworks, projects, academic research 
+## but this was an initial view, when we saw the data we understand 
+## that there is a relation that is more representative in 
+## students form TIC careers (Informatics, Software, Science of Computer) play videogames, 
+## this will enourage the estimation for the career "Engineer of Software", 
+## more hours is more probably is related to that career.
+
+## Hours per day spent on the University
+## In this feature we saw a lot of variance according of the career, 
+## the range is about 6 - 8 hours, but there is a relation between the career, 
+## and its very common se that the increase of this hours is related from student of Medicine, 
+## if we put this feature in order from high values to low, we saw that the careers have a force 
+## relation, and of course this will encourage the estimation for the career "Medicine" in a theroy way.
+
+## Hours per day spent for sleep
+## This feature was really interesant in the moment of analyze also it has a dependecy on the careers, 
+## it decreases in students of Medicin and Engineer of Software, 
+## of course there are the exceptions but this is in the point of the majority view, 
+## that why this factor was selected. 
+
+## Difficulty on carrer
+## In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-, 
+## this factor for us is one of the most important becase it remarks, 
+## the complexity of differents careers, also this is so personal for each students, 
+## but if we analyze well the data it has dependecies form the carreer, 
+## if we order this factor we will se in first Medicine, 
+## (Farmaceutic biochemist & Engineer Software in the same level) and in the last Psicology, 
+## so there is a strong relation between them and a important factor for calssifying predictions.
+
+## Hours in a workday (in their careers)
+## The range in this data is from 8 to 13, this is a factor from a personal 
+## opinion or without having so few information, but in a simple view it has 
+## a lot of dependecy in fact of the career is according to the hours in workday, studentes 
+## in Engineer Software has few hours than Medicin student. 
 
 ### Compute Distances
 ```{r}

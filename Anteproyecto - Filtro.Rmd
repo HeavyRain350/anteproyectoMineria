@@ -507,49 +507,94 @@ dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 
 ### Which feature were selected and why
 
-## Hours per day spent playing video games
-## This was signficant feature to analyze, because 
-## it remarks the extra- time that  they have. 
-## This is "leiusre time", with this we can ensure if the career 
-## requires of extra- time in homeworks, projects, academic research 
-## but this was an initial view, when we saw the data we understand 
-## that there is a relation that is more representative in 
-## students form TIC careers (Informatics, Software, Science of Computer) play videogames, 
-## this will enourage the estimation for the career "Engineer of Software", 
-## more hours is more probably is related to that career.
+### Hours per day spent playing video games
+###### This was signficant feature to analyze, because 
+###### it remarks the extra- time that  they have. 
+###### This is "leiusre time", with this we can ensure if the career 
+###### requires of extra- time in homeworks, projects, academic research 
+###### but this was an initial view, when we saw the data we understand 
+###### that there is a relation that is more representative in 
+###### students form TIC careers (Informatics, Software, Science of Computer) play videogames, 
+###### this will enourage the estimation for the career "Engineer of Software", 
+###### more hours is more probably is related to that career.
 
-## Hours per day spent on the University
-## In this feature we saw a lot of variance according of the career, 
-## the range is about 6 - 8 hours, but there is a relation between the career, 
-## and its very common se that the increase of this hours is related from student of Medicine, 
-## if we put this feature in order from high values to low, we saw that the careers have a force 
-## relation, and of course this will encourage the estimation for the career "Medicine" in a theroy way.
+### Hours per day spent on the University
+###### In this feature we saw a lot of variance according of the career, 
+###### the range is about 6 - 8 hours, but there is a relation between the career, 
+###### and its very common se that the increase of this hours is related from student of Medicine, 
+###### if we put this feature in order from high values to low, we saw that the careers have a force 
+###### relation, and of course this will encourage the estimation for the career "Medicine" in a theroy way.
 
-## Hours per day spent for sleep
-## This feature was really interesant in the moment of analyze also it has a dependecy on the careers, 
-## it decreases in students of Medicin and Engineer of Software, 
-## of course there are the exceptions but this is in the point of the majority view, 
-## that why this factor was selected. 
+### Hours per day spent for sleep
+###### This feature was really interesant in the moment of analyze also it has a dependecy on the careers, 
+###### it decreases in students of Medicin and Engineer of Software, 
+###### of course there are the exceptions but this is in the point of the majority view, 
+###### that why this factor was selected. 
 
-## Difficulty on carrer
-## In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-, 
-## this factor for us is one of the most important becase it remarks, 
-## the complexity of differents careers, also this is so personal for each students, 
-## but if we analyze well the data it has dependecies form the carreer, 
-## if we order this factor we will se in first Medicine, 
-## (Farmaceutic biochemist & Engineer Software in the same level) and in the last Psicology, 
-## so there is a strong relation between them and a important factor for calssifying predictions.
+### Difficulty on carrer
+###### In terms of 1 -4 levels -in 1 is super easy, 2 normal, 3 hard, 4 very hard-, 
+###### this factor for us is one of the most important becase it remarks, 
+###### the complexity of differents careers, also this is so personal for each students, 
+###### but if we analyze well the data it has dependecies form the carreer, 
+###### if we order this factor we will se in first Medicine, 
+###### (Farmaceutic biochemist & Engineer Software in the same level) and in the last Psicology, 
+###### so there is a strong relation between them and a important factor for calssifying predictions.
 
 ## Hours in a workday (in their careers)
-## The range in this data is from 8 to 13, this is a factor from a personal 
-## opinion or without having so few information, but in a simple view it has 
-## a lot of dependecy in fact of the career is according to the hours in workday, studentes 
-## in Engineer Software has few hours than Medicin student. 
+###### The range in this data is from 8 to 13, this is a factor from a personal 
+###### opinion or without having so few information, but in a simple view it has 
+###### a lot of dependecy in fact of the career is according to the hours in workday, studentes 
+###### in Engineer Software has few hours than Medicin student. 
 
 ### Compute Distances
+###### First, we genrate the vectors using rnorm(). Each vector should have the same quantity of observations but different mean and SD. Store the vectors in a data.frame named distances where variables vector01 and vector02
+correspond to the two vectors previously generated.
 ```{r}
+a = dsuaz[,c(3)]
+b = dsuaz[,c(5)]
+
+vector01 = rnorm(a, mean=a, sd=1)
+vector02 = rnorm(b, mean=b, sd=5)
+
+distances <- data.frame(vector01,vector02)
 
 ```
+
+### Compute Distances Formulas
+###### Print the formulas for euclidean, manhattan, canberra and mahalanobis distances (with code).
+
+EUCLIDEAN
+
+$d(p,q) = \sqrt{(p_1^2-q_1^2)+(p_2^2-q_2^2)+...+(p_i^2-q_i^2)+...+(p_n^2-n_1^2)}$
+
+MANHATTAN
+
+$d(i,n) = \sum_{i=1}^{m}|x_{i}-y_{i}|$
+
+CANBERRA
+
+$d(x,y) = \sum_{i=1}^{n}\frac{|x_{i}-y_{i}|}{|x_{i}+y_{i}|}$
+
+MAHALANOBIS
+
+$d^2 = (x-\varphi)'\sum^-1(x-\varphi)$
+correspond to the two vectors previously generated.
+```{r}
+```
+
+Add 3 columns to the data.frame.
+ The first column should store the euclidean distance between vector01 and vector02.
+• The second column should store the Manhattan distance between vector01 and vector02.
+• The third column should store the Canberra distance between vector01 and vector02.
+• The fourth column should store the Mahalabobis distance between vector01 and vector02.
+
+```{r}
+distances$euclidean <- as.matrix(dist(distances, method = "euclidean", diag = FALSE, upper = FALSE, p = 2))
+distances$manhattan <- as.matrix(dist(distances, method = "manhattan", diag = FALSE, upper = FALSE, p = 2))
+distances$canberra <- as.matrix(dist(distances, method = "canberra", diag = FALSE, upper = FALSE, p = 2))
+```
+
+
 
 ### Training and Testing set
 #### Count of persons in each career

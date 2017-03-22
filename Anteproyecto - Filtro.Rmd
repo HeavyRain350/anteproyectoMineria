@@ -419,6 +419,7 @@ boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of 
 ```
 
 ### Histograms. Interpretation
+#### In this histogram, almost 72% of the students study 2 to 4 hours every day
 ```{r}
 hist(dsuaz$hrs_estudio_dia,
      main = "Histogram of the study hours each day",
@@ -427,6 +428,7 @@ hist(dsuaz$hrs_estudio_dia,
      labels = TRUE)
 ```
 
+#### In this histogram, we can see that the 75% of the students have a qualification between 7.5 and 9.0
 ```{r}
 hist(dsuaz$promedio,
      main = "Histogram of qualification of each student",
@@ -435,6 +437,7 @@ hist(dsuaz$promedio,
      labels = TRUE)
 ```
 
+#### In this histogram, we can see that almost 90% of the students sleep between 4 to 8 hours every day
 ```{r}
 hist(dsuaz$hrs_dormir_dia,
      main = "Histogram of the sleep hours for each student",
@@ -443,6 +446,7 @@ hist(dsuaz$hrs_dormir_dia,
      labels = TRUE)
 ```
 
+#### In this histogrm, we can see that over the 65% of the students have a pasion of 9 and 10 for his/her career
 ```{r}
 
 hist(dsuaz$pasion_licenciatura,
@@ -452,6 +456,7 @@ hist(dsuaz$pasion_licenciatura,
      labels = TRUE)
 ```
 
+#### In this histogram, the most students have difficulty to get a job of 5, 8 and 10
 ```{r}
 
 hist(dsuaz$oferta_laboral,
@@ -461,6 +466,7 @@ hist(dsuaz$oferta_laboral,
      labels = TRUE)
 ```
 
+#### In this histogram, the most students have a age between 18 to 22
 ```{r}
 
 hist(dsuaz$edad,
@@ -552,54 +558,22 @@ dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 ###### in Engineer Software has few hours than Medicin student. 
 
 ### Compute Distances
-###### First, we genrate the vectors using rnorm(). Each vector should have the same quantity of observations but different mean and SD. Store the vectors in a data.frame named distances where variables vector01 and vector02
-correspond to the two vectors previously generated.
-```{r}
-a = dsuaz[,c(3)]
-b = dsuaz[,c(5)]
-
-vector01 = rnorm(a, mean=a, sd=1)
-vector02 = rnorm(b, mean=b, sd=5)
-
-distances <- data.frame(vector01,vector02)
-
-```
-
-### Compute Distances Formulas
-###### Print the formulas for euclidean, manhattan, canberra and mahalanobis distances (with code).
-
-EUCLIDEAN
-
-$d(p,q) = \sqrt{(p_1^2-q_1^2)+(p_2^2-q_2^2)+...+(p_i^2-q_i^2)+...+(p_n^2-n_1^2)}$
-
-MANHATTAN
-
-$d(i,n) = \sum_{i=1}^{m}|x_{i}-y_{i}|$
-
-CANBERRA
-
-$d(x,y) = \sum_{i=1}^{n}\frac{|x_{i}-y_{i}|}{|x_{i}+y_{i}|}$
-
-MAHALANOBIS
-
-$d^2 = (x-\varphi)'\sum^-1(x-\varphi)$
-correspond to the two vectors previously generated.
-```{r}
-```
-
-Add 3 columns to the data.frame.
- The first column should store the euclidean distance between vector01 and vector02.
-. The second column should store the Manhattan distance between vector01 and vector02.
-. The third column should store the Canberra distance between vector01 and vector02.
-. The fourth column should store the Mahalabobis distance between vector01 and vector02.
 
 ```{r}
-distances$euclidean <- as.matrix(dist(distances, method = "euclidean", diag = FALSE, upper = FALSE, p = 2))
-distances$manhattan <- as.matrix(dist(distances, method = "manhattan", diag = FALSE, upper = FALSE, p = 2))
-distances$canberra <- as.matrix(dist(distances, method = "canberra", diag = FALSE, upper = FALSE, p = 2))
+dsuaz_train <- dsuaz_n[1:90,]
+dsuaz_testing <- dsuaz_n[91:113,]
+dsuaz_train_labels <- dsuaz[1:90,21]
+dsuaz_testing_labels <- dsuaz[91:113,21]
+
+
+library(knnGarden)
+library(gmodels)
+
+resultsMH <- knnVCN(dsuaz_train,dsuaz_train_labels,dsuaz_testing, K = 17, ShowObs = FALSE,method = "manhattan",p =2)
+resultsMH
+dsuaz_testing_labels
+
 ```
-
-
 
 ### Training and Testing set
 #### Count of persons in each career

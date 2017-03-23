@@ -347,42 +347,44 @@ boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$edad),main=toupper('Hours of Study acc
 ```
 
 #### Hours of Study according to the semester
-
+###### In the next block we look at the number of hours that students spend studying outside the classroom depending on the semester they attend.
+###### Most students agree to study 4 hours per day after school, nevertheless we have some isolated data from students who do not spend any time to study per day.
+###### Something important to note in this graph is that no matter what level they are in during their career, students usually spend the same amount of time in their preparation outside the classroom.
 ```{r, studyhrspersemesterlboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$semestre),main=toupper('Hours of Study according to the semester'), font.main=3, cex.main=1.2, xlab="Semester", ylab="Hours of study", font.lab=3, col="#1A80B2")
 ```
 
 #### Hours of Study according to the career
+###### This chart shows the number of hours that students spend studying outside the classroom based on the degree they are studying.
+###### We can see that Software Engineering, Psychology and QFB have the same result, which means that students in these degrees study 4 hours per day while not in class. As we observed in the graph above, they present outliers of students who study 6 hours a day or who do not dedicate time to study at all.
+###### In the case of medicine our median is at the same level as the other careers, 4, but here we have a greater range of answers, since the third quartile is in 6 hours per day and also a maximum value of 8 hours.
+###### This means that most medical students invest between 4 and 6 hours per day studying at home, but there are also medical students who study up to 8 hours a day.
 ```{r, studyhrsperlicenciaturalboxplot}
 boxplot(split(dsuaz$hrs_estudio_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours of Study according to the career'), font.main=3, cex.main=1.2, ylab="Hours of study", font.lab=3, col='#FFBD59', names = c('Software','Medicine','Psychology','QFB'))
 ```
 ### Career boxplots
 
 #### Hours at university according to the career
+###### According to the following graph we can observe that the amount of hours that the students spend in the university receiving classes is somewhat variable depending to the career that they are studying.
+###### In Software Engineering most students spend in the classroom between 4 and 7 hours a day, the median is 6 hours. But the minimum value that they answered is 0, to which we assume that they are students who are doing their thesis project and they have already accredited the total of necessary subjects to be titled.
+###### In the case of Medicine almost every student responded that they spent 7 hours a day in the university, except for some isolated cases that said to spend only 6 hours.
+###### In the psychology course, the students agreed to spend 6 hours studying in the university daily, but there are also isolated cases of those who spend 7 hours.
+###### Finally, in the case of QFB students range from 4 hours to 8 hours a day in college. Although the majority spend between 6 and 8 hours a day, the median of QFB students is 7 hours.
 ```{r, unihrsperlicenciaturalboxplot}
 boxplot(split(dsuaz$hrs_universidad_dia,dsuaz$licenciatura),las = 2,main=toupper('Hours at University according to the career'), font.main=3, cex.main=1.2, ylab="Hours at university", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-#### Use of public transport according to the career
-```{r, transporteperlicenciaturalboxplot}
-boxplot(split(dsuaz$transporte_publico,dsuaz$licenciatura),las = 2,main=toupper('Use of public transport according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#FF8A36', names = c('Software','Medicine','Psychology','QFB'))
-```
-
-#### Use of Cafeteria according to the career
-```{r, cafateriaperlicenciaturalboxplot}
-boxplot(split(dsuaz$comedor,dsuaz$licenciatura),las = 2,main=toupper('Used of Cafeteria according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#75A8ED', names = c('Software','Medicine','Psychology','QFB'))
-```
-
-#### Scholarships according to the career
-```{r, scholarchipsperlicenciaturalboxplot}
-boxplot(split(dsuaz$becario,dsuaz$licenciatura),las = 2,main=toupper('Scholarships according to the career'), font.main=3, cex.main=1.2, ylab="0 = No, 1 = Yes", font.lab=3, col='#852499', names = c('Software','Medicine','Psychology','QFB'))
-```
-
 #### Difficulty appreciated according to the career
+###### The graph below shows the level of difficulty students perceive in their careers.
+###### The values are as follows:
 ###### 1 = Easy
 ###### 2 = Regular
-###### 3 = Hard
-###### 4 = Really Hard
+###### 3 = Difficult
+###### 4 = Vey Difficult
+###### In the case of software engineering, 100 percent of students are in the range of 2 to 3, that is, between regular and difficult, the median is regular.
+###### On the other hand, almost every medical student thinks that his career is difficult, except for some students who qualified the difficulty in the other levels.
+###### In case of psychology also almost every student responded that his career is regular, although we also have isolated cases that qualify the career as easy or difficult.
+###### Finally in QFB, most students think that the course is regular or rifficult, but we also have students who think it is very difficult.
 ```{r, difficultyperlicenciaturalboxplot}
 boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Difficulty appreciated according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 4 = Max", font.lab=3, col='#FA668A', names = c('Software','Medicine','Psychology','QFB'))
 ```
@@ -402,6 +404,8 @@ boxplot(split(dsuaz$pasion_licenciatura,dsuaz$licenciatura),las = 2,main=toupper
 ```{r, semesterperlicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Semester according to the career'), font.main=3, cex.main=1.2, ylab="Semester", font.lab=3, col='#FF99A3', names = c('Software','Medicine','Psychology','QFB'))
 ```
+
+
 
 #### Grade point average  according to the career
 ```{r, gpaperlicenciaturalboxplot}

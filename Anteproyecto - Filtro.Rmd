@@ -480,6 +480,59 @@ hist(dsuaz$edad,
      labels = TRUE)
 ```
 
+#### In this scatterplot, there most of the students that has good average grade (8.5-9.4) sleeps between 6 and 8 hours. But students with more than 9.5 average grade sleeps 8 hours.
+```{r}
+
+plot( x = dsuaz$promedio, y = dsuaz$hrs_dormir_dia,
+      main = "Scatterplot of Average of Grades vs. Hours-per-day for sleeping",
+      xlab = "Average of Grades", ylab = "Hours-per-day for sleeping")
+```
+
+#### In this scatterplot, it shows that  students with that studies in extra time 4 hours, normally they go to unversity 6 -8 hours.
+```{r}
+
+plot( x = dsuaz$hrs_estudio_dia, y = dsuaz$hrs_universidad_dia,
+      main = "Scatterplot of Hours-per-day for Study vs. Hours-per-day for staying in university",
+      xlab = "Hours-per-day for Study", ylab = "Hours-per-day for staying in university")
+```
+
+#### In this scatterplos shows that students that feel that their career is too difficult has better grades than students the feel normal difficulty 
+```{r}
+
+plot( x = dsuaz$dificultad_licenciatura, y = dsuaz$pasion_licenciatura,
+      main = "Scatterplot of Difficulty On Career vs. Passion For Career",
+      xlab = "Difficulty on Career", ylab = "Passion For Career")
+```
+
+#### In this scatterplos shows that there is not a strong relation between this factor, in average many students has 3-4 hours of social activity per day.
+```{r}
+
+plot( x = dsuaz$promedio, y = dsuaz$hrs_actsocial_dia,
+      main = "Scatterplot of Average in Grades vs. Hours-Per-Day Social Activity",
+      xlab = "Average in Grades", ylab = "Hours-Per-Day Social Activity")
+```
+
+
+#### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn´t has relevance. 
+```{r}
+sprintf("Coeficiente de Correlación: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
+```
+
+#### In this correlation given, shows a high relation between the difficulty of career and the passion of career.
+```{r}
+sprintf("Coeficiente de Correlación: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+```
+
+#### In this correlation we cofirm that there is a few relation within the data, almost is 0
+```{r}
+sprintf("Coeficiente de Correlación: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+```
+
+#### In this correlation we cofirm that there is a few relation within the data, almost is 0
+```{r}
+sprintf("Coeficiente de Correlación: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
+```
+
 ### Parte 2- KNN- Formulas to Normalize
 ```{r set}
 

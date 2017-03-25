@@ -390,34 +390,53 @@ boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=tou
 ```
 
 #### Repeated subjects according to the career
+###### According to the data we collect, students of Software Engineering are those who tend to repeat at least one subject. In the other careers, almost every student responded that they did not repeat any subject yet.
+###### However, in the four careers studied we find some isolated cases of students who have repeated one or more subjects.
+###### Just as in Software Engineering is the largest number of students with repeated subjects, the career with fewer students with repeated subjects is Psychology.
 ```{r, repeatedperlicenciaturalboxplot}
 boxplot(split(dsuaz$materias_repetidas,dsuaz$licenciatura),las = 2,main=toupper('Repeated subjects according to the career'), font.main=3, cex.main=1.2, ylab="Repeated subjects", font.lab=3, col='#2E61DB', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
 #### Passion according to the career
+###### Most students regardless of the career they are studying measure their passion for the career between 8 and 10 on a scale of 0 to 10.
+###### 50 percent of software engineering students said they felt between 8 and 9 of passion for their career.
+###### In the case of medicine we obtained the lowest significant level in terms of passion for the career, which is 5, but we also have an outlier with a value of 4, same case in QFB.
+###### The students with the greatest passion for their career are those who are studying Psychology, since more than 50 percent of the students said to have between 9 and 10 of passion for their career.
+###### In QFB the majority of students are between 8 and 10 of passion for their career and the lowest value is 6.
 ```{r, passionperlicenciaturalboxplot}
 boxplot(split(dsuaz$pasion_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Passion according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#B24073', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Semester according to the career
+###### The students interviewed currently attend from the first to the tenth semester, here we can observe in the colored area in which semester with the largest number of students depending on the career they study.
 ```{r, semesterperlicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Semester according to the career'), font.main=3, cex.main=1.2, ylab="Semester", font.lab=3, col='#FF99A3', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
 
-#### Grade point average  according to the career
+#### Grade point average according to the career
+###### Students who have the most variation in their academic averages are those who belong to Software engineering, in this career we also have the lowest and highest gpa of the total of students interviewed.
+###### The highest average is 9.8 and the lowest is 7.0.
+###### Medical students have the lowest gpa range compared  the other courses. Fifty percent of medical students have an average of 8.0 to 8.5, 25 percent have an gpa of less than 8.0 and the other 25 percent have gpas of between 8.5 and 9.1.
+###### Psychology students have the best gpas, with 50 percent of students having averages of 8.3 and 9.1.
 ```{r, gpaperlicenciaturalboxplot}
 boxplot(split(dsuaz$promedio,dsuaz$licenciatura),las = 2,main=toupper('GPA according to the career'), font.main=3, cex.main=1.2, ylab="GPA", font.lab=3, col='#69BD8A', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Job offer expectation according to the career
+###### The most pessimistic students on the job offer when graduating from their career are those students who belong to Software Engineering and Medicine.
+###### Much of the Software Engineering students score their job offer expectation btween 4 and 8.
+###### The majority of medical students rated their expectation of labor supply between 2 and 7, on a scale of 0 to 10.
+###### The most optimistic students regarding the job offer they will have upon leaving are the students of QFB.
 ```{r, joblicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Job offer expectation according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#992966', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Hours of work expected according to the career
+###### For some reason medical students, besides being the most pessimistic about the job offer, are also those who believe that their working hours will be the shortest, most medical students think they will work Between 2 to 7 hours a day.
+###### The rest of the students almost agree to having to work 8 hours a day, but there is no exact pattern, there are many variants.
 ```{r, hrsworklicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of work expected according to the career'), font.main=3, cex.main=1.2, ylab="Hours of work expected", font.lab=3, col='#1F8594', names = c('Software','Medicine','Psychology','QFB'))
 ```
@@ -513,24 +532,24 @@ plot( x = dsuaz$promedio, y = dsuaz$hrs_actsocial_dia,
 ```
 
 
-#### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn´t has relevance. 
+#### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn?t has relevance. 
 ```{r}
-sprintf("Coeficiente de Correlación: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
 ```
 
 #### In this correlation given, shows a high relation between the difficulty of career and the passion of career.
 ```{r}
-sprintf("Coeficiente de Correlación: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
 ```
 
 #### In this correlation we cofirm that there is a few relation within the data, almost is 0
 ```{r}
-sprintf("Coeficiente de Correlación: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
 ```
 
 #### In this correlation we cofirm that there is a few relation within the data, almost is 0
 ```{r}
-sprintf("Coeficiente de Correlación: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
 ```
 
 ### Parte 2- KNN- Formulas to Normalize

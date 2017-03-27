@@ -16,6 +16,7 @@ output: html_document
 
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
+
 dsuaz <- read.csv("datasetUAZ.csv", stringsAsFactors = FALSE)
 ```
 
@@ -445,6 +446,7 @@ boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of 
 
 ```{r}
 summary(dsuaz$hrs_estudio_dia)
+
 library(e1071)
 skewness(dsuaz$hrs_estudio_dia)
 hist(dsuaz$hrs_estudio_dia,
@@ -680,7 +682,7 @@ dsuaz_zs <- as.data.frame(sapply(dsuaz[,c(3,5,8,13,17)], zscore))
 ###### in Engineer Software has few hours than Medicin student. 
 
 ### Compute Distances
-
+#### In this scenario, we calculated knn with manhattan distance with a value of k of 17, and the algorythm get 17 correct answers over 23, that is almost same result than the knn with euclidian distance. 
 ```{r}
 dsuaz_train <- dsuaz_n[1:90,]
 dsuaz_testing <- dsuaz_n[91:113,]

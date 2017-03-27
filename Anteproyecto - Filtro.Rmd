@@ -7,10 +7,6 @@ output: html_document
 ---
 
 
-### 1? Section
-=======
-## First Section
-
 ### -----------------------------
 ### UAZ Students
 
@@ -390,41 +386,67 @@ boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=tou
 ```
 
 #### Repeated subjects according to the career
+###### According to the data we collect, students of Software Engineering are those who tend to repeat at least one subject. In the other careers, almost every student responded that they did not repeat any subject yet.
+###### However, in the four careers studied we find some isolated cases of students who have repeated one or more subjects.
+###### Just as in Software Engineering is the largest number of students with repeated subjects, the career with fewer students with repeated subjects is Psychology.
 ```{r, repeatedperlicenciaturalboxplot}
 boxplot(split(dsuaz$materias_repetidas,dsuaz$licenciatura),las = 2,main=toupper('Repeated subjects according to the career'), font.main=3, cex.main=1.2, ylab="Repeated subjects", font.lab=3, col='#2E61DB', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
 #### Passion according to the career
+###### Most students regardless of the career they are studying measure their passion for the career between 8 and 10 on a scale of 0 to 10.
+###### 50 percent of software engineering students said they felt between 8 and 9 of passion for their career.
+###### In the case of medicine we obtained the lowest significant level in terms of passion for the career, which is 5, but we also have an outlier with a value of 4, same case in QFB.
+###### The students with the greatest passion for their career are those who are studying Psychology, since more than 50 percent of the students said to have between 9 and 10 of passion for their career.
+###### In QFB the majority of students are between 8 and 10 of passion for their career and the lowest value is 6.
 ```{r, passionperlicenciaturalboxplot}
 boxplot(split(dsuaz$pasion_licenciatura,dsuaz$licenciatura),las = 2,main=toupper('Passion according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#B24073', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Semester according to the career
+###### The students interviewed currently attend from the first to the tenth semester, here we can observe in the colored area in which semester with the largest number of students depending on the career they study.
 ```{r, semesterperlicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Semester according to the career'), font.main=3, cex.main=1.2, ylab="Semester", font.lab=3, col='#FF99A3', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 
 
-#### Grade point average  according to the career
+#### Grade point average according to the career
+###### Students who have the most variation in their academic averages are those who belong to Software engineering, in this career we also have the lowest and highest gpa of the total of students interviewed.
+###### The highest average is 9.8 and the lowest is 7.0.
+###### Medical students have the lowest gpa range compared  the other courses. Fifty percent of medical students have an average of 8.0 to 8.5, 25 percent have an gpa of less than 8.0 and the other 25 percent have gpas of between 8.5 and 9.1.
+###### Psychology students have the best gpas, with 50 percent of students having averages of 8.3 and 9.1.
 ```{r, gpaperlicenciaturalboxplot}
 boxplot(split(dsuaz$promedio,dsuaz$licenciatura),las = 2,main=toupper('GPA according to the career'), font.main=3, cex.main=1.2, ylab="GPA", font.lab=3, col='#69BD8A', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Job offer expectation according to the career
+###### The most pessimistic students on the job offer when graduating from their career are those students who belong to Software Engineering and Medicine.
+###### Much of the Software Engineering students score their job offer expectation btween 4 and 8.
+###### The majority of medical students rated their expectation of labor supply between 2 and 7, on a scale of 0 to 10.
+###### The most optimistic students regarding the job offer they will have upon leaving are the students of QFB.
 ```{r, joblicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Job offer expectation according to the career'), font.main=3, cex.main=1.2, ylab="0 = Min, 10 = Max", font.lab=3, col='#992966', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
 #### Hours of work expected according to the career
+###### For some reason medical students, besides being the most pessimistic about the job offer, are also those who believe that their working hours will be the shortest, most medical students think they will work Between 2 to 7 hours a day.
+###### The rest of the students almost agree to having to work 8 hours a day, but there is no exact pattern, there are many variants.
 ```{r, hrsworklicenciaturalboxplot}
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of work expected according to the career'), font.main=3, cex.main=1.2, ylab="Hours of work expected", font.lab=3, col='#1F8594', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-### Histograms. Interpretation
-#### In this histogram, almost 72% of the students study 2 to 4 hours every day
+
+## Histograms interpretation
+#### Histogram of hours of study per day
+###### In this histogram, almost 72% of the students study 2 to 4 hours every day
+###### Skewness equals -0.428, which means that the distribution of the data is approximately symmetric. In addition we can observe that the values of mean and mode are 4.248 and 4.
+
 ```{r}
+summary(dsuaz$hrs_estudio_dia)
+library(e1071)
+skewness(dsuaz$hrs_estudio_dia)
 hist(dsuaz$hrs_estudio_dia,
      main = "Histogram of the study hours each day",
      xlab = "Hours",
@@ -432,8 +454,14 @@ hist(dsuaz$hrs_estudio_dia,
      labels = TRUE)
 ```
 
-#### In this histogram, we can see that the 75% of the students have a qualification between 7.5 and 9.0
+#### Histogram of grade point average
+###### In this histogram, we can see that the 75% of the students have a qualification between 7.5 and 9.0.
+###### In the following case, we have a skewness value of -0.0344, which means that student academic averages are approximately symmetric.
+
 ```{r}
+summary(dsuaz$promedio)
+library(e1071)
+skewness(dsuaz$promedio)
 hist(dsuaz$promedio,
      main = "Histogram of qualification of each student",
      xlab = "Qualification",
@@ -441,8 +469,15 @@ hist(dsuaz$promedio,
      labels = TRUE)
 ```
 
-#### In this histogram, we can see that almost 90% of the students sleep between 4 to 8 hours every day
+#### Histogram of hours of sleep per day
+###### In this histogram, we can see that almost 90% of the students sleep between 4 to 8 hours every day.
+###### From the value of skewness -0.890, we can say that the distribution of the number of hours that students sleep daily is moderately skewed.
+###### Now if we draw the distribution's shape we can see that the data is moderately skewed left, because the left tail is longer and the most of the distribution is at the right.
+
 ```{r}
+summary(dsuaz$hrs_dormir_dia)
+library(e1071)
+skewness(dsuaz$hrs_dormir_dia)
 hist(dsuaz$hrs_dormir_dia,
      main = "Histogram of the sleep hours for each student",
      xlab = "Hours",
@@ -450,9 +485,15 @@ hist(dsuaz$hrs_dormir_dia,
      labels = TRUE)
 ```
 
-#### In this histogrm, we can see that over the 65% of the students have a pasion of 9 and 10 for his/her career
-```{r}
+#### Histogram on the passion that students have over their career
+###### In this histogrm, we can see that over the 65% of the students have a pasion of 9 and 10 for his/her career.
+###### The value of skewness is -1.3513, that means that the distribution of data is highly skewed.
+###### If we draw the distribution's shape, we will see that the data is highly skewed left, this can be verified if we look at the results of the summary, there we can realize that the median is greater than the mean, which indicates that in the graph through the distribution's shape we will first find the mean, then the median and finally the fashion At the highest point.
 
+```{r}
+summary(dsuaz$pasion_licenciatura)
+library(e1071)
+skewness(dsuaz$pasion_licenciatura)
 hist(dsuaz$pasion_licenciatura,
      main = "Histogram of the students pasion/love with his/her career",
      xlab = "Pasion",
@@ -460,9 +501,15 @@ hist(dsuaz$pasion_licenciatura,
      labels = TRUE)
 ```
 
-#### In this histogram, the most students have difficulty to get a job of 5, 8 and 10
-```{r}
+#### Histogram on the expectation of job offers
+###### In this histogram, the most students have difficulty to get a job of 5, 8 and 10.
+###### The value of skewness is -0.7729, which means that the distribution of our data is moderately skewed left.
+###### As in the previous data set we can see that the median value is higher than the mean.
 
+```{r}
+summary(dsuaz$oferta_laboral)
+library(e1071)
+skewness(dsuaz$oferta_laboral)
 hist(dsuaz$oferta_laboral,
      main = "Histogram of the difficulty to get a job with his/her career",
      xlab = "difficulty",
@@ -470,14 +517,85 @@ hist(dsuaz$oferta_laboral,
      labels = TRUE)
 ```
 
-#### In this histogram, the most students have a age between 18 to 22
-```{r}
 
+#### Histogram on the age of students
+###### In this histogram, the most students have a age between 18 to 22.
+###### Por el valor de skewness, 0.392 podemos decir que la distribuci??n de los datos is approximately symmetric.
+###### But if we do the distribution's shape, we can see that the data is tilted to the left, indicating that we have a skewed right or that they are in a positive direction.
+
+```{r}
+summary(dsuaz$edad)
+library(e1071)
+skewness(dsuaz$edad)
 hist(dsuaz$edad,
      main = "Histogram of the student age",
      xlab = "Age",
      ylab = "Students quantity",
      labels = TRUE)
+```
+
+### Scatterplots interpretation
+#### Scatterplot of hours of sleep per day and GPA.
+###### In this scatterplot, there most of the students that has good average grade (8.5-9.4) sleeps between 6 and 8 hours. But students with more than 9.5 average grade sleeps 8 hours.
+```{r}
+
+plot( x = dsuaz$promedio, y = dsuaz$hrs_dormir_dia,
+      main = "Scatterplot of Average of Grades vs. Hours-per-day for sleeping",
+      xlab = "Average of Grades", ylab = "Hours-per-day for sleeping")
+```
+
+#### Scatterplot of hours of study per day and hours at university.
+###### In this scatterplot, it shows that  students with that studies in extra time 4 hours, normally they go to unversity 6 -8 hours.
+```{r}
+
+plot( x = dsuaz$hrs_estudio_dia, y = dsuaz$hrs_universidad_dia,
+      main = "Scatterplot of Hours-per-day for Study vs. Hours-per-day for staying in university",
+      xlab = "Hours-per-day for Study", ylab = "Hours-per-day for staying in university")
+```
+
+#### Scatterplot on the passion that students have over their career and difficulty of the career.
+###### In this scatterplos shows that students that feel that their career is too difficult has better grades than students the feel normal difficulty 
+```{r}
+
+plot( x = dsuaz$dificultad_licenciatura, y = dsuaz$pasion_licenciatura,
+      main = "Scatterplot of Difficulty On Career vs. Passion For Career",
+      xlab = "Difficulty on Career", ylab = "Passion For Career")
+```
+
+#### Scatterplot of GPA and hours for social activity oer day.
+###### In this scatterplos shows that there is not a strong relation between this factor, in average many students has 3-4 hours of social activity per day.
+```{r}
+
+plot( x = dsuaz$promedio, y = dsuaz$hrs_actsocial_dia,
+      main = "Scatterplot of Average in Grades vs. Hours-Per-Day Social Activity",
+      xlab = "Average in Grades", ylab = "Hours-Per-Day Social Activity")
+```
+
+
+### Correlations 
+
+#### Correlation between GPA and hours of social activity.
+###### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn?t has relevance. 
+```{r}
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
+```
+
+#### Correlation between difficulty and passion over their career.
+###### In this correlation given, shows a high relation between the difficulty of career and the passion of career.
+```{r}
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+```
+
+#### Correlation between hours of study per day and passion over their career.
+###### In this correlation we cofirm that there is a few relation within the data, almost is 0
+```{r}
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+```
+
+#### Correlation between hours of study per day and GPA.
+###### In this correlation we cofirm that there is a few relation within the data, almost is 0
+```{r}
+sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
 ```
 
 ### Parte 2- KNN- Formulas to Normalize

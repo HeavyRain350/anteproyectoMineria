@@ -7,9 +7,12 @@ output: html_document
 ---
 
 
-### -----------------------------
-### UAZ Students
+# UAZ Students
 
+## 1st Section
+### -----------------------------
+
+### The dataset
 ###### This dataset contains relevant data of the students who are studying the undergraduate level of different programs at the Autonomous University of Zacatecas.
 ###### The data were obtained through surveys that were made to the student population, later we selected those that could help us in our investigation.
 ###### The data set file's name is datasetUAZ.csv, in the next block we read the dataset to continue working with it.
@@ -153,7 +156,7 @@ summary(dsuaz$semestre)
 ```
 
 ##### Difficulty perceived by students of their career
-###### Students also asked about the difficulty with which they perceived their studies in each race, values are:
+###### Students also asked about the difficulty with which they perceived their studies in each career, values are:
 ###### ---> 1: Easy
 ###### ---> 2: Regular
 ###### ---> 3: Difficult
@@ -394,7 +397,6 @@ boxplot(split(dsuaz$dificultad_licenciatura,dsuaz$licenciatura),las = 2,main=tou
 boxplot(split(dsuaz$materias_repetidas,dsuaz$licenciatura),las = 2,main=toupper('Repeated subjects according to the career'), font.main=3, cex.main=1.2, ylab="Repeated subjects", font.lab=3, col='#2E61DB', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-
 #### Passion according to the career
 ###### Most students regardless of the career they are studying measure their passion for the career between 8 and 10 on a scale of 0 to 10.
 ###### 50 percent of software engineering students said they felt between 8 and 9 of passion for their career.
@@ -438,169 +440,266 @@ boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Job offer
 boxplot(split(dsuaz$semestre,dsuaz$licenciatura),las = 2,main=toupper('Hours of work expected according to the career'), font.main=3, cex.main=1.2, ylab="Hours of work expected", font.lab=3, col='#1F8594', names = c('Software','Medicine','Psychology','QFB'))
 ```
 
-
 ## Histograms interpretation
 #### Histogram of hours of study per day
-###### In this histogram, almost 72% of the students study 2 to 4 hours every day
-###### Skewness equals -0.428, which means that the distribution of the data is approximately symmetric. In addition we can observe that the values of mean and mode are 4.248 and 4.
-
+###### Below you can see the mean, median, mode and skewness values.
+###### In this histogram we can see that almost 72% of the students study 2 to 4 hours every day.
+###### Skewness equals -0.428, which means that the distribution of the data is approximately symmetric. In addition we can observe that the values of mean, median and mode are similar.
+###### Here we present two graphs, the histogram with the students data and the histogram with the skewness curve.
+###### This data is unimodal.
 ```{r}
-summary(dsuaz$hrs_estudio_dia)
-
+mean(dsuaz$hrs_estudio_dia)
+median(dsuaz$hrs_estudio_dia)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$hrs_estudio_dia)
 library(e1071)
 skewness(dsuaz$hrs_estudio_dia)
 hist(dsuaz$hrs_estudio_dia,
-     main = "Histogram of the study hours each day",
-     xlab = "Hours",
-     ylab = "Students quantity",
-     labels = TRUE)
+      main = "study hours per day",
+      xlab = "Hours",
+      ylab = "Students",
+      labels = TRUE,
+      col ="#FFB852")
+hist(dsuaz$hrs_estudio_dia,
+     xlim=c(min(dsuaz$hrs_estudio_dia),max(dsuaz$hrs_estudio_dia)), probability=T, nclass=max(dsuaz$hrs_estudio_dia)-min(dsuaz$hrs_estudio_dia)+1, 
+   col='#99CC00',
+     main = "Symmetric Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$hrs_estudio_dia,bw=1), col='#FF0038', lwd=6)
 ```
 
 #### Histogram of grade point average
+###### Below you can see the mean, median, mode and skewness values.
 ###### In this histogram, we can see that the 75% of the students have a qualification between 7.5 and 9.0.
-###### In the following case, we have a skewness value of -0.0344, which means that student academic averages are approximately symmetric.
-
+###### In the following case, we have a skewness value of -0.0344, which means that student academic averages are approximately symmetric. In the same case as the previous one we can see that the values of mean, median and mode are almost the same.
+###### This data is multimodal
 ```{r}
-summary(dsuaz$promedio)
+mean(dsuaz$promedio)
+median(dsuaz$promedio)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$promedio)
 library(e1071)
 skewness(dsuaz$promedio)
 hist(dsuaz$promedio,
-     main = "Histogram of qualification of each student",
-     xlab = "Qualification",
-     ylab = "Students quantity",
-     labels = TRUE)
+     main = "GPAs",
+     xlab = "GPA",
+     ylab = "Students",
+     labels = TRUE,
+     col = "#BA0066")
+hist(dsuaz$promedio,
+     xlim=c(min(dsuaz$promedio),max(dsuaz$promedio)), probability=T, nclass=max(dsuaz$promedio)-min(dsuaz$promedio)+1, 
+   col='#6B9196',
+     main = "Symmetric Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$promedio,bw=1), col='#FF0038', lwd=6)
 ```
 
 #### Histogram of hours of sleep per day
+###### Below you can see the mean, median, mode and skewness values.
 ###### In this histogram, we can see that almost 90% of the students sleep between 4 to 8 hours every day.
 ###### From the value of skewness -0.890, we can say that the distribution of the number of hours that students sleep daily is moderately skewed.
-###### Now if we draw the distribution's shape we can see that the data is moderately skewed left, because the left tail is longer and the most of the distribution is at the right.
-
+###### Now if we draw the distribution curve we can see that the data is moderately skewed left, because the left tail is longer and the most of the distribution of data is at the right.
+###### This data is unimodal.
 ```{r}
-summary(dsuaz$hrs_dormir_dia)
+mean(dsuaz$hrs_dormir_dia)
+median(dsuaz$hrs_dormir_dia)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$hrs_dormir_dia)
 library(e1071)
 skewness(dsuaz$hrs_dormir_dia)
 hist(dsuaz$hrs_dormir_dia,
-     main = "Histogram of the sleep hours for each student",
-     xlab = "Hours",
+     main = "Histogram of qualification of each student",
+     xlab = "Qualification",
      ylab = "Students quantity",
-     labels = TRUE)
+     labels = TRUE,
+     col ="#1FA8DB")
+hist(dsuaz$hrs_dormir_dia,
+     xlim=c(min(dsuaz$hrs_dormir_dia),max(dsuaz$hrs_dormir_dia)), probability=T, nclass=max(dsuaz$hrs_dormir_dia)-min(dsuaz$hrs_dormir_dia)+1, 
+   col='#009999',
+     main = "Negative Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$hrs_dormir_dia,bw=1), col='#FF0038', lwd=6)
 ```
 
 #### Histogram on the passion that students have over their career
-###### In this histogrm, we can see that over the 65% of the students have a pasion of 9 and 10 for his/her career.
+###### In this histogram, we can see that over the 65% of the students have a pasion of 9 and 10 for his/her career.
 ###### The value of skewness is -1.3513, that means that the distribution of data is highly skewed.
-###### If we draw the distribution's shape, we will see that the data is highly skewed left, this can be verified if we look at the results of the summary, there we can realize that the median is greater than the mean, which indicates that in the graph through the distribution's shape we will first find the mean, then the median and finally the fashion At the highest point.
-
+###### If we draw the distribution curve, we will see that the data is highly skewed left, this can be verified if we look at the results of the summary, there we can realize that the median is greater than the mean, which indicates that in the graph through the distribution curve we will first find the mean, then the median and finally the mode.
+###### This data is also unimodal.
 ```{r}
-summary(dsuaz$pasion_licenciatura)
+mean(dsuaz$pasion_licenciatura)
+median(dsuaz$pasion_licenciatura)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$pasion_licenciatura)
 library(e1071)
 skewness(dsuaz$pasion_licenciatura)
 hist(dsuaz$pasion_licenciatura,
      main = "Histogram of the students pasion/love with his/her career",
      xlab = "Pasion",
      ylab = "Students quantity",
-     labels = TRUE)
+     labels = TRUE,
+     col="#3D9E6B")
+hist(dsuaz$pasion_licenciatura,
+     xlim=c(min(dsuaz$pasion_licenciatura),max(dsuaz$pasion_licenciatura)), probability=T, nclass=max(dsuaz$pasion_licenciatura)-min(dsuaz$pasion_licenciatura)+1, 
+   col='#FFA342',
+     main = "Negative Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$pasion_licenciatura,bw=1), col='#FF0038', lwd=6)
 ```
 
-#### Histogram on the expectation of job offers
-###### In this histogram, the most students have difficulty to get a job of 5, 8 and 10.
-###### The value of skewness is -0.7729, which means that the distribution of our data is moderately skewed left.
-###### As in the previous data set we can see that the median value is higher than the mean.
 
+#### Histogram on the expectation of job offers
+###### In this histogram, the most students have job offer expectation of 5, 8 and 10.
+###### The value of skewness is -0.7729, which means that the distribution of our data is moderately skewed left.
+###### As in the previous data set we can see that the median value is higher than the mean, but the value of mode is lower than mean and media.
+###### This data is multimodal, that is the reason why the distribution curve is like that.
 ```{r}
-summary(dsuaz$oferta_laboral)
+mean(dsuaz$oferta_laboral)
+median(dsuaz$oferta_laboral)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$oferta_laboral)
 library(e1071)
 skewness(dsuaz$oferta_laboral)
 hist(dsuaz$oferta_laboral,
      main = "Histogram of the difficulty to get a job with his/her career",
      xlab = "difficulty",
      ylab = "Students quantity",
-     labels = TRUE)
+     labels = TRUE, 
+     col ="#66A640")
+hist(dsuaz$oferta_laboral,
+     xlim=c(min(dsuaz$oferta_laboral),max(dsuaz$oferta_laboral)), probability=T, nclass=max(dsuaz$oferta_laboral)-min(dsuaz$oferta_laboral)+1, 
+   col='#FF6666',
+     main = "Negative Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$oferta_laboral,bw=1), col='#FF0038', lwd=6)
 ```
-
 
 #### Histogram on the age of students
 ###### In this histogram, the most students have a age between 18 to 22.
-###### Por el valor de skewness, 0.392 podemos decir que la distribuci??n de los datos is approximately symmetric.
-###### But if we do the distribution's shape, we can see that the data is tilted to the left, indicating that we have a skewed right or that they are in a positive direction.
-
+###### For the value of skewness, 0.392 we can say that the distribution of the data is approximately symmetric even by the values of mean, median and mode we can say that is a symmetric distribution.
+###### But if we draw the distribution curve, we can see that the data is tilted to the left, indicating that we have a skewed right.
+###### In this case like the previous one we have multimodal data, that explains why the distribution curve and values are like that.
 ```{r}
-summary(dsuaz$edad)
+mean(dsuaz$edad)
+median(dsuaz$edad)
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+getmode(dsuaz$edad)
 library(e1071)
 skewness(dsuaz$edad)
 hist(dsuaz$edad,
      main = "Histogram of the student age",
      xlab = "Age",
      ylab = "Students quantity",
-     labels = TRUE)
+     labels = TRUE,
+     col ="#2E5CC7")
+
+hist(dsuaz$edad,
+     xlim=c(min(dsuaz$edad),max(dsuaz$edad)), probability=T, nclass=max(dsuaz$edad)-min(dsuaz$edad)+1, 
+   col='#66477A',
+     main = "Positive Skewed",
+     xlab = "",
+     ylab = "",
+     axes=FALSE)
+lines(density(dsuaz$edad,bw=1), col='#FF0038', lwd=6)
 ```
 
 ### Scatterplots interpretation
 #### Scatterplot of hours of sleep per day and GPA.
 ###### In this scatterplot, there most of the students that has good average grade (8.5-9.4) sleeps between 6 and 8 hours. But students with more than 9.5 average grade sleeps 8 hours.
 ```{r}
-
-plot( x = dsuaz$promedio, y = dsuaz$hrs_dormir_dia,
-      main = "Scatterplot of Average of Grades vs. Hours-per-day for sleeping",
-      xlab = "Average of Grades", ylab = "Hours-per-day for sleeping")
+ 
+ plot( x = dsuaz$promedio, y = dsuaz$hrs_dormir_dia,
+       main = "Scatterplot of Average of Grades vs. Hours-per-day for sleeping",
+       xlab = "Average of Grades", ylab = "Hours-per-day for sleeping")
 ```
 
 #### Scatterplot of hours of study per day and hours at university.
 ###### In this scatterplot, it shows that  students with that studies in extra time 4 hours, normally they go to unversity 6 -8 hours.
 ```{r}
-
-plot( x = dsuaz$hrs_estudio_dia, y = dsuaz$hrs_universidad_dia,
-      main = "Scatterplot of Hours-per-day for Study vs. Hours-per-day for staying in university",
-      xlab = "Hours-per-day for Study", ylab = "Hours-per-day for staying in university")
+ 
+ plot( x = dsuaz$hrs_estudio_dia, y = dsuaz$hrs_universidad_dia,
+       main = "Scatterplot of Hours-per-day for Study vs. Hours-per-day for staying in university",
+       xlab = "Hours-per-day for Study", ylab = "Hours-per-day for staying in university")
 ```
-
+ 
+ 
 #### Scatterplot on the passion that students have over their career and difficulty of the career.
 ###### In this scatterplos shows that students that feel that their career is too difficult has better grades than students the feel normal difficulty 
 ```{r}
-
-plot( x = dsuaz$dificultad_licenciatura, y = dsuaz$pasion_licenciatura,
-      main = "Scatterplot of Difficulty On Career vs. Passion For Career",
-      xlab = "Difficulty on Career", ylab = "Passion For Career")
+ 
+ plot( x = dsuaz$dificultad_licenciatura, y = dsuaz$pasion_licenciatura,
+       main = "Scatterplot of Difficulty On Career vs. Passion For Career",
+       xlab = "Difficulty on Career", ylab = "Passion For Career")
 ```
 
 #### Scatterplot of GPA and hours for social activity oer day.
 ###### In this scatterplos shows that there is not a strong relation between this factor, in average many students has 3-4 hours of social activity per day.
 ```{r}
-
-plot( x = dsuaz$promedio, y = dsuaz$hrs_actsocial_dia,
-      main = "Scatterplot of Average in Grades vs. Hours-Per-Day Social Activity",
-      xlab = "Average in Grades", ylab = "Hours-Per-Day Social Activity")
+ 
+ plot( x = dsuaz$promedio, y = dsuaz$hrs_actsocial_dia,
+       main = "Scatterplot of Average in Grades vs. Hours-Per-Day Social Activity",
+       xlab = "Average in Grades", ylab = "Hours-Per-Day Social Activity")
 ```
-
 
 ### Correlations 
 
 #### Correlation between GPA and hours of social activity.
-###### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn?t has relevance. 
+###### In this correlation shows that is high becase is "> 0", perhaps in an initial view, it doesn?t has relevance.
 ```{r}
-sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
+ sprintf("Correlation coefficient: %f", cor(dsuaz$promedio, dsuaz$hrs_actsocial_dia, use="pairwise.complete.obs"))
 ```
 
 #### Correlation between difficulty and passion over their career.
 ###### In this correlation given, shows a high relation between the difficulty of career and the passion of career.
 ```{r}
-sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+ sprintf("Correlation coefficient: %f", cor(dsuaz$dificultad_licenciatura, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
 ```
 
 #### Correlation between hours of study per day and passion over their career.
 ###### In this correlation we cofirm that there is a few relation within the data, almost is 0
 ```{r}
-sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
+ sprintf("Correlation coefficient: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$pasion_licenciatura, use="pairwise.complete.obs"))
 ```
-
 #### Correlation between hours of study per day and GPA.
 ###### In this correlation we cofirm that there is a few relation within the data, almost is 0
 ```{r}
-sprintf("Coeficiente de Correlaci?n: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
+ sprintf("Correlation coefficient: %f", cor(dsuaz$hrs_estudio_dia, dsuaz$promedio, use="pairwise.complete.obs"))
 ```
 
-### Parte 2- KNN- Formulas to Normalize
+
+## 2nd Section
+### -----------------------------
+## KNN Normalization
+
+#### Formulas to Normalize
 ```{r set}
 
 # Funcion para Normalizar por min-max
@@ -615,9 +714,6 @@ zscore <- function(x) (
   )
 ```
 
-### 2? Section
-### -----------------------------
-###- KNN- Normalization
 ```{r}
 dsuaz$Ssalario_estimado <- factor(dsuaz$Ssalario_estimado)
 
